@@ -28,3 +28,34 @@ Sums start and the items of an iterable from left to right and returns the total
 Create a new tuple.,tuple(),0
 "With one argument, return the type of an object.",type(),0
 "Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),0
+"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),0
+total number of occurrences of x in s,s.count(x),0
+index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",0
+removes all items from s (same as del s[:]),s.clear(),0
+retrieves the item at i and also removes it from s,s.pop([i]),0
+delete the first item from s where s[i] is equal to x,s.remove(x),0
+Is a list mutable?,yes,0
+"Method sorting list s in place, in ascending order.","sort(s, reverse=False)",0
+Is a tuple mutable?,no,0
+"Method sorting list s in place, in descending order.","sort(s, reverse=True)",0
+Is a string mutable?,no,0
+Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),0
+remove all case distinctions in string b,b.casefold(),0
+"Return the number of non-overlapping occurrences of substring d in the range [start, end] of string c.","c.count(b, start, end)",0
+"Return an encoded (utf-8) version of string e, as a bytes object.","e.encode(encoding=""utf-8"")",0
+"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),0
+Return the lowest index in string h where substring i is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if substring is not found.,"h.find(i, start, end)",0
+"Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",0
+Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),0
+"This static method returns a translation table usable for str.translate().
+
+If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
+
+If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",0
+"Split string k at the first occurrence of m, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator.",k.partition(m),0
+"Return a copy of string n with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.","n.replace(old, new, count)",0
+Return a list of the words in string o.,o.split(),0
+"Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),0
+Return a copy of string r with the leading and trailing characters removed.,r.strip(),0
+Return a copy of string s in which each character has been mapped through the given translation table.,s.translate(table),0
+Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),0
