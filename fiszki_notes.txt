@@ -1,3 +1,0 @@
-at each level, display a random question
-count questions without a loop
-think if pop can be used
