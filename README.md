@@ -9,7 +9,7 @@ Column 2: 0 (the initial level of this question in the algorithm).
 
 The program moves questions between 5 boxes of increasing size.<br>
 Box 0 contains just 20 places for questions - that's the initial box for all questions.<br>
-Box 1 contain 30 places.<br>
+Box 1 contains 30 places.<br>
 Box 2 - 45.<br>
 Box 3 - 68.<br>
 Box 4 - 101 - this is the final box.
