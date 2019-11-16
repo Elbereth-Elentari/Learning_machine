@@ -1,1 +1,23 @@
 # Learning_machine
+
+A basic jupyter notebook for memorising any kind of vocabulary, or simple answers to questions.
+
+Start with a 3-column CSV (no header), with 20 rows. Call it "fiszki.csv" (or change the name at the top of the notebook).
+Column 0: the questions (e.g. the meaning of the word you want to memorise).
+Column 1: the answer (e.g. the word you want to memorise).
+Column 2: 0 (the initial level of this question in the algorithm).
+
+The program moves questions between 5 boxes of increasing size.
+Box 0 contains just 20 places for questions - that's the initial box for all questions.
+Box 1 contain 30 places.
+Box 2 - 45.
+Box 3 - 68.
+Box 4 - 101 - this is the final box.
+
+If you answer a question correctly, it's level is increased by 1 (it's "moved" to a higher box). If not, it stays on the same level.
+Once a higher box is full, you start answering questions from that higher box.
+Once you finish with the higher box, you go back to whichever level is full, or to level 0.
+
+At the end you will get statists of how many questions are left at each level. Make sure that you fill in level 0 each time so that you finish with 20 questions at this level. This regular refilling is educational. So don't start with a complete list of 2,000 questions at level 0 - it'll be super difficult to ever get to level 1 with them, because the program randomises the question list during every session.
+
+The session is limited to showing you 50 questions in total, regardless of their levels. Don't do more than one session at a time. You have to let your brain forget and learn again - that's super effective!
