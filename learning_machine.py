@@ -21,52 +21,37 @@ while session_count < session_limit:
     if len(fiszki.loc[fiszki[2] == int(current_level)]) == 0:
         print("NO MORE QUESTIONS AT LEVEL", current_level)
         # Find another level, save it as integer
-        level = current_level - 1
-        current_level = 0
-        while level > 0:
-            if len(fiszki.loc[fiszki[2] == level]) >= max_definitions[level]:
-                current_level = level
+        x = 0
+        while x in range(0, 5):
+            if len(fiszki.loc[fiszki[2] == x]) > 0:
+                current_level = x
                 break
             else:
-                level -= 1
-        if current_level == 0:
-            if len(fiszki.loc[fiszki[2] == 0]) == 0:
-                x = 1
-                while x in range(1, 5):
-                    if len(fiszki.loc[fiszki[2] == x]) > 0:
-                        next_level = x
-                        break
-                    else:
-                        x += 1
-                if current_level == 0:
-                    current_level = 5
-        if current_level < 5:
-            print("NEW LEVEL:", current_level)
-        else:
+                x += 1
+        if x == 5:
             print("NO MORE QUESTIONS.")
             break
+        else:
+            print("NEW LEVEL:", current_level)
 
     else:
-        # Check if the level directly above hasn't maxed up.
-        # If it has, we have to go to that level before continuing.
-        # The new level is saved as an integer.
+        # Check if the level directly above hasn't maxed up. If it has, we have to go to that level before continuing. The new level is saved as an integer.
         if current_level < 4:
             next_level = current_level + 1
             if len(fiszki.loc[fiszki[2] == next_level]) >= max_definitions[int(next_level)]:
                 current_level += 1
-                print("NEW LEVEL:", current_level)
-            row = fiszki.loc[fiszki[2] == current_level].sample(n=1)
-            # Display as many questions as possible: either before session end,
-            # or before end of questions at the level.
-            print("Question:", row[0].values[0])
-            answer = input("Answer:")
-            if answer == row[1].values[0]:
-                fiszki.loc[fiszki[0] == row[0].values[0], 2] += 1
-                print("Correct.")
-            else:
-                print("Wrong.")
-                print(row[1].values[0])
-            session_count += 1
+                print("NEXT LEVEL MAXED OUT.\nNEW LEVEL:", current_level)
+        row = fiszki.loc[fiszki[2] == current_level].sample(n=1)
+        # Display as many questions as possible: either before session end, or before end of questions at the level.
+        print("Question:", row[0].values[0])
+        answer = input("Answer:")
+        if answer == row[1].values[0]:
+            fiszki.loc[fiszki[0] == row[0].values[0], 2] += 1
+            print("Correct.")
+        else:
+            print("Wrong.")
+            print(row[1].values[0])
+        session_count += 1
 
 print("END OF SESSION.")
 

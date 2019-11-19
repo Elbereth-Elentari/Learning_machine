@@ -1,40 +1,40 @@
 "Matches the empty string, but only at the beginning or end of a word.",\b,4
 Test whether every element in other is in the set.,set >= other,4
 Is a string mutable?,no,4
-Used to indicate a set of characters for matching.,[],2
-"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,0
+Used to indicate a set of characters for matching.,[],3
+"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,2
 "Test whether the set is a proper superset of other, that is, set >= other and set != other.",set > other,4
-Return a k length list of unique elements chosen from the population sequence or set.,"random.sample(population, k)",0
+Return a k length list of unique elements chosen from the population sequence or set.,"random.sample(population, k)",3
 Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),2
 Return the lowest index in string h where substring i is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if substring is not found.,"h.find(i, start, end)",4
-Shuffle the sequence x in place.,random.shuffle(x),1
+Shuffle the sequence x in place.,random.shuffle(x),3
 Causes the resulting RE to match 1 or more repetitions of the preceding RE.,+,2
-"Scan through string looking for the first location where the regular expression pattern produces a match, and return a corresponding match object.","re.search(pattern, string)",0
-"An idealized time, independent of any particular day, assuming that every day has exactly 24*60*60 seconds (there is no notion of “leap seconds” here). Attributes: hour, minute, second, microsecond, and tzinfo.",datetime.time,1
+"Scan through string looking for the first location where the regular expression pattern produces a match, and return a corresponding match object.","re.search(pattern, string)",1
+"An idealized time, independent of any particular day, assuming that every day has exactly 24*60*60 seconds (there is no notion of “leap seconds” here). Attributes: hour, minute, second, microsecond, and tzinfo.",datetime.time,2
 Return the absolute value of a number,abs(),4
 "This static method returns a translation table usable for str.translate().
 
 If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
 
 If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",4
-"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",0
+"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",1
 The string '0123456789'.,string.digits,4
-"A combination of a date and a time. Attributes: year, month, day, hour, minute, second, microsecond, and tzinfo.",datetime.datetime,0
+"A combination of a date and a time. Attributes: year, month, day, hour, minute, second, microsecond, and tzinfo.",datetime.datetime,3
 Remove all elements from the set.,clear(),2
-Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,2
+Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,3
 remove all case distinctions in string b,b.casefold(),4
 drops you into the debugger at the call site,breakpoint(),4
-Clear the regular expression cache.,re.purge(),0
-printf-style for single character,%c,2
+Clear the regular expression cache.,re.purge(),2
+printf-style for single character,%c,3
 matches any character except '5',[^5],4
 index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",4
 Matches the end of the string or just before the newline at the end of the string,$,4
 "Changes ., *, and ? into non-greedy matching.",?,2
-A class that implements the tzinfo abstract base class as a fixed offset from the UTC.,datetime.timezone,0
-Return a new set with elements from the set and all others.,union(*others),2
+A class that implements the tzinfo abstract base class as a fixed offset from the UTC.,datetime.timezone,3
+Return a new set with elements from the set and all others.,union(*others),3
 Is a list mutable?,yes,4
-String of ASCII characters which are considered punctuation characters in the C locale.,string.punctuation,2
-Remove element elem from the set. Raises KeyError if elem is not contained in the set.,remove(elem),2
+String of ASCII characters which are considered punctuation characters in the C locale.,string.punctuation,3
+Remove element elem from the set. Raises KeyError if elem is not contained in the set.,remove(elem),3
 "Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",2
 Return a list of all the keys used in the dictionary d.,list(d),2
 delete the first item from s where s[i] is equal to x,s.remove(x),4
@@ -42,13 +42,13 @@ Matches any character which is not a whitespace character.,\S,1
 Return the smallest item in an iterable or the smallest of two or more arguments.,min(),4
 "Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),4
 Return a str version of object.,str(),4
-"If zero or more characters at the beginning of string match the regular expression Pattern, return a corresponding match object.",Pattern.match(string),0
+"If zero or more characters at the beginning of string match the regular expression Pattern, return a corresponding match object.",Pattern.match(string),1
 "open for exclusive creation, failing if the file already exists",x,4
-The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,2
-Add element elem to the set.,add(elem),2
+The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,3
+Add element elem to the set.,add(elem),3
 Return a new set with elements in either the set or other but not both,set ^ other,2
-"Compile a regular expression pattern into a regular expression object, which can be used for matching using its match(), search() and other methods, described below.",re.compile(),1
-Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},2
+"Compile a regular expression pattern into a regular expression object, which can be used for matching using its match(), search() and other methods, described below.",re.compile(),3
+Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},3
 Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),4
 "Return an iterator that applies function to every item of iterable, yielding the results.",map(),4
 Invoke the built-in help system.,help(),4
@@ -57,54 +57,54 @@ printf-style for integer,%d,4
 Return the length (the number of items) of an object.,len(),4
 Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),4
 "Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),4
-Return a new set with elements common to the set and all others.,intersection(*others),1
-Return the current local date.,date.today(),0
+Return a new set with elements common to the set and all others.,intersection(*others),2
+Return the current local date.,date.today(),1
 removes all items from s (same as del s[:]),s.clear(),4
 "Return a copy of string n with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.","n.replace(old, new, count)",4
-Remove element elem from the set if it is present.,discard(elem),1
+Remove element elem from the set if it is present.,discard(elem),3
 Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl.,"re.sub(pattern, repl, string)",1
 The concatenation of the ascii_lowercase and ascii_uppercase constants.,string.ascii_letters,2
 "Split string k at the first occurrence of m, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator.",k.partition(m),2
 retrieves the item at i and also removes it from s,s.pop([i]),4
 Return x to the power y,"pow(x, y)",4
 Create a new list.,list(),4
-"String of ASCII characters which are considered printable. This is a combination of digits, ascii_letters, punctuation, and whitespace.",string.printable,2
+"String of ASCII characters which are considered printable. This is a combination of digits, ascii_letters, punctuation, and whitespace.",string.printable,3
 returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),4
-"Scan through string looking for the first location where this regular expression produces a match with Pattern, and return a corresponding match object.",Pattern.search(string),0
+"Scan through string looking for the first location where this regular expression produces a match with Pattern, and return a corresponding match object.",Pattern.search(string),1
 "Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",4
 "open for writing, appending to the end of the file if it exists",a,4
 "Either escapes special characters (permitting you to match characters like '*', '?', and so forth), or signals a special sequence; special sequences are discussed below.",\,4
 Return the string representing a character whose Unicode code point is the integer i.,chr(i),2
 "If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.",input(),4
 Return True if all elements of the iterable are true (or if the iterable is empty).,all(),4
-open a disk file for updating (reading and writing),+,2
-Split string by the occurrences of pattern.,"re.split(pattern, string)",0
+open a disk file for updating (reading and writing),+,3
+Split string by the occurrences of pattern.,"re.split(pattern, string)",1
 "Method sorting list s in place, in ascending order.","sort(s, reverse=False)",2
 "Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),4
 printf-style for float,%f,4
 return an integer representing the Unicode code point of a character,ord(),2
 "Return a new sorted list from the items in iterable. reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.",sorted(),4
-"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,2
+"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,3
 "Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,4
 "Return the number of non-overlapping occurrences of substring d in the range [start, end] of string c.","c.count(d, start, end)",4
-"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,0
+"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,1
 "A string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.",string.whitespace,4
 Return a copy of string r with the leading and trailing characters removed.,r.strip(),4
 "Return True if d has a key key, else False.",key in d,4
 Create a new tuple.,tuple(),4
 "Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),4
 Create a new dictionary.,dict(),4
-Matches Unicode whitespace characters (which includes [ \t\n\r\f\v],\s,1
+Matches Unicode whitespace characters (which includes [ \t\n\r\f\v],\s,3
 Matches the start of the string,^,4
 Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),1
 Is a set mutable?,yes,4
-Return a new set with elements in the set that are not in the others.,difference(*others),2
+Return a new set with elements in the set that are not in the others.,difference(*others),3
 "Return a new set object, optionally with elements taken from iterable.",set(),4
 printf-style for string,%s,2
 "Return an encoded (utf-8) version of string e, as a bytes object.","e.encode(encoding=""utf-8"")",4
 Return a floating point number constructed from a number or string x.,float(),4
 total number of occurrences of x in s,s.count(x),4
-"If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.","re.match(pattern, string)",0
+"If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.","re.match(pattern, string)",1
 Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),4
 "Method sorting list s in place, in descending order.","sort(s, reverse=True)",4
 Is a tuple mutable?,no,4
@@ -116,20 +116,41 @@ The uppercase letters 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.,string.ascii_uppercase,2
 Return a copy of string s in which each character has been mapped through the given translation table.,s.translate(),2
 "With one argument, return the type of an object.",type(),4
 Sums start and the items of an iterable from left to right and returns the total.,sum(),4
-this matches any character except a newline,.,2
+this matches any character except a newline,.,3
 Return the largest item in an iterable or the largest of two or more arguments.,max(),4
 "Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),4
 "Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),4
 Is a set ordered?,no,4
-Return the number of items in the dictionary d.,len(d),2
-Return a random element from the non-empty sequence seq.,random.choice(seq),0
+Return the number of items in the dictionary d.,len(d),3
+Return a random element from the non-empty sequence seq.,random.choice(seq),3
 Return a list of the words in string o.,o.split(),4
 Matches any character which is not a decimal digit.,\D,2
-"Return the next random floating point number in the range [0.0, 1.0).",random.random(),0
-Return the sample arithmetic mean of data which can be a sequence or iterator.,statistics.mean(data),0
+"Return the next random floating point number in the range [0.0, 1.0).",random.random(),1
+Return the sample arithmetic mean of data which can be a sequence or iterator.,statistics.mean(data),2
 "Return the harmonic mean of data, a sequence or iterator of real-valued numbers.
 
-The harmonic mean, sometimes called the subcontrary mean, is the reciprocal of the arithmetic mean() of the reciprocals of the data. For example, the harmonic mean of three values a, b and c will be equivalent to 3/(1/a + 1/b + 1/c).",statistics.harmonic_mean(data),0
-"Return the median (middle value) of numeric data, using the common “mean of middle two” method.",statistics.median(data),0
-"Return the most common data point from discrete or nominal data. The mode (when it exists) is the most typical value, and is a robust measure of central location.",statistics.mode(data),0
-Return the population standard deviation (the square root of the population variance). See pvariance() for arguments and other details.,statistics.pstdev(data),0
+The harmonic mean, sometimes called the subcontrary mean, is the reciprocal of the arithmetic mean() of the reciprocals of the data. For example, the harmonic mean of three values a, b and c will be equivalent to 3/(1/a + 1/b + 1/c).",statistics.harmonic_mean(data),1
+"Return the median (middle value) of numeric data, using the common “mean of middle two” method.",statistics.median(data),1
+"Return the most common data point from discrete or nominal data. The mode (when it exists) is the most typical value, and is a robust measure of central location.",statistics.mode(data),1
+Return the population standard deviation (the square root of the population variance). See pvariance() for arguments and other details.,statistics.pstdev(data),1
+"Return the population variance of data, a non-empty iterable of real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.pvariance(data),0
+Return the sample standard deviation (the square root of the sample variance).,statistics.stdev(data),0
+"Return the sample variance of data, an iterable of at least two real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.variance(data),0
+Return a reader object which will iterate over lines in the given csvfile.,csv.reader(csvfile),0
+"Return a writer object responsible for converting the user’s data into delimited strings on the given file-like object. csvfile can be any object with a write() method. If csvfile is a file object, it should be opened with newline='' .",csv.writer(csvfile),0
+"Write the row parameter to the writer’s file object, formatted according to the current dialect.",csvwriter.writerow(row),0
+"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),0
+"Return a list containing the names of the entries in the directory given by path. The list is in arbitrary order, and does not include the special entries '.' and '..' even if they are present in the directory.",os.listdir(path),0
+Create a directory named path,os.mkdir(path),0
+"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),0
+Rename the file or directory src to dst.,"os.rename(src, dst)",0
+"Rename the file or directory src to dst. If dst is a directory, OSError will be raised. If dst exists and is a file, it will be replaced silently if the user has permission.","os.replace(src, dst)",0
+Remove (delete) the directory path.,os.rmdir(path),1
+Serialize obj as a JSON formatted stream to fp (a .write()-supporting file-like object),"json.dump(obj, fp)",0
+Serialize obj to a JSON formatted str,json.dumps(obj),0
+Deserialize fp (a .read()-supporting text file or binary file containing a JSON document) to a Python object,json.load(fp),0
+"Deserialize s (a str, bytes or bytearray instance containing a JSON document) to a Python object",json.loads(s),0
+"Open the URL url, which can be either a string or a Request object.",urllib.request.urlopen(url),0
+The Tk class is instantiated without arguments. This creates a toplevel widget of Tk which usually is the main window of an application. Each instance has its own associated Tcl interpreter.,class tkinter.Tk(),0
+Text widget with a vertical scroll bar built in.,tkinter.scrolledtext,0
+Dialog to let the user choose a color.,tkinter.colorchooser,0
