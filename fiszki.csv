@@ -1,156 +1,118 @@
-"Matches the empty string, but only at the beginning or end of a word.",\b,4
-Test whether every element in other is in the set.,set >= other,4
-Is a string mutable?,no,4
-Used to indicate a set of characters for matching.,[],3
-"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,2
-"Test whether the set is a proper superset of other, that is, set >= other and set != other.",set > other,4
 Return a k length list of unique elements chosen from the population sequence or set.,"random.sample(population, k)",3
-Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),2
-Return the lowest index in string h where substring i is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if substring is not found.,"h.find(i, start, end)",4
 Shuffle the sequence x in place.,random.shuffle(x),3
-Causes the resulting RE to match 1 or more repetitions of the preceding RE.,+,2
-"Scan through string looking for the first location where the regular expression pattern produces a match, and return a corresponding match object.","re.search(pattern, string)",1
-"An idealized time, independent of any particular day, assuming that every day has exactly 24*60*60 seconds (there is no notion of “leap seconds” here). Attributes: hour, minute, second, microsecond, and tzinfo.",datetime.time,2
-Return the absolute value of a number,abs(),4
-"This static method returns a translation table usable for str.translate().
-
-If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
-
-If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",4
-"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",1
-The string '0123456789'.,string.digits,4
+Causes the resulting RE to match 1 or more repetitions of the preceding RE.,+,3
+"Scan through string looking for the first location where the regular expression pattern produces a match, and return a corresponding match object.","re.search(pattern, string)",3
+"An idealized time, independent of any particular day, assuming that every day has exactly 24*60*60 seconds (there is no notion of “leap seconds” here). Attributes: hour, minute, second, microsecond, and tzinfo.",datetime.time,3
+"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",2
 "A combination of a date and a time. Attributes: year, month, day, hour, minute, second, microsecond, and tzinfo.",datetime.datetime,3
-Remove all elements from the set.,clear(),2
-Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,3
-remove all case distinctions in string b,b.casefold(),4
-drops you into the debugger at the call site,breakpoint(),4
-Clear the regular expression cache.,re.purge(),2
+Clear the regular expression cache.,re.purge(),3
 printf-style for single character,%c,3
-matches any character except '5',[^5],4
-index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",4
-Matches the end of the string or just before the newline at the end of the string,$,4
-"Changes ., *, and ? into non-greedy matching.",?,2
-A class that implements the tzinfo abstract base class as a fixed offset from the UTC.,datetime.timezone,3
 Return a new set with elements from the set and all others.,union(*others),3
-Is a list mutable?,yes,4
-String of ASCII characters which are considered punctuation characters in the C locale.,string.punctuation,3
-Remove element elem from the set. Raises KeyError if elem is not contained in the set.,remove(elem),3
-"Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",2
-Return a list of all the keys used in the dictionary d.,list(d),2
-delete the first item from s where s[i] is equal to x,s.remove(x),4
-Matches any character which is not a whitespace character.,\S,1
-Return the smallest item in an iterable or the smallest of two or more arguments.,min(),4
-"Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),4
-Return a str version of object.,str(),4
-"If zero or more characters at the beginning of string match the regular expression Pattern, return a corresponding match object.",Pattern.match(string),1
-"open for exclusive creation, failing if the file already exists",x,4
-The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,3
+Return a list of all the keys used in the dictionary d.,list(d),3
+Matches any character which is not a whitespace character.,\S,2
+"If zero or more characters at the beginning of string match the regular expression Pattern, return a corresponding match object.",Pattern.match(string),2
 Add element elem to the set.,add(elem),3
-Return a new set with elements in either the set or other but not both,set ^ other,2
 "Compile a regular expression pattern into a regular expression object, which can be used for matching using its match(), search() and other methods, described below.",re.compile(),3
-Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},3
-Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),4
-"Return an iterator that applies function to every item of iterable, yielding the results.",map(),4
-Invoke the built-in help system.,help(),4
-Matches any Unicode decimal digit,\d,2
-printf-style for integer,%d,4
-Return the length (the number of items) of an object.,len(),4
-Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),4
-"Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),4
-Return a new set with elements common to the set and all others.,intersection(*others),2
-Return the current local date.,date.today(),1
-removes all items from s (same as del s[:]),s.clear(),4
-"Return a copy of string n with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.","n.replace(old, new, count)",4
 Remove element elem from the set if it is present.,discard(elem),3
-Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl.,"re.sub(pattern, repl, string)",1
-The concatenation of the ascii_lowercase and ascii_uppercase constants.,string.ascii_letters,2
-"Split string k at the first occurrence of m, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator.",k.partition(m),2
-retrieves the item at i and also removes it from s,s.pop([i]),4
-Return x to the power y,"pow(x, y)",4
-Create a new list.,list(),4
+The concatenation of the ascii_lowercase and ascii_uppercase constants.,string.ascii_letters,3
+"Split string k at the first occurrence of m, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator.",k.partition(m),3
 "String of ASCII characters which are considered printable. This is a combination of digits, ascii_letters, punctuation, and whitespace.",string.printable,3
-returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),4
-"Scan through string looking for the first location where this regular expression produces a match with Pattern, and return a corresponding match object.",Pattern.search(string),1
-"Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",4
-"open for writing, appending to the end of the file if it exists",a,4
-"Either escapes special characters (permitting you to match characters like '*', '?', and so forth), or signals a special sequence; special sequences are discussed below.",\,4
-Return the string representing a character whose Unicode code point is the integer i.,chr(i),2
-"If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.",input(),4
-Return True if all elements of the iterable are true (or if the iterable is empty).,all(),4
+"Scan through string looking for the first location where this regular expression produces a match with Pattern, and return a corresponding match object.",Pattern.search(string),2
+Return the string representing a character whose Unicode code point is the integer i.,chr(i),3
 open a disk file for updating (reading and writing),+,3
-Split string by the occurrences of pattern.,"re.split(pattern, string)",1
-"Method sorting list s in place, in ascending order.","sort(s, reverse=False)",2
-"Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),4
-printf-style for float,%f,4
-return an integer representing the Unicode code point of a character,ord(),2
-"Return a new sorted list from the items in iterable. reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.",sorted(),4
-"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,3
-"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,4
-"Return the number of non-overlapping occurrences of substring d in the range [start, end] of string c.","c.count(d, start, end)",4
-"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,1
-"A string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.",string.whitespace,4
-Return a copy of string r with the leading and trailing characters removed.,r.strip(),4
-"Return True if d has a key key, else False.",key in d,4
-Create a new tuple.,tuple(),4
-"Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),4
-Create a new dictionary.,dict(),4
+Split string by the occurrences of pattern.,"re.split(pattern, string)",2
+"Method sorting list s in place, in ascending order.","sort(s, reverse=False)",3
+return an integer representing the Unicode code point of a character,ord(),3
+"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,2
 Matches Unicode whitespace characters (which includes [ \t\n\r\f\v],\s,3
-Matches the start of the string,^,4
-Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),1
-Is a set mutable?,yes,4
-Return a new set with elements in the set that are not in the others.,difference(*others),3
-"Return a new set object, optionally with elements taken from iterable.",set(),4
-printf-style for string,%s,2
-"Return an encoded (utf-8) version of string e, as a bytes object.","e.encode(encoding=""utf-8"")",4
-Return a floating point number constructed from a number or string x.,float(),4
-total number of occurrences of x in s,s.count(x),4
-"If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.","re.match(pattern, string)",1
-Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),4
-"Method sorting list s in place, in descending order.","sort(s, reverse=True)",4
-Is a tuple mutable?,no,4
-"Test whether the set is a proper subset of other, that is, set <= other and set != other.",set < other,4
-Test whether every element in the set is in other.,set <= other,4
-Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),4
-Retrieve the subsequent item from the iterator.,next(),4
-The uppercase letters 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.,string.ascii_uppercase,2
-Return a copy of string s in which each character has been mapped through the given translation table.,s.translate(),2
-"With one argument, return the type of an object.",type(),4
-Sums start and the items of an iterable from left to right and returns the total.,sum(),4
-this matches any character except a newline,.,3
-Return the largest item in an iterable or the largest of two or more arguments.,max(),4
-"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),4
-"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),4
-Is a set ordered?,no,4
+printf-style for string,%s,3
+"If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.","re.match(pattern, string)",3
+The uppercase letters 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.,string.ascii_uppercase,3
+Return a copy of string s in which each character has been mapped through the given translation table.,s.translate(),3
 Return the number of items in the dictionary d.,len(d),3
-Return a random element from the non-empty sequence seq.,random.choice(seq),3
-Return a list of the words in string o.,o.split(),4
-Matches any character which is not a decimal digit.,\D,2
-"Return the next random floating point number in the range [0.0, 1.0).",random.random(),1
-Return the sample arithmetic mean of data which can be a sequence or iterator.,statistics.mean(data),2
+"Return the next random floating point number in the range [0.0, 1.0).",random.random(),3
 "Return the harmonic mean of data, a sequence or iterator of real-valued numbers.
 
-The harmonic mean, sometimes called the subcontrary mean, is the reciprocal of the arithmetic mean() of the reciprocals of the data. For example, the harmonic mean of three values a, b and c will be equivalent to 3/(1/a + 1/b + 1/c).",statistics.harmonic_mean(data),1
-"Return the median (middle value) of numeric data, using the common “mean of middle two” method.",statistics.median(data),1
-"Return the most common data point from discrete or nominal data. The mode (when it exists) is the most typical value, and is a robust measure of central location.",statistics.mode(data),1
-Return the population standard deviation (the square root of the population variance). See pvariance() for arguments and other details.,statistics.pstdev(data),1
-"Return the population variance of data, a non-empty iterable of real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.pvariance(data),0
-Return the sample standard deviation (the square root of the sample variance).,statistics.stdev(data),0
-"Return the sample variance of data, an iterable of at least two real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.variance(data),0
-Return a reader object which will iterate over lines in the given csvfile.,csv.reader(csvfile),0
-"Return a writer object responsible for converting the user’s data into delimited strings on the given file-like object. csvfile can be any object with a write() method. If csvfile is a file object, it should be opened with newline='' .",csv.writer(csvfile),0
-"Write the row parameter to the writer’s file object, formatted according to the current dialect.",csvwriter.writerow(row),0
-"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),0
-"Return a list containing the names of the entries in the directory given by path. The list is in arbitrary order, and does not include the special entries '.' and '..' even if they are present in the directory.",os.listdir(path),0
-Create a directory named path,os.mkdir(path),0
-"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),0
-Rename the file or directory src to dst.,"os.rename(src, dst)",0
-"Rename the file or directory src to dst. If dst is a directory, OSError will be raised. If dst exists and is a file, it will be replaced silently if the user has permission.","os.replace(src, dst)",0
-Remove (delete) the directory path.,os.rmdir(path),1
-Serialize obj as a JSON formatted stream to fp (a .write()-supporting file-like object),"json.dump(obj, fp)",0
-Serialize obj to a JSON formatted str,json.dumps(obj),0
-Deserialize fp (a .read()-supporting text file or binary file containing a JSON document) to a Python object,json.load(fp),0
-"Deserialize s (a str, bytes or bytearray instance containing a JSON document) to a Python object",json.loads(s),0
-"Open the URL url, which can be either a string or a Request object.",urllib.request.urlopen(url),0
-The Tk class is instantiated without arguments. This creates a toplevel widget of Tk which usually is the main window of an application. Each instance has its own associated Tcl interpreter.,class tkinter.Tk(),0
-Text widget with a vertical scroll bar built in.,tkinter.scrolledtext,0
-Dialog to let the user choose a color.,tkinter.colorchooser,0
+The harmonic mean, sometimes called the subcontrary mean, is the reciprocal of the arithmetic mean() of the reciprocals of the data. For example, the harmonic mean of three values a, b and c will be equivalent to 3/(1/a + 1/b + 1/c).",statistics.harmonic_mean(data),3
+"Return the median (middle value) of numeric data, using the common “mean of middle two” method.",statistics.median(data),2
+"Return the most common data point from discrete or nominal data. The mode (when it exists) is the most typical value, and is a robust measure of central location.",statistics.mode(data),3
+"Return the population variance of data, a non-empty iterable of real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.pvariance(data),2
+"Return the sample variance of data, an iterable of at least two real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.variance(data),3
+Return a reader object which will iterate over lines in the given csvfile.,csv.reader(csvfile),3
+"Return a writer object responsible for converting the user’s data into delimited strings on the given file-like object. csvfile can be any object with a write() method. If csvfile is a file object, it should be opened with newline='' .",csv.writer(csvfile),2
+"Return a list containing the names of the entries in the directory given by path. The list is in arbitrary order, and does not include the special entries '.' and '..' even if they are present in the directory.",os.listdir(path),3
+Create a directory named path,os.mkdir(path),2
+"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),1
+"Rename the file or directory src to dst. If dst is a directory, OSError will be raised. If dst exists and is a file, it will be replaced silently if the user has permission.","os.replace(src, dst)",1
+Remove (delete) the directory path.,os.rmdir(path),2
+Serialize obj as a JSON formatted stream to fp (a .write()-supporting file-like object),"json.dump(obj, fp)",2
+Serialize obj to a JSON formatted str,json.dumps(obj),2
+Deserialize fp (a .read()-supporting text file or binary file containing a JSON document) to a Python object,json.load(fp),1
+"Deserialize s (a str, bytes or bytearray instance containing a JSON document) to a Python object",json.loads(s),2
+The Tk class is instantiated without arguments. This creates a toplevel widget of Tk which usually is the main window of an application. Each instance has its own associated Tcl interpreter.,tkinter.Tk(),3
+Text widget with a vertical scroll bar built in.,tkinter.scrolledtext,2
+Dialog to let the user choose a color.,tkinter.colorchooser,2
+Common dialogs to allow the user to specify a file to open or save.,tkinter.filedialog,2
+Access to standard Tk dialog boxes.,tkinter.messagebox,1
+Drag-and-drop support for tkinter. This is experimental and should become deprecated when it is replaced with the Tk DND.,tkinter.dnd,1
+Turtle graphics in a Tk window.,turtle,1
+"Used to communicate with horizontal scrollbars.
+
+When the view in the widget’s window change, the widget will generate a Tcl command based on the scrollcommand.
+
+Usually this option consists of the method Scrollbar.set() of some scrollbar. This will cause the scrollbar to be updated whenever the view in the window changes.",xscrollcommand,1
+Used to communicate with vertical scrollbars.,yscrollcommand,1
+Specifies a name whose value will be used in place of the text option resource.,textvariable,2
+Specifies an image to display.,image,3
+"Specifies how to display the image relative to the text, in the case both text and images options are present. Valid values are:
+
+text: display text only
+
+image: display image only
+
+top, bottom, left, right: display image above, below, left of, or right of the text, respectively.
+
+none: the default. display the image if present, otherwise the text.",compound,2
+Widget has keyboard focus,focus,1
+Widget is being pressed,pressed,2
+"“On”, “true”, or “current” for things like Checkbuttons and radiobuttons",selected,3
+"Windows and Mac have a notion of an “active” or foreground window. The background state is set for widgets in a background window, and cleared for those in the foreground window",background,2
+Widget should not allow user modification,readonly,1
+A widget-specific alternate display format,alternate,2
+The widget’s value is invalid,invalid,1
+"Returns the name of the element at position x y, or the empty string if the point does not lie within any element.
+
+x and y are pixel coordinates relative to the widget.","identify(x, y)",1
+"Test the widget’s state. If a callback is not specified, returns True if the widget state matches statespec and False otherwise.",instate(statespec),0
+"Modify or inquire widget state. If statespec is specified, sets the widget state according to it and return a new statespec indicating which flags were changed. If statespec is not specified, returns the currently-enabled state flags.
+
+statespec will usually be a list or a tuple.",state(statespec),0
+"represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.",test fixture,0
+"the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.",test case,0
+"a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.",test suite,0
+"a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.",test runner,0
+"Instances of the TestCase class represent the logical test units in the unittest universe. This class is intended to be used as a base class, with specific tests being implemented by concrete subclasses. This class implements the interface needed by the test runner to allow it to drive the tests, and methods that the test code can use to check for and report various kinds of failure.
+
+Each instance of TestCase will run a single base method: the method named methodName. In most uses of TestCase, you will neither change the methodName nor reimplement the default runTest() method.
+
+Changed in version 3.2: TestCase can be instantiated successfully without providing a methodName. This makes it easier to experiment with TestCase from the interactive interpreter.
+
+TestCase instances provide three groups of methods: one group used to run the test, another used by the test implementation to check conditions and report failures, and some inquiry methods allowing information about the test itself to be gathered.",unittest.TestCase(),0
+"Method called to prepare the test fixture. This is called immediately before calling the test method; other than AssertionError or SkipTest, any exception raised by this method will be considered an error rather than a test failure. The default implementation does nothing.",setUp(),0
+"Method called immediately after the test method has been called and the result recorded. This is called even if the test method raised an exception, so the implementation in subclasses may need to be particularly careful about checking internal state. Any exception, other than AssertionError or SkipTest, raised by this method will be considered an additional error rather than a test failure (thus increasing the total number of reported errors). This method will only be called if the setUp() succeeds, regardless of the outcome of the test method. The default implementation does nothing.",tearDown(),0
+A class method called before tests in an individual class are run.,setUpClass(),0
+A class method called after tests in an individual class have run.,tearDownClass(),0
+"Run the test, collecting the result into the TestResult object passed as result. If result is omitted or None, a temporary result object is created (by calling the defaultTestResult() method) and used. The result object is returned to run()’s caller.
+
+The same effect may be had by simply calling the TestCase instance.",run(result),0
+Calling this during a test method or setUp() skips the current test.,skipTest(reason),1
+Return a context manager which executes the enclosed code block as a subtest.,subTest(),0
+"Run the test without collecting the result. This allows exceptions raised by the test to be propagated to the caller, and can be used to support running tests under a debugger.",debug(),0
+"Test that first and second are equal. If the values do not compare equal, the test will fail.
+
+In addition, if first and second are the exact same type and one of list, tuple, dict, set, frozenset or str or any type that a subclass registers with addTypeEqualityFunc() the type-specific equality function will be called in order to generate a more useful default error message (see also the list of type-specific methods).","assertEqual(first, second)",0
+"Test that first and second are not equal. If the values do compare equal, the test will fail.","assertNotEqual(first, second)",0
+Test that expr is true.,assertTrue(expr),0
+Test that expr is false.,assertFalse(expr),0
+Test that first and second evaluate to the same object.,"assertIs(first, second)",0
+Test that first and second don’t evaluate to the same object.,"assertIsNot(first, second)",0
