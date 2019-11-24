@@ -3,6 +3,7 @@
 A basic python 3.6.5 program for memorising any kind of vocabulary, or simple answers to questions. The questions in the two csv files are about basic python functions.
 
 <img src="https://myheritagelanguage.com/wp-content/uploads/2017/12/B5_P20a.jpg">
+<div style="text-align:right"><a href="https://myheritagelanguage.com/book/teaching-learning-strategies-techniques/part-learning-strategies-techniques-different-sub-areas/techniques-strategies-practicing-general-m1-4/m4-flashcards-useful-aid-learning-professionals/">Image source</div></a>
 
 Start with a 3-column CSV (no header), with 20 rows. Call it "flashcards.csv" (or change the name at the top of the program).<br>
 Column 0: the questions (e.g. the meaning of the word you want to memorise).<br>
