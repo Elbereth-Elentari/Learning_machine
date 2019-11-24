@@ -1,8 +1,10 @@
 # Learning_machine
 
-A basic python 3.6.5 program for memorising any kind of vocabulary, or simple answers to questions.
+A basic python 3.6.5 program for memorising any kind of vocabulary, or simple answers to questions. The questions in the two csv files are about basic python functions.
 
-Start with a 3-column CSV (no header), with 20 rows. Call it "fiszki.csv" (or change the name at the top of the program).<br>
+<img src="https://myheritagelanguage.com/wp-content/uploads/2017/12/B5_P20a.jpg">
+
+Start with a 3-column CSV (no header), with 20 rows. Call it "flashcards.csv" (or change the name at the top of the program).<br>
 Column 0: the questions (e.g. the meaning of the word you want to memorise).<br>
 Column 1: the answer (e.g. the word you want to memorise).<br>
 Column 2: 0 (the initial level of this question in the algorithm).
