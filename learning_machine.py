@@ -3,17 +3,21 @@ import pandas as pd
 max_definitions = [20, 30, 45, 68, 101]
 session_limit = 50
 
+with open("flashcards.csv", "r") as flashcards:
+    flashcards = pd.read_csv(flashcards, header=None)
+
+for level in range(0, 5):
+    print("Remaining questions at level", level, ":", len(flashcards.loc[flashcards[2] == level]), "/", max_definitions[level])
+
 # Saves a string for the last level
 with open("last_level.txt", "r") as saved_level:
     for line in saved_level:
         line = line.strip()
         last_level = line
-print("Last level:", last_level)
+print("CURRENT LEVEL:", last_level)
 
 session_count = 0
 current_level = int(last_level) # Current_level is an integer
-with open("flashcards.csv", "r") as flashcards:
-    flashcards = pd.read_csv(flashcards, header=None)
 
 while session_count < session_limit:
 
