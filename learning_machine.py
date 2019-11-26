@@ -6,6 +6,8 @@ session_limit = 50
 with open("flashcards.csv", "r") as flashcards:
     flashcards = pd.read_csv(flashcards, header=None)
 
+print("==========================================================================================================")
+
 for level in range(0, 5):
     print("Remaining questions at level", level, ":", len(flashcards.loc[flashcards[2] == level]), "/", max_definitions[level])
 
@@ -14,7 +16,7 @@ with open("last_level.txt", "r") as saved_level:
     for line in saved_level:
         line = line.strip()
         last_level = line
-print("CURRENT LEVEL:", last_level)
+print("CURRENT LEVEL:", last_level, "\n==========================================================================================================")
 
 session_count = 0
 current_level = int(last_level) # Current_level is an integer
@@ -23,7 +25,7 @@ while session_count < session_limit:
 
     # Check if there are questions at the current level. This is iterative, because we want to exhaust the current level.
     if len(flashcards.loc[flashcards[2] == int(current_level)]) == 0:
-        print("NO MORE QUESTIONS AT LEVEL", current_level)
+        print("==========================================================================================================\nNO MORE QUESTIONS AT LEVEL", current_level)
         # Find another level, save it as integer
         x = 0
         while x in range(0, 5):
@@ -33,10 +35,10 @@ while session_count < session_limit:
             else:
                 x += 1
         if x == 5:
-            print("NO MORE QUESTIONS.")
+            print("NO MORE QUESTIONS.\n==========================================================================================================")
             break
         else:
-            print("NEW LEVEL:", current_level)
+            print("NEW LEVEL:", current_level, "\n==========================================================================================================")
 
     else:
         # Check if the level directly above hasn't maxed up. If it has, we have to go to that level before continuing. The new level is saved as an integer.
@@ -44,20 +46,20 @@ while session_count < session_limit:
             next_level = current_level + 1
             if len(flashcards.loc[flashcards[2] == next_level]) >= max_definitions[int(next_level)]:
                 current_level += 1
-                print("NEXT LEVEL MAXED OUT.\nNEW LEVEL:", current_level)
+                print("==========================================================================================================\nNEXT LEVEL MAXED OUT.\nNEW LEVEL:", current_level, "\n==========================================================================================================")
         row = flashcards.loc[flashcards[2] == current_level].sample(n=1)
         # Display as many questions as possible: either before session end, or before end of questions at the level.
-        print("Question:", row[0].values[0])
-        answer = input("Answer:")
+        print("---------------------------------------------- QUESTION", session_count, ": ---------------------------------------------\n", row[0].values[0])
+        answer = input("ANSWER:")
         if answer == row[1].values[0]:
             flashcards.loc[flashcards[0] == row[0].values[0], 2] += 1
-            print("Correct.")
+            print("CORRECT.")
         else:
-            print("Wrong.")
-            print(row[1].values[0])
+            print("WRONG.")
+            print("                                                CORRECT ANSWER:\n", row[1].values[0])
         session_count += 1
 
-print("END OF SESSION.")
+print("======================================================\nEND OF SESSION.\n=======================================================")
 
 with open("flashcards.csv", "w") as nowe_flashcards, open("answered_questions.csv", "a+") as answered:
     flashcards.loc[flashcards[2] < 5].to_csv(nowe_flashcards, header=False, index=False)
