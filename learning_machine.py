@@ -56,7 +56,7 @@ while session_count < session_limit:
             print("CORRECT.")
         else:
             print("WRONG.")
-            print("                                                CORRECT ANSWER:\n", row[1].values[0])
+            print("                                            CORRECT ANSWER:\n", row[1].values[0])
         session_count += 1
 
 print("======================================================\nEND OF SESSION.\n=======================================================")

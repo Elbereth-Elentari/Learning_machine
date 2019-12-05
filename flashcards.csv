@@ -1,188 +1,173 @@
-Return a k length list of unique elements chosen from the population sequence or set.,"random.sample(population, k)",4
-Shuffle the sequence x in place.,random.shuffle(x),4
-Causes the resulting RE to match 1 or more repetitions of the preceding RE.,+,4
-"Scan through string looking for the first location where the regular expression pattern produces a match, and return a corresponding match object.","re.search(pattern, string)",4
-"An idealized time, independent of any particular day, assuming that every day has exactly 24*60*60 seconds (there is no notion of “leap seconds” here). Attributes: hour, minute, second, microsecond, and tzinfo.",datetime.time,4
-"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",2
-"A combination of a date and a time. Attributes: year, month, day, hour, minute, second, microsecond, and tzinfo.",datetime.datetime,4
-Clear the regular expression cache.,re.purge(),4
-printf-style for single character,%c,4
-Return a new set with elements from the set and all others.,union(*others),4
-Return a list of all the keys used in the dictionary d.,list(d),4
-Matches any character which is not a whitespace character.,\S,4
-"If zero or more characters at the beginning of string match the regular expression Pattern, return a corresponding match object.",Pattern.match(string),4
-Add element elem to the set.,add(elem),4
-"Compile a regular expression pattern into a regular expression object, which can be used for matching using its match(), search() and other methods, described below.",re.compile(),4
-Remove element elem from the set if it is present.,discard(elem),4
-The concatenation of the ascii_lowercase and ascii_uppercase constants.,string.ascii_letters,4
-"Split string k at the first occurrence of m, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator.",k.partition(m),4
-"String of ASCII characters which are considered printable. This is a combination of digits, ascii_letters, punctuation, and whitespace.",string.printable,4
-"Scan through string looking for the first location where this regular expression produces a match with Pattern, and return a corresponding match object.",Pattern.search(string),4
-Return the string representing a character whose Unicode code point is the integer i.,chr(i),4
-open a disk file for updating (reading and writing),+,4
-Split string by the occurrences of pattern.,"re.split(pattern, string)",3
-"Method sorting list s in place, in ascending order.","sort(s, reverse=False)",4
-return an integer representing the Unicode code point of a character,ord(),4
-"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,2
-Matches Unicode whitespace characters (which includes [ \t\n\r\f\v],\s,4
-printf-style for string,%s,4
-"If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.","re.match(pattern, string)",4
-The uppercase letters 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.,string.ascii_uppercase,4
-Return a copy of string s in which each character has been mapped through the given translation table.,s.translate(),4
-Return the number of items in the dictionary d.,len(d),4
-"Return the next random floating point number in the range [0.0, 1.0).",random.random(),4
-"Return the harmonic mean of data, a sequence or iterator of real-valued numbers.
-
-The harmonic mean, sometimes called the subcontrary mean, is the reciprocal of the arithmetic mean() of the reciprocals of the data. For example, the harmonic mean of three values a, b and c will be equivalent to 3/(1/a + 1/b + 1/c).",statistics.harmonic_mean(data),4
-"Return the median (middle value) of numeric data, using the common “mean of middle two” method.",statistics.median(data),4
-"Return the most common data point from discrete or nominal data. The mode (when it exists) is the most typical value, and is a robust measure of central location.",statistics.mode(data),4
-"Return the population variance of data, a non-empty iterable of real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.pvariance(data),4
-"Return the sample variance of data, an iterable of at least two real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.variance(data),4
-Return a reader object which will iterate over lines in the given csvfile.,csv.reader(csvfile),4
-"Return a writer object responsible for converting the user’s data into delimited strings on the given file-like object. csvfile can be any object with a write() method. If csvfile is a file object, it should be opened with newline='' .",csv.writer(csvfile),4
-"Return a list containing the names of the entries in the directory given by path. The list is in arbitrary order, and does not include the special entries '.' and '..' even if they are present in the directory.",os.listdir(path),4
-Create a directory named path,os.mkdir(path),3
-"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),3
-"Rename the file or directory src to dst. If dst is a directory, OSError will be raised. If dst exists and is a file, it will be replaced silently if the user has permission.","os.replace(src, dst)",4
-Remove (delete) the directory path.,os.rmdir(path),4
-Serialize obj as a JSON formatted stream to fp (a .write()-supporting file-like object),"json.dump(obj, fp)",3
-Serialize obj to a JSON formatted str,json.dumps(obj),4
-Deserialize fp (a .read()-supporting text file or binary file containing a JSON document) to a Python object,json.load(fp),3
-"Deserialize s (a str, bytes or bytearray instance containing a JSON document) to a Python object",json.loads(s),4
-The Tk class is instantiated without arguments. This creates a toplevel widget of Tk which usually is the main window of an application. Each instance has its own associated Tcl interpreter.,tkinter.Tk(),4
-Text widget with a vertical scroll bar built in.,tkinter.scrolledtext,2
-Dialog to let the user choose a color.,tkinter.colorchooser,4
-Common dialogs to allow the user to specify a file to open or save.,tkinter.filedialog,4
-Access to standard Tk dialog boxes.,tkinter.messagebox,3
-Drag-and-drop support for tkinter. This is experimental and should become deprecated when it is replaced with the Tk DND.,tkinter.dnd,2
-Turtle graphics in a Tk window.,turtle,3
+"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",4
+Split string by the occurrences of pattern.,"re.split(pattern, string)",4
+"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,4
+"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),4
+Deserialize fp (a .read()-supporting text file or binary file containing a JSON document) to a Python object,json.load(fp),4
+Access to standard Tk dialog boxes.,tkinter.messagebox,4
 "Used to communicate with horizontal scrollbars.
 
 When the view in the widget’s window change, the widget will generate a Tcl command based on the scrollcommand.
 
-Usually this option consists of the method Scrollbar.set() of some scrollbar. This will cause the scrollbar to be updated whenever the view in the window changes.",xscrollcommand,3
-Used to communicate with vertical scrollbars.,yscrollcommand,4
-Specifies a name whose value will be used in place of the text option resource.,textvariable,4
-Specifies an image to display.,image,4
-"Specifies how to display the image relative to the text, in the case both text and images options are present. Valid values are:
+Usually this option consists of the method Scrollbar.set() of some scrollbar. This will cause the scrollbar to be updated whenever the view in the window changes.",xscrollcommand,4
+"Test the widget’s state. If a callback is not specified, returns True if the widget state matches statespec and False otherwise.",instate(statespec),4
+"the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.",test case,4
+Calling this during a test method or setUp() skips the current test.,skipTest(reason),4
+Test that expr is false.,assertFalse(expr),4
+Test that expr is not None.,assertIsNotNone(expr),4
+Test that first is in second.,"assertIn(first, second)",4
+"Test that obj is not an instance of cls (which can be a class or a tuple of classes, as supported by isinstance()). To check for the exact type, use assertIs(type(obj), cls).","assertNotIsInstance(obj, cls)",4
+"Test that an exception is raised when callable is called with any positional or keyword arguments that are also passed to assertRaises(). The test passes if exception is raised, is an error if another exception is raised, or fails if no exception is raised. To catch any of a group of exceptions, a tuple containing the exception classes may be passed as exception.","assertRaises(exception, callable)",4
+Parse html_doc into a soup object.,"soup = BeautifulSoup(html_doc, ""html.parser"")",4
+Return the first instance of tag id equal to link3.,"soup.find(id=""link3"")",4
+Return the value of the first href tag.,"link.get(""href"")",4
+Return text from soup.,soup.get_text(),4
+Return a dictionary with all attributes of tag.,tag.attrs,4
+"Return a list of all p tags with css class values strikeout and body, in css_soup.","css_soup.select(""p.strikeout.body"")",4
+Import webdriver.,from selenium import webdriver,4
+Create an instance of Firefox WebDriver.,driver = webdriver.Firefox(),4
+navigate to a page given by url,"driver.get(""url"")",4
+Close the browser window irrespective of the number of tabs.,driver.quit(),4
+Import the Keys class.,from selenium.webdriver.common.keys import Keys,3
+"Enter "" and some"" into a text field, and simulate pressing the arrow down key.","element.send_keys("" and some"", Keys.ARROW_DOWN)",4
+clear the contents of a text field or textarea,element.clear(),4
+Import Select,from selenium.webdriver.support.ui import Select,4
+"Find an element with a list to select, called ""name""","select = Select(driver.find_element_by_name(""name""))",4
+Select the option with the index number index.,select.select_by_index(index),4
+"Select the option with visible text ""text"".","select.select_by_visible_text(""text"")",4
+"Select the option with the value ""value"".",select.select_by_value(value),4
+Deselect all selected options.,select.deselect_all(),4
+Returns a list of all selected options.,select.all_selected_options,3
+Returns a list of all available options.,select.options,4
+"Move to frame ""frameName"".","driver.switch_to_frame(""frameName"")",3
+Go back to the main frame.,driver.switch_to_default_content(),4
+"After you’ve triggered action that would open a popup, you can access the alert with this command. This will return the currently open alert object. With this object, you can now accept, dismiss, read its contents or even type into a prompt. This interface works equally well on alerts, confirms, prompts.",alert = driver.switch_to_alert(),3
+Move forward in the browser history.,driver.forward(),3
+Set a cookie named cookie.,driver.add_cookie(cookie),4
+Output all the available cookies for the current URL.,driver.get_cookies(),4
+Locate the first element with a specific id.,driver.find_element_by_id(),4
+Locate the first element with a specific xpath.,driver.find_element_by_xpath(),4
+Locate the first element with a specific link text.,driver.find_element_by_link_text(),4
+Locate the first element with a specific tag name.,driver.find_element_by_tag_name(),4
+Locate the first element with a specific class name.,driver.find_element_by_class_name(),4
+Locate the first element with a specific css selector.,driver.find_element_by_css_selector(),4
+Locate all elements with a specific id.,driver.find_elements_by_id(),4
+Locate all elements with a specific name.,driver.find_elements_by_name(),3
+Locate all elements with a specific xpath.,driver.find_elements_by_xpath(),4
+Locate all elements with a specific link text.,driver.find_elements_by_link_text(),4
+Locate all elements with a specific tag name.,driver.find_elements_by_tag_name(),3
+Locate all elements with a specific class name.,driver.find_elements_by_class_name(),4
+Import By.,from selenium.webdriver.common.by import By,4
+Import WebDriverWait.,from selenium.webdriver.support.ui import WebDriverWait,4
+"This waits up to 10 seconds before throwing a TimeoutException unless it finds the element by id ""myDynamicElement"", to return within 10 seconds.","element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, ""myDynamicElement"")))",3
+Waiting condition that the title has a certain value.,title_is,3
+Waiting condition that the title contains a certain string.,title_contains,3
+Waiting condition that driver detected the presence of an element.,presence_of_element_located,4
+Waiting condition that a specified element is visible.,visibility_of_element_located,3
+"Creating a Series by passing a list of values, letting pandas create a default integer index.",pd.Series([]),4
+View top 5 rows of df.,df.head(),4
+View bottom 3 rows of df.,df.tail(3),4
+Display the index of df.,df.index,4
+Display the column names of df.,df.columns,3
+Show a quick statistic summary of df.,df.describe(),4
+"Sort df by axis 1, in descending order.","df.sort_index(axis=1, ascending=False)",4
+Sort by values in column B.,"df.sort_values(by=""B"")",3
+Select column A in df.,"df[""A""]",4
+Select three initial rows in df.,df[0:3],3
+Select row number 3 in df.,df.iloc[3],3
+"Select rows with value greater than 0 in column ""A"", in df.","df[df[""A""] > 0]",4
+drop any rows that have missing data,"df.dropna(how=""any"")",4
+Fill missing data in df with 5.,df.fillna(value=5),4
+Calculate the mean of each value in df.,df.mean(),4
+"Merge dataframes left and right on key ""key"".","pd.merge(left, right, on=""key"")",3
+Grouping df by column A and then applying the sum function to the resulting groups.,"df.groupby(""A"").sum()",3
+"Grouping df by column A and B, and then applying the sum function.","df.groupby([""A"", ""B""]).sum()",4
+"Produce a pivot table from df, taking values from column D, indices from columns A and B, and columns from column C.","pd.pivot_table(df, values=""D"", index=[""A"", ""B""], columns=[""C""])",3
+Write df to file foo.csv.,"df.to_csv(""foo.csv"")",3
+Read file foo.csv.,"pd.read_csv(""foo.csv"")",3
+"Write df to foo.xlsx, sheet Sheet1.","df.to_excel(""foo.xlsx"", sheet_name=""Sheet1"")",3
+"Read foo.xlsx, Sheet1, with no column index, and empty cells filled with ""NA"".","pd.read_excel(""foo.xlsx"", ""Sheet1"", index_col=None, na_values=[""NA""])",3
+Import word tokenizer.,from nltk.tokenize import word_tokenize,3
+Tokenize the string text into words.,word_tokenize(text),3
+Import sentence tokenizer.,from nltk.tokenize import sent_tokenize,4
+Tokenize the string text into sentences.,sent_tokenize(text),3
+coordinating conjunction,CC,4
+cardinal digit,CD,3
+determiner,DT,3
+existential there,EX,3
+foreign word,FW,4
+preposition/subordinating conjunction,IN,3
+adjective,JJ,4
+"adjective, comparative",JJR,4
+"adjective, superlative",JJS,3
+list marker,LS,3
+modal,MD,4
+"noun, singular",NN,3
+noun plural,NNS,3
+"proper noun, singular",NNP,3
+"proper noun, plural",NNPS,3
+"predeterminer (all, both, half)",PDT,3
+possessive ending,POS,3
+personal pronoun,PRP,3
+possessive pronoun,PRP$,3
+adverb,RB,2
+"adverb, comparative",RBR,3
+"adverb, superlative",RBS,2
+particle (about),RP,2
+infinite marker,TO,2
+interjection (goodbye),UH,2
+verb,VB,3
+verb gerund,VBG,2
+verb past tense,VBD,2
+verb past participle,VBN,3
+"verb, present tense not 3rd person singular",VBP,2
+"verb, present tense with 3rd person singular",VBZ,2
+"wh-determiner (that, what)",WDT,2
+wh- pronoun (who),WP,3
+wh- adverb (how),WRB,3
+import POS-tagger,from nltk import pos_tag,2
+Import the Regex Parser.,from nltk import RegexpParser,2
+"Return a list of tuples, whose 1st element is a word, while 2nd - its POS tag. The input is a list of words.",pos_tag(),2
+import stemmer,from nltk.stem import PorterStemmer,3
+"Import a specified grammar (called ""grammar"") into regex parser.",nltk.RegexpParser(grammar),2
+"Define ""grammar"" for parsing, as a noun phrase that is composed of 0 or 1 determiner, at least 0 adjectives, and one noun.","grammar = ""NP: {<DT>?<JJ>*<NN>}""",2
+"Parse ""tag"" (POS-tagged tokens) with rule cp.",cp.parse(tag),0
+Draw a syntactic tree of result.,result.draw(),2
+Return the stem of word w.,PorterStemmer().stem(w),2
+Import WordNet.,from nltk.corpus import wordnet,2
+"Print synsets of the word ""dog"".","wordnet.synsets(""dog"")",2
+Return the frequency distribution of a list of words.,nltk.FreqDist(words),2
+Draw a plot of frequency distribution fd.,fd.plot(),2
+Return a list of all bigrams made up of Tokens.,list(nltk.bigrams(Tokens)),2
+Return a list of all trigrams made up of Tokens.,list(nltk.trigrams(Tokens)),2
+Start the mysite project in django.,django-admin startproject mysite,2
+Verify that the django project in path works.,python manage.py runserver,0
+Create a polls app.,python manage.py startapp polls,2
+Import HTTP Response.,from django.http import HttpResponse,2
+"Create HTTP Response ""Hello, world.""","HttpResponse(""Hello, world."")",2
+Import path for django urls.,from django.urls import path,0
+Import views.,from . import views,2
+Create urlpatterns from the index of views.,"urlpatterns = [path('', views.index, name='index'),]",2
+Import admin.,from django.contrib import admin,2
+A command-line utility that lets you interact with this Django project in various ways.,manage.py,0
+An empty file that tells Python that this directory should be considered a Python package.,mysite/__init__.py,0
+Settings/configuration for this Django project.,mysite/settings.py,0
+The URL declarations for this Django project; a “table of contents” of your Django-powered site,mysite/urls.py,0
+An entry-point for ASGI-compatible web servers to serve your project.,mysite/asgi.py,0
+An entry-point for WSGI-compatible web servers to serve your project.,mysite/wsgi.py,1
+"This function allows referencing other URLconfs. Whenever Django encounters the function, it chops off whatever part of the URL matched up to that point and sends the remaining string to the included URLconf for further processing.
 
-text: display text only
-
-image: display image only
-
-top, bottom, left, right: display image above, below, left of, or right of the text, respectively.
-
-none: the default. display the image if present, otherwise the text.",compound,4
-Widget has keyboard focus,focus,4
-Widget is being pressed,pressed,4
-"“On”, “true”, or “current” for things like Checkbuttons and radiobuttons",selected,4
-"Windows and Mac have a notion of an “active” or foreground window. The background state is set for widgets in a background window, and cleared for those in the foreground window",background,4
-Widget should not allow user modification,readonly,4
-A widget-specific alternate display format,alternate,4
-The widget’s value is invalid,invalid,4
-"Returns the name of the element at position x y, or the empty string if the point does not lie within any element.
-
-x and y are pixel coordinates relative to the widget.","identify(x, y)",2
-"Test the widget’s state. If a callback is not specified, returns True if the widget state matches statespec and False otherwise.",instate(statespec),2
-"Modify or inquire widget state. If statespec is specified, sets the widget state according to it and return a new statespec indicating which flags were changed. If statespec is not specified, returns the currently-enabled state flags.
-
-statespec will usually be a list or a tuple.",state(statespec),4
-"represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.",test fixture,4
-"the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.",test case,1
-"a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.",test suite,1
-"a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.",test runner,4
-"Instances of the TestCase class represent the logical test units in the unittest universe. This class is intended to be used as a base class, with specific tests being implemented by concrete subclasses. This class implements the interface needed by the test runner to allow it to drive the tests, and methods that the test code can use to check for and report various kinds of failure.
-
-Each instance of TestCase will run a single base method: the method named methodName. In most uses of TestCase, you will neither change the methodName nor reimplement the default runTest() method.
-
-Changed in version 3.2: TestCase can be instantiated successfully without providing a methodName. This makes it easier to experiment with TestCase from the interactive interpreter.
-
-TestCase instances provide three groups of methods: one group used to run the test, another used by the test implementation to check conditions and report failures, and some inquiry methods allowing information about the test itself to be gathered.",unittest.TestCase(),4
-"Method called to prepare the test fixture. This is called immediately before calling the test method; other than AssertionError or SkipTest, any exception raised by this method will be considered an error rather than a test failure. The default implementation does nothing.",setUp(),4
-"Method called immediately after the test method has been called and the result recorded. This is called even if the test method raised an exception, so the implementation in subclasses may need to be particularly careful about checking internal state. Any exception, other than AssertionError or SkipTest, raised by this method will be considered an additional error rather than a test failure (thus increasing the total number of reported errors). This method will only be called if the setUp() succeeds, regardless of the outcome of the test method. The default implementation does nothing.",tearDown(),4
-A class method called before tests in an individual class are run.,setUpClass(),3
-A class method called after tests in an individual class have run.,tearDownClass(),3
-"Run the test, collecting the result into the TestResult object passed as result. If result is omitted or None, a temporary result object is created (by calling the defaultTestResult() method) and used. The result object is returned to run()’s caller.
-
-The same effect may be had by simply calling the TestCase instance.",run(result),2
-Calling this during a test method or setUp() skips the current test.,skipTest(reason),2
-Return a context manager which executes the enclosed code block as a subtest.,subTest(),2
-"Run the test without collecting the result. This allows exceptions raised by the test to be propagated to the caller, and can be used to support running tests under a debugger.",debug(),4
-"Test that first and second are equal. If the values do not compare equal, the test will fail.
-
-In addition, if first and second are the exact same type and one of list, tuple, dict, set, frozenset or str or any type that a subclass registers with addTypeEqualityFunc() the type-specific equality function will be called in order to generate a more useful default error message (see also the list of type-specific methods).","assertEqual(first, second)",4
-"Test that first and second are not equal. If the values do compare equal, the test will fail.","assertNotEqual(first, second)",4
-Test that expr is true.,assertTrue(expr),4
-Test that expr is false.,assertFalse(expr),2
-Test that first and second evaluate to the same object.,"assertIs(first, second)",4
-Test that first and second don’t evaluate to the same object.,"assertIsNot(first, second)",4
-Test that expr is None.,assertIsNone(expr),2
-Test that expr is not None.,assertIsNotNone(expr),3
-Test that first is in second.,"assertIn(first, second)",2
-Test that first is not in second.,"assertNotIn(first, second)",3
-"Test that obj is an instance of cls (which can be a class or a tuple of classes, as supported by isinstance()). To check for the exact type, use assertIs(type(obj), cls).","assertIsInstance(obj, cls)",3
-"Test that obj is not an instance of cls (which can be a class or a tuple of classes, as supported by isinstance()). To check for the exact type, use assertIs(type(obj), cls).","assertNotIsInstance(obj, cls)",1
-"Test that an exception is raised when callable is called with any positional or keyword arguments that are also passed to assertRaises(). The test passes if exception is raised, is an error if another exception is raised, or fails if no exception is raised. To catch any of a group of exceptions, a tuple containing the exception classes may be passed as exception.","assertRaises(exception, callable)",1
-"Test that a warning is triggered when callable is called with any positional or keyword arguments that are also passed to assertWarns(). The test passes if warning is triggered and fails if it isn’t. Any exception is an error. To catch any of a group of warnings, a tuple containing the warning classes may be passed as warnings.","assertWarns(warning, callable)",3
-Import BeautifulSoup.,from bs4 import BeautifulSoup,3
-Parse html_doc into a soup object.,"soup = BeautifulSoup(html_doc, ""html.parser"")",1
-Return a list of all tags a in soup.,"soup.find_all(""a"")",3
-Return the first instance of tag id equal to link3.,"soup.find(id=""link3"")",3
-Return the value of the first href tag.,"link.get(""href"")",3
-Return text from soup.,soup.get_text(),3
-Return a dictionary with all attributes of tag.,tag.attrs,1
-"Return a list of all tags p with a value title within the tag, in soup.","soup.find_all(""p"", ""title"")",2
-"Return a list of all tags with value link2 for argument id, in soup.","soup.find_all(id=""link2"")",3
-"Return a list of all tags a with value sister for a class, in soup.","soup.find_all(""a"", class_=""sister"")",2
-"Return a list of all p tags with css class values strikeout and body, in css_soup.","css_soup.select(""p.strikeout.body"")",3
-Import webdriver.,from selenium import webdriver,2
-Create an instance of Firefox WebDriver.,driver = webdriver.Firefox(),2
-navigate to a page given by url,"driver.get(""url"")",2
-"Close the browser window if there was only one tab. If there was more than one tab, the command will close only the tab.",driver.close(),3
-Close the browser window irrespective of the number of tabs.,driver.quit(),3
-Import the Keys class.,from selenium.webdriver.common.keys import Keys,1
-"Enter ""some text"" into a text field.","element.send_keys(""some text"")",2
-"Enter "" and some"" into a text field, and simulate pressing the arrow down key.","element.send_keys("" and some"", Keys.ARROW_DOWN)",3
-clear the contents of a text field or textarea,element.clear(),3
-Click a button.,button.click(),1
-Import Select,from selenium.webdriver.support.ui import Select,0
-"Find an element with a list to select, called ""name""","select = Select(driver.find_element_by_name(""name""))",1
-Select the option with the index number index.,select.select_by_index(index),1
-"Select the option with visible text ""text"".","select.select_by_visible_text(""text"")",1
-"Select the option with the value ""value"".",select.select_by_value(value),1
-Deselect all selected options.,select.deselect_all(),1
-Returns a list of all selected options.,select.all_selected_options,1
-Returns a list of all available options.,select.options,1
-Submit an element from a form.,element.submit(),1
-"Move to window ""windowName"".","driver.switch_to_window(""windowName"")",2
-"Move to frame ""frameName"".","driver.switch_to_frame(""frameName"")",1
-Go back to the main frame.,driver.switch_to_default_content(),1
-"After you’ve triggered action that would open a popup, you can access the alert with this command. This will return the currently open alert object. With this object, you can now accept, dismiss, read its contents or even type into a prompt. This interface works equally well on alerts, confirms, prompts.",alert = driver.switch_to_alert(),0
-Move backward in the browser history.,driver.back(),1
-Move forward in the browser history.,driver.forward(),0
-Set a cookie named cookie.,driver.add_cookie(cookie),0
-Output all the available cookies for the current URL.,driver.get_cookies(),0
-Locate the first element with a specific id.,driver.find_element_by_id(),1
-Locate the first element with a specific name.,driver.find_element_by_name(),1
-Locate the first element with a specific xpath.,driver.find_element_by_xpath(),1
-Locate the first element with a specific link text.,driver.find_element_by_link_text(),1
-Locate the first element with a specific partial link text.,driver.find_element_by_partial_link_text(),2
-Locate the first element with a specific tag name.,driver.find_element_by_tag_name(),0
-Locate the first element with a specific class name.,driver.find_element_by_class_name(),0
-Locate the first element with a specific css selector.,driver.find_element_by_css_selector(),1
-Locate all elements with a specific id.,driver.find_elements_by_id(),0
-Locate all elements with a specific name.,driver.find_elements_by_name(),0
-Locate all elements with a specific xpath.,driver.find_elements_by_xpath(),0
-Locate all elements with a specific link text.,driver.find_elements_by_link_text(),1
-Locate all elements with a specific partial link text.,driver.find_elements_by_partial_link_text(),0
-Locate all elements with a specific tag name.,driver.find_elements_by_tag_name(),0
-Locate all elements with a specific class name.,driver.find_elements_by_class_name(),1
-Locate all elements with a specific css selector.,driver.find_elements_by_css_selector(),1
-Import By.,from selenium.webdriver.common.by import By,0
-Import WebDriverWait.,from selenium.webdriver.support.ui import WebDriverWait,0
-Import ExpectedConditions.,from selenium.webdriver.support import expected_conditions as EC,0
-"This waits up to 10 seconds before throwing a TimeoutException unless it finds the element by id ""myDynamicElement"", to return within 10 seconds.","element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, ""myDynamicElement"")))",0
-Waiting condition that the title has a certain value.,title_is,0
-Waiting condition that the title contains a certain string.,title_contains,0
-Waiting condition that driver detected the presence of an element.,presence_of_element_located,0
-Waiting condition that a specified element is visible.,visibility_of_element_located,0
+The idea behind this function is to make it easy to plug-and-play URLs. Since polls are in their own URLconf (polls/urls.py), they can be placed under “/polls/”, or under “/fun_polls/”, or under “/content/polls/”, or any other path root, and the app will still work.",include(),0
+"This function is passed four arguments, two required: route and view, and two optional: kwargs, and name.",path(),1
+ a string that contains a URL pattern,route,0
+"When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument and any “captured” values from the route as keyword arguments.",view,0
+Arbitrary keyword arguments can be passed in a dictionary to the target view.,kwargs,0
+"Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates. This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.",name,1
+The admin site.,django.contrib.admin,0
+An authentication system.,django.contrib.auth,0
+A framework for content types.,django.contrib.contenttypes,1
+A session framework.,django.contrib.sessions,0
+A messaging framework.,django.contrib.messages,0
+A framework for managing static files.,django.contrib.staticfiles,0
+create the tables in the database,python manage.py migrate,0
+Import models.,from django.db import models,0
+create a user who can login to the admin site,python manage.py createsuperuser,0
