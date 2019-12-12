@@ -228,3 +228,108 @@ Click a button.,button.click(),5
 "Move to window ""windowName"".","driver.switch_to_window(""windowName"")",5
 Locate all elements with a specific partial link text.,driver.find_elements_by_partial_link_text(),5
 Transpose df.,df.T,5
+"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,5
+Access to standard Tk dialog boxes.,tkinter.messagebox,5
+"Used to communicate with horizontal scrollbars.
+
+When the view in the widget’s window change, the widget will generate a Tcl command based on the scrollcommand.
+
+Usually this option consists of the method Scrollbar.set() of some scrollbar. This will cause the scrollbar to be updated whenever the view in the window changes.",xscrollcommand,5
+"the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.",test case,5
+"Test that an exception is raised when callable is called with any positional or keyword arguments that are also passed to assertRaises(). The test passes if exception is raised, is an error if another exception is raised, or fails if no exception is raised. To catch any of a group of exceptions, a tuple containing the exception classes may be passed as exception.","assertRaises(exception, callable)",5
+Return text from soup.,soup.get_text(),5
+Return a dictionary with all attributes of tag.,tag.attrs,5
+Import webdriver.,from selenium import webdriver,5
+navigate to a page given by url,"driver.get(""url"")",5
+clear the contents of a text field or textarea,element.clear(),5
+Locate the first element with a specific xpath.,driver.find_element_by_xpath(),5
+Locate the first element with a specific css selector.,driver.find_element_by_css_selector(),5
+Locate all elements with a specific id.,driver.find_elements_by_id(),5
+Locate all elements with a specific link text.,driver.find_elements_by_link_text(),5
+Locate all elements with a specific class name.,driver.find_elements_by_class_name(),5
+Waiting condition that driver detected the presence of an element.,presence_of_element_located,5
+Waiting condition that a specified element is visible.,visibility_of_element_located,5
+Display the column names of df.,df.columns,5
+Show a quick statistic summary of df.,df.describe(),5
+Select column A in df.,"df[""A""]",5
+drop any rows that have missing data,"df.dropna(how=""any"")",5
+Fill missing data in df with 5.,df.fillna(value=5),5
+determiner,DT,5
+adjective,JJ,5
+list marker,LS,5
+modal,MD,5
+noun plural,NNS,5
+possessive pronoun,PRP$,5
+"verb, present tense not 3rd person singular",VBP,5
+wh- pronoun (who),WP,5
+import POS-tagger,from nltk import pos_tag,5
+"Define ""grammar"" for parsing, as a noun phrase that is composed of 0 or 1 determiner, at least 0 adjectives, and one noun.","grammar = ""NP: {<DT>?<JJ>*<NN>}""",5
+create a user who can login to the admin site,python manage.py createsuperuser,5
+Split string by the occurrences of pattern.,"re.split(pattern, string)",5
+"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),5
+"Test the widget’s state. If a callback is not specified, returns True if the widget state matches statespec and False otherwise.",instate(statespec),5
+Calling this during a test method or setUp() skips the current test.,skipTest(reason),5
+Test that expr is false.,assertFalse(expr),5
+Test that expr is not None.,assertIsNotNone(expr),5
+Test that first is in second.,"assertIn(first, second)",5
+Parse html_doc into a soup object.,"soup = BeautifulSoup(html_doc, ""html.parser"")",5
+Return the first instance of tag id equal to link3.,"soup.find(id=""link3"")",5
+Return the value of the first href tag.,"link.get(""href"")",5
+"Return a list of all p tags with css class values strikeout and body, in css_soup.","css_soup.select(""p.strikeout.body"")",5
+Close the browser window irrespective of the number of tabs.,driver.quit(),5
+"Enter "" and some"" into a text field, and simulate pressing the arrow down key.","element.send_keys("" and some"", Keys.ARROW_DOWN)",5
+Import Select,from selenium.webdriver.support.ui import Select,5
+"Find an element with a list to select, called ""name""","select = Select(driver.find_element_by_name(""name""))",5
+Select the option with the index number index.,select.select_by_index(index),5
+"Select the option with visible text ""text"".","select.select_by_visible_text(""text"")",5
+Deselect all selected options.,select.deselect_all(),5
+Returns a list of all available options.,select.options,5
+"After you’ve triggered action that would open a popup, you can access the alert with this command. This will return the currently open alert object. With this object, you can now accept, dismiss, read its contents or even type into a prompt. This interface works equally well on alerts, confirms, prompts.",alert = driver.switch_to_alert(),5
+Output all the available cookies for the current URL.,driver.get_cookies(),5
+Locate the first element with a specific id.,driver.find_element_by_id(),5
+Locate all elements with a specific name.,driver.find_elements_by_name(),5
+Locate all elements with a specific xpath.,driver.find_elements_by_xpath(),5
+Import By.,from selenium.webdriver.common.by import By,5
+"Creating a Series by passing a list of values, letting pandas create a default integer index.",pd.Series([]),5
+View bottom 3 rows of df.,df.tail(3),5
+Calculate the mean of each value in df.,df.mean(),5
+"Grouping df by column A and B, and then applying the sum function.","df.groupby([""A"", ""B""]).sum()",5
+"Produce a pivot table from df, taking values from column D, indices from columns A and B, and columns from column C.","pd.pivot_table(df, values=""D"", index=[""A"", ""B""], columns=[""C""])",5
+Tokenize the string text into words.,word_tokenize(text),5
+Import sentence tokenizer.,from nltk.tokenize import sent_tokenize,5
+Tokenize the string text into sentences.,sent_tokenize(text),5
+foreign word,FW,5
+"adjective, comparative",JJR,5
+infinite marker,TO,5
+verb gerund,VBG,5
+An entry-point for WSGI-compatible web servers to serve your project.,mysite/wsgi.py,5
+A framework for managing static files.,django.contrib.staticfiles,5
+"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",5
+Deserialize fp (a .read()-supporting text file or binary file containing a JSON document) to a Python object,json.load(fp),5
+"Test that obj is not an instance of cls (which can be a class or a tuple of classes, as supported by isinstance()). To check for the exact type, use assertIs(type(obj), cls).","assertNotIsInstance(obj, cls)",5
+Create an instance of Firefox WebDriver.,driver = webdriver.Firefox(),5
+"Select the option with the value ""value"".",select.select_by_value(value),5
+"Move to frame ""frameName"".","driver.switch_to_frame(""frameName"")",5
+Go back to the main frame.,driver.switch_to_default_content(),5
+Move forward in the browser history.,driver.forward(),5
+Set a cookie named cookie.,driver.add_cookie(cookie),5
+Locate the first element with a specific link text.,driver.find_element_by_link_text(),5
+Locate the first element with a specific tag name.,driver.find_element_by_tag_name(),5
+Locate the first element with a specific class name.,driver.find_element_by_class_name(),5
+Import WebDriverWait.,from selenium.webdriver.support.ui import WebDriverWait,5
+Waiting condition that the title has a certain value.,title_is,5
+View top 5 rows of df.,df.head(),5
+Display the index of df.,df.index,5
+"Sort df by axis 1, in descending order.","df.sort_index(axis=1, ascending=False)",5
+"Select rows with value greater than 0 in column ""A"", in df.","df[df[""A""] > 0]",5
+Grouping df by column A and then applying the sum function to the resulting groups.,"df.groupby(""A"").sum()",5
+coordinating conjunction,CC,5
+existential there,EX,5
+"proper noun, plural",NNPS,5
+personal pronoun,PRP,5
+verb,VB,5
+wh- adverb (how),WRB,5
+Return the stem of word w.,PorterStemmer().stem(w),5
+Import WordNet.,from nltk.corpus import wordnet,5
+Draw a plot of frequency distribution fd.,fd.plot(),5
+Import admin.,from django.contrib import admin,5

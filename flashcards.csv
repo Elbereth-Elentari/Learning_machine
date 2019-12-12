@@ -1,173 +1,111 @@
-"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",4
-Split string by the occurrences of pattern.,"re.split(pattern, string)",4
-"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,4
-"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),4
-Deserialize fp (a .read()-supporting text file or binary file containing a JSON document) to a Python object,json.load(fp),4
-Access to standard Tk dialog boxes.,tkinter.messagebox,4
-"Used to communicate with horizontal scrollbars.
-
-When the view in the widget’s window change, the widget will generate a Tcl command based on the scrollcommand.
-
-Usually this option consists of the method Scrollbar.set() of some scrollbar. This will cause the scrollbar to be updated whenever the view in the window changes.",xscrollcommand,4
-"Test the widget’s state. If a callback is not specified, returns True if the widget state matches statespec and False otherwise.",instate(statespec),4
-"the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.",test case,4
-Calling this during a test method or setUp() skips the current test.,skipTest(reason),4
-Test that expr is false.,assertFalse(expr),4
-Test that expr is not None.,assertIsNotNone(expr),4
-Test that first is in second.,"assertIn(first, second)",4
-"Test that obj is not an instance of cls (which can be a class or a tuple of classes, as supported by isinstance()). To check for the exact type, use assertIs(type(obj), cls).","assertNotIsInstance(obj, cls)",4
-"Test that an exception is raised when callable is called with any positional or keyword arguments that are also passed to assertRaises(). The test passes if exception is raised, is an error if another exception is raised, or fails if no exception is raised. To catch any of a group of exceptions, a tuple containing the exception classes may be passed as exception.","assertRaises(exception, callable)",4
-Parse html_doc into a soup object.,"soup = BeautifulSoup(html_doc, ""html.parser"")",4
-Return the first instance of tag id equal to link3.,"soup.find(id=""link3"")",4
-Return the value of the first href tag.,"link.get(""href"")",4
-Return text from soup.,soup.get_text(),4
-Return a dictionary with all attributes of tag.,tag.attrs,4
-"Return a list of all p tags with css class values strikeout and body, in css_soup.","css_soup.select(""p.strikeout.body"")",4
-Import webdriver.,from selenium import webdriver,4
-Create an instance of Firefox WebDriver.,driver = webdriver.Firefox(),4
-navigate to a page given by url,"driver.get(""url"")",4
-Close the browser window irrespective of the number of tabs.,driver.quit(),4
 Import the Keys class.,from selenium.webdriver.common.keys import Keys,3
-"Enter "" and some"" into a text field, and simulate pressing the arrow down key.","element.send_keys("" and some"", Keys.ARROW_DOWN)",4
-clear the contents of a text field or textarea,element.clear(),4
-Import Select,from selenium.webdriver.support.ui import Select,4
-"Find an element with a list to select, called ""name""","select = Select(driver.find_element_by_name(""name""))",4
-Select the option with the index number index.,select.select_by_index(index),4
-"Select the option with visible text ""text"".","select.select_by_visible_text(""text"")",4
-"Select the option with the value ""value"".",select.select_by_value(value),4
-Deselect all selected options.,select.deselect_all(),4
 Returns a list of all selected options.,select.all_selected_options,3
-Returns a list of all available options.,select.options,4
-"Move to frame ""frameName"".","driver.switch_to_frame(""frameName"")",3
-Go back to the main frame.,driver.switch_to_default_content(),4
-"After you’ve triggered action that would open a popup, you can access the alert with this command. This will return the currently open alert object. With this object, you can now accept, dismiss, read its contents or even type into a prompt. This interface works equally well on alerts, confirms, prompts.",alert = driver.switch_to_alert(),3
-Move forward in the browser history.,driver.forward(),3
-Set a cookie named cookie.,driver.add_cookie(cookie),4
-Output all the available cookies for the current URL.,driver.get_cookies(),4
-Locate the first element with a specific id.,driver.find_element_by_id(),4
-Locate the first element with a specific xpath.,driver.find_element_by_xpath(),4
-Locate the first element with a specific link text.,driver.find_element_by_link_text(),4
-Locate the first element with a specific tag name.,driver.find_element_by_tag_name(),4
-Locate the first element with a specific class name.,driver.find_element_by_class_name(),4
-Locate the first element with a specific css selector.,driver.find_element_by_css_selector(),4
-Locate all elements with a specific id.,driver.find_elements_by_id(),4
-Locate all elements with a specific name.,driver.find_elements_by_name(),3
-Locate all elements with a specific xpath.,driver.find_elements_by_xpath(),4
-Locate all elements with a specific link text.,driver.find_elements_by_link_text(),4
 Locate all elements with a specific tag name.,driver.find_elements_by_tag_name(),3
-Locate all elements with a specific class name.,driver.find_elements_by_class_name(),4
-Import By.,from selenium.webdriver.common.by import By,4
-Import WebDriverWait.,from selenium.webdriver.support.ui import WebDriverWait,4
 "This waits up to 10 seconds before throwing a TimeoutException unless it finds the element by id ""myDynamicElement"", to return within 10 seconds.","element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, ""myDynamicElement"")))",3
-Waiting condition that the title has a certain value.,title_is,3
 Waiting condition that the title contains a certain string.,title_contains,3
-Waiting condition that driver detected the presence of an element.,presence_of_element_located,4
-Waiting condition that a specified element is visible.,visibility_of_element_located,3
-"Creating a Series by passing a list of values, letting pandas create a default integer index.",pd.Series([]),4
-View top 5 rows of df.,df.head(),4
-View bottom 3 rows of df.,df.tail(3),4
-Display the index of df.,df.index,4
-Display the column names of df.,df.columns,3
-Show a quick statistic summary of df.,df.describe(),4
-"Sort df by axis 1, in descending order.","df.sort_index(axis=1, ascending=False)",4
 Sort by values in column B.,"df.sort_values(by=""B"")",3
-Select column A in df.,"df[""A""]",4
 Select three initial rows in df.,df[0:3],3
 Select row number 3 in df.,df.iloc[3],3
-"Select rows with value greater than 0 in column ""A"", in df.","df[df[""A""] > 0]",4
-drop any rows that have missing data,"df.dropna(how=""any"")",4
-Fill missing data in df with 5.,df.fillna(value=5),4
-Calculate the mean of each value in df.,df.mean(),4
 "Merge dataframes left and right on key ""key"".","pd.merge(left, right, on=""key"")",3
-Grouping df by column A and then applying the sum function to the resulting groups.,"df.groupby(""A"").sum()",3
-"Grouping df by column A and B, and then applying the sum function.","df.groupby([""A"", ""B""]).sum()",4
-"Produce a pivot table from df, taking values from column D, indices from columns A and B, and columns from column C.","pd.pivot_table(df, values=""D"", index=[""A"", ""B""], columns=[""C""])",3
 Write df to file foo.csv.,"df.to_csv(""foo.csv"")",3
 Read file foo.csv.,"pd.read_csv(""foo.csv"")",3
 "Write df to foo.xlsx, sheet Sheet1.","df.to_excel(""foo.xlsx"", sheet_name=""Sheet1"")",3
 "Read foo.xlsx, Sheet1, with no column index, and empty cells filled with ""NA"".","pd.read_excel(""foo.xlsx"", ""Sheet1"", index_col=None, na_values=[""NA""])",3
 Import word tokenizer.,from nltk.tokenize import word_tokenize,3
-Tokenize the string text into words.,word_tokenize(text),3
-Import sentence tokenizer.,from nltk.tokenize import sent_tokenize,4
-Tokenize the string text into sentences.,sent_tokenize(text),3
-coordinating conjunction,CC,4
 cardinal digit,CD,3
-determiner,DT,3
-existential there,EX,3
-foreign word,FW,4
 preposition/subordinating conjunction,IN,3
-adjective,JJ,4
-"adjective, comparative",JJR,4
 "adjective, superlative",JJS,3
-list marker,LS,3
-modal,MD,4
 "noun, singular",NN,3
-noun plural,NNS,3
 "proper noun, singular",NNP,3
-"proper noun, plural",NNPS,3
 "predeterminer (all, both, half)",PDT,3
 possessive ending,POS,3
-personal pronoun,PRP,3
-possessive pronoun,PRP$,3
-adverb,RB,2
+adverb,RB,3
 "adverb, comparative",RBR,3
 "adverb, superlative",RBS,2
-particle (about),RP,2
-infinite marker,TO,2
-interjection (goodbye),UH,2
-verb,VB,3
-verb gerund,VBG,2
-verb past tense,VBD,2
+particle (about),RP,3
+interjection (goodbye),UH,3
+verb past tense,VBD,3
 verb past participle,VBN,3
-"verb, present tense not 3rd person singular",VBP,2
-"verb, present tense with 3rd person singular",VBZ,2
+"verb, present tense with 3rd person singular",VBZ,3
 "wh-determiner (that, what)",WDT,2
-wh- pronoun (who),WP,3
-wh- adverb (how),WRB,3
-import POS-tagger,from nltk import pos_tag,2
-Import the Regex Parser.,from nltk import RegexpParser,2
-"Return a list of tuples, whose 1st element is a word, while 2nd - its POS tag. The input is a list of words.",pos_tag(),2
+Import the Regex Parser.,from nltk import RegexpParser,3
+"Return a list of tuples, whose 1st element is a word, while 2nd - its POS tag. The input is a list of words.",pos_tag(),3
 import stemmer,from nltk.stem import PorterStemmer,3
-"Import a specified grammar (called ""grammar"") into regex parser.",nltk.RegexpParser(grammar),2
-"Define ""grammar"" for parsing, as a noun phrase that is composed of 0 or 1 determiner, at least 0 adjectives, and one noun.","grammar = ""NP: {<DT>?<JJ>*<NN>}""",2
-"Parse ""tag"" (POS-tagged tokens) with rule cp.",cp.parse(tag),0
+"Import a specified grammar (called ""grammar"") into regex parser.",nltk.RegexpParser(grammar),3
+"Parse ""tag"" (POS-tagged tokens) with rule cp.",cp.parse(tag),2
 Draw a syntactic tree of result.,result.draw(),2
-Return the stem of word w.,PorterStemmer().stem(w),2
-Import WordNet.,from nltk.corpus import wordnet,2
 "Print synsets of the word ""dog"".","wordnet.synsets(""dog"")",2
-Return the frequency distribution of a list of words.,nltk.FreqDist(words),2
-Draw a plot of frequency distribution fd.,fd.plot(),2
-Return a list of all bigrams made up of Tokens.,list(nltk.bigrams(Tokens)),2
-Return a list of all trigrams made up of Tokens.,list(nltk.trigrams(Tokens)),2
+Return the frequency distribution of a list of words.,nltk.FreqDist(words),3
+Return a list of all bigrams made up of Tokens.,list(nltk.bigrams(Tokens)),3
+Return a list of all trigrams made up of Tokens.,list(nltk.trigrams(Tokens)),3
 Start the mysite project in django.,django-admin startproject mysite,2
-Verify that the django project in path works.,python manage.py runserver,0
+Verify that the django project in path works.,python manage.py runserver,3
 Create a polls app.,python manage.py startapp polls,2
-Import HTTP Response.,from django.http import HttpResponse,2
+Import HTTP Response.,from django.http import HttpResponse,3
 "Create HTTP Response ""Hello, world.""","HttpResponse(""Hello, world."")",2
-Import path for django urls.,from django.urls import path,0
-Import views.,from . import views,2
-Create urlpatterns from the index of views.,"urlpatterns = [path('', views.index, name='index'),]",2
-Import admin.,from django.contrib import admin,2
-A command-line utility that lets you interact with this Django project in various ways.,manage.py,0
-An empty file that tells Python that this directory should be considered a Python package.,mysite/__init__.py,0
-Settings/configuration for this Django project.,mysite/settings.py,0
-The URL declarations for this Django project; a “table of contents” of your Django-powered site,mysite/urls.py,0
-An entry-point for ASGI-compatible web servers to serve your project.,mysite/asgi.py,0
-An entry-point for WSGI-compatible web servers to serve your project.,mysite/wsgi.py,1
+Import path for django urls.,from django.urls import path,3
+Import views.,from . import views,3
+Create urlpatterns from the index of views.,"urlpatterns = [path('', views.index, name='index'),]",3
+A command-line utility that lets you interact with this Django project in various ways.,manage.py,3
+An empty file that tells Python that this directory should be considered a Python package.,mysite/__init__.py,3
+Settings/configuration for this Django project.,mysite/settings.py,2
+The URL declarations for this Django project; a “table of contents” of your Django-powered site,mysite/urls.py,2
+An entry-point for ASGI-compatible web servers to serve your project.,mysite/asgi.py,2
 "This function allows referencing other URLconfs. Whenever Django encounters the function, it chops off whatever part of the URL matched up to that point and sends the remaining string to the included URLconf for further processing.
 
-The idea behind this function is to make it easy to plug-and-play URLs. Since polls are in their own URLconf (polls/urls.py), they can be placed under “/polls/”, or under “/fun_polls/”, or under “/content/polls/”, or any other path root, and the app will still work.",include(),0
-"This function is passed four arguments, two required: route and view, and two optional: kwargs, and name.",path(),1
- a string that contains a URL pattern,route,0
-"When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument and any “captured” values from the route as keyword arguments.",view,0
-Arbitrary keyword arguments can be passed in a dictionary to the target view.,kwargs,0
-"Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates. This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.",name,1
-The admin site.,django.contrib.admin,0
-An authentication system.,django.contrib.auth,0
-A framework for content types.,django.contrib.contenttypes,1
-A session framework.,django.contrib.sessions,0
-A messaging framework.,django.contrib.messages,0
-A framework for managing static files.,django.contrib.staticfiles,0
-create the tables in the database,python manage.py migrate,0
-Import models.,from django.db import models,0
-create a user who can login to the admin site,python manage.py createsuperuser,0
+The idea behind this function is to make it easy to plug-and-play URLs. Since polls are in their own URLconf (polls/urls.py), they can be placed under “/polls/”, or under “/fun_polls/”, or under “/content/polls/”, or any other path root, and the app will still work.",include(),3
+"This function is passed four arguments, two required: route and view, and two optional: kwargs, and name.",path(),3
+ a string that contains a URL pattern,route,2
+"When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument and any “captured” values from the route as keyword arguments.",view,1
+Arbitrary keyword arguments can be passed in a dictionary to the target view.,kwargs,3
+"Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates. This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.",name,3
+The admin site.,django.contrib.admin,2
+An authentication system.,django.contrib.auth,3
+A framework for content types.,django.contrib.contenttypes,3
+A session framework.,django.contrib.sessions,3
+A messaging framework.,django.contrib.messages,2
+create the tables in the database,python manage.py migrate,2
+Import models.,from django.db import models,2
+Import Question.,from .models import Question,3
+tell the admin that Question objects have an admin interface,admin.site.register(Question),2
+Import Render.,from django.shortcuts import render,3
+"Import ""Page not Found"".",from django.http import Http404,2
+"Import ""get object or 404"".",from django.shortcuts import get_object_or_404,2
+the act of submitting this form will alter data server-side,"method=""post""",2
+indicates how many times the for tag has gone through its loop,forloop.counter,2
+all POST forms that are targeted at internal URLs should use this template tag,{% csrf_token %},3
+Import HTTP Response Redirect.,from django.http import HttpResponseRedirect,1
+Import reverse.,from django.urls import reverse,1
+Import Choice.,from .models import Choice,1
+a dictionary-like object that lets you access submitted data by key name,request.POST,2
+always return this after successfully dealing with POST data,HttpResponseRedirect,2
+This function helps avoid having to hardcode a URL in the view function. It is given the name of the view that we want to pass control to and the variable portion of the URL pattern that points to that view.,reverse(),2
+"After somebody votes in a question, this view redirects to the results page for the question.",vote(),3
+This view displays a list of polls.,index(),3
+Import generic.,from django.views import generic,2
+A family of open system standards based on Unix.,POSIX,1
+A space or tab character.,blank,1
+"A command that is implemented internally by the shell itself, rather than by an executable program somewhere in the file system.",builtin,2
+"A token that performs a control function. It is a newline or one of the following: ‘||’, ‘&&’, ‘&’, ‘;’, ‘;;’, ‘;&’, ‘;;&’, ‘|’, ‘|&’, ‘(’, or ‘)’.",control operator,0
+"The value returned by a command to its caller. The value is restricted to eight bits, so the maximum value is 255.",exit status,0
+"A unit of text that is the result of one of the shell expansions. After expansion, when executing a command, the resulting fields are used as the command name and arguments.",field,0
+A string of characters used to identify a file.,filename,0
+"A set of processes comprising a pipeline, and any processes descended from it, that are all in the same process group.",job,0
+A mechanism by which users can selectively stop (suspend) and restart (resume) execution of processes.,job control,0
+"A character that, when unquoted, separates words. A metacharacter is a space, tab, newline, or one of the following characters: ‘|’, ‘&’, ‘;’, ‘(’, ‘)’, ‘<’, or ‘>’.",metacharacter,0
+"A word consisting solely of letters, numbers, and underscores, and beginning with a letter or underscore. Names are used as shell variable and function names. Also referred to as an identifier.",name,0
+"A control operator or a redirection operator. See Redirections, for a list of redirection operators. Operators contain at least one unquoted metacharacter.",operator,0
+A collection of related processes each having the same process group ID.,process group,0
+A unique identifier that represents a process group during its lifetime.,process group ID,0
+"A word that has a special meaning to the shell. Most reserved words introduce shell flow control constructs, such as for and while.",reserved word,0
+A synonym for exit status.,return status,0
+A mechanism by which a process may be notified by the kernel of an event occurring in the system.,signal,0
+A shell builtin command that has been classified as special by the POSIX standard.,special builtin,0
+A sequence of characters considered a single unit by the shell. It is either a word or an operator.,token,0
+A sequence of characters treated as a unit by the shell. Words may not include unquoted metacharacters.,word,0
+"Bash escape character. It preserves the literal value of the next character that follows, with the exception of newline. If a \newline pair appears, and the backslash itself is not quoted, the \newline is treated as a line continuation (that is, it is removed from the input stream and effectively ignored).",\,0
+preserves the literal value of each character within it,,0
+" preserves the literal value of all characters within the quotes, with the exception of ‘$’, ‘`’, ‘\’, and, when history expansion is enabled, ‘!’. When the shell is in POSIX mode (see Bash POSIX Mode), the ‘!’ has no special meaning within double quotes, even when history expansion is enabled. The characters ‘$’ and ‘`’ retain their special meaning within double quotes (see Shell Expansions). The backslash retains its special meaning only when followed by one of the following characters: ‘$’, ‘`’, ‘""’, ‘\’, or newline. Within double quotes, backslashes that are followed by one of these characters are removed. Backslashes preceding characters without a special meaning are left unmodified. A double quote may be quoted within double quotes by preceding it with a backslash. If enabled, history expansion will be performed unless an ‘!’ appearing in double quotes is escaped using a backslash. The backslash preceding the ‘!’ is not removed.
+
+The special parameters ‘*’ and ‘@’ have special meaning when in double quotes (see Shell Parameter Expansion).","""",0
+alert (bell),\a,0
