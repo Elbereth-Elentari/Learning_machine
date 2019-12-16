@@ -1,1 +1,26 @@
-
+Import TensorFlow.,import tensorflow as tf
+Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist
+Load the MNIST dataset.,"(x_train, y_train), (x_test, y_test) = mnist.load_data()"
+Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0"
+Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([])
+"A Flatten layer, with a square input shape with 28 values per side.","tf.keras.layers.Flatten(input_shape=(28, 28))"
+A Dense layer with 128 neurons and relu activation.,"tf.keras.layers.Dense(128, activation='relu')"
+A Dropout layer of 0.2.,tf.keras.layers.Dropout(0.2)
+A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')"
+"Compile model with Adam optimiser, sparce categorical entropy as the loss function and accuracy as metric.","model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])"
+Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)"
+Evaluate model with verbosity level 2.,"model.evaluate(x_test,  y_test, verbose=2)"
+a high-level API to build and train models in TensorFlow,tf.keras
+Import Keras.,from tensorflow import keras
+Import PyPlot.,import matplotlib.pyplot as plt
+Print the version of TensorFlow.,print(tf.__version__)
+Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist
+"This measures how accurate the model is during training. You want to minimize this function to ""steer"" the model in the right direction.",loss function
+This is how the model is updated based on the data it sees and its loss function.,optimizer
+Used to monitor the training and testing steps.,metrics
+Use model to predict the labels for test_images.,predictions = model.predict(test_images)
+Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0])
+collection of examples for simultaneous evaluation,batch
+Create a callback that saves the model's weights,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)"
+Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10,
+validation_data=(test_images,test_labels), callbacks=[cp_callback])"
