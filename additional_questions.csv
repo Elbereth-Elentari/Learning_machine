@@ -1,3 +1,28 @@
 Create a callback that saves the model's weights,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)"
 Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10,
 validation_data=(test_images,test_labels), callbacks=[cp_callback])"
+Install dependencies for saving models in HDF5 format.,pip install -q pyyaml h5py
+Display the model's architecture,model.summary()
+creates a single collection of TensorFlow checkpoint files that are updated at the end of each epoch,ls {checkpoint_dir}
+load the weights from the checkpoint ,model.load_weights(checkpoint_path)
+Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt"""
+Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path)
+Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)"
+Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0))
+Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir)
+Load the latest weights to model.,model.load_weights(latest)
+Manually save weights.,model.save_weights('./checkpoints/my_checkpoint')
+Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint')
+Save the model to a H5 file.,model.save('my_model.h5')
+Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5')
+Save the model as a SavedModel.,model.save('saved_model/my_model')
+URL path to a sample train dataset in CSV.,"TRAIN_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/train.csv"""
+URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/eval.csv"""
+Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)"
+Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)"
+Make numpy values easier to read.,"np.set_printoptions(precision=3, suppress=True)"
+Identify the ‘survived’ column as the one with the predicted value.,LABEL_COLUMN = 'survived'
+"Set the list of labels as [0, 1].","LABELS = [0, 1]"
+"Create a dataset from file_path, with batch size 5, NA’s as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)"
+Display a batch from the dataset.,show_batch(dataset)
+Basic normalization.,(data-mean)/std
