@@ -62,8 +62,8 @@ while session_count < session_limit:
 print("======================================================\nEND OF SESSION.\n=======================================================")
 
 with open("flashcards.csv", "w") as nowe_flashcards, open("answered_questions.csv", "a+") as answered:
-    flashcards.loc[flashcards[2] < 5].to_csv(nowe_flashcards, header=False, index=False)
-    flashcards.loc[flashcards[2] == 5].to_csv(answered, header=False, index=False)
+    flashcards.loc[flashcards[2] < 5].to_csv(nowe_flashcards, header=False, index=False, line_terminator="\n")
+    flashcards.loc[flashcards[2] == 5].to_csv(answered, header=False, index=False, line_terminator="\n")
 
 if last_level != str(current_level):
     with open("last_level.txt", "w") as new:
