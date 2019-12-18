@@ -103,56 +103,56 @@ A shell builtin command that has been classified as special by the POSIX standar
 A sequence of characters considered a single unit by the shell. It is either a word or an operator.,token,3
 A sequence of characters treated as a unit by the shell. Words may not include unquoted metacharacters.,word,3
 "Bash escape character. It preserves the literal value of the next character that follows, with the exception of newline. If a \newline pair appears, and the backslash itself is not quoted, the \newline is treated as a line continuation (that is, it is removed from the input stream and effectively ignored).",\,3
-preserves the literal value of each character within it,',1
+preserves the literal value of each character within it,',2
 " preserves the literal value of all characters within the quotes, with the exception of ‘$’, ‘`’, ‘\’, and, when history expansion is enabled, ‘!’. When the shell is in POSIX mode (see Bash POSIX Mode), the ‘!’ has no special meaning within double quotes, even when history expansion is enabled. The characters ‘$’ and ‘`’ retain their special meaning within double quotes (see Shell Expansions). The backslash retains its special meaning only when followed by one of the following characters: ‘$’, ‘`’, ‘""’, ‘\’, or newline. Within double quotes, backslashes that are followed by one of these characters are removed. Backslashes preceding characters without a special meaning are left unmodified. A double quote may be quoted within double quotes by preceding it with a backslash. If enabled, history expansion will be performed unless an ‘!’ appearing in double quotes is escaped using a backslash. The backslash preceding the ‘!’ is not removed.
 The special parameters ‘*’ and ‘@’ have special meaning when in double quotes (see Shell Parameter Expansion).","""",3
 alert (bell),\a,3
-backspace,\b,1
+backspace,\b,2
 an escape character (not ANSI C),\E,3
-form feed,\f,1
+form feed,\f,2
 newline,\n,3
-carriage return,\r,1
-horizontal tab,\t,1
-vertical tab,\v,1
-backslash,\\,1
+carriage return,\r,2
+horizontal tab,\t,2
+vertical tab,\v,2
+backslash,\\,2
 single quote,\',3
-double quote,"\""",1
+double quote,"\""",2
 question mark,\?,3
-the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHH (one to four hex digits),\uHHHH,1
+the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHH (one to four hex digits),\uHHHH,2
 a control-x character,\cx,3
 a sequence of one or more commands separated by one of the control operators ‘|’ or ‘|&’.,pipeline,3
-" a sequence of one or more pipelines separated by one of the operators ‘;’, ‘&’, ‘&&’, or ‘||’, and optionally terminated by one of ‘;’, ‘&’, or a newline.",list,1
+" a sequence of one or more pipelines separated by one of the operators ‘;’, ‘&’, ‘&&’, or ‘||’, and optionally terminated by one of ‘;’, ‘&’, or a newline.",list,2
 "Execute consequent-commands as long as test-commands has an exit status which is not zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",until test-commands; do consequent-commands; done,1
-"Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",while test-commands; do consequent-commands; done,1
-"Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words …] ] ; ] do commands; done,1
-"First, the arithmetic expression expr1 is evaluated according to the rules described below (see Shell Arithmetic). The arithmetic expression expr2 is then evaluated repeatedly until it evaluates to zero. Each time expr2 evaluates to a non-zero value, commands are executed and the arithmetic expression expr3 is evaluated. If any expression is omitted, it behaves as if it evaluates to 1. The return value is the exit status of the last command in commands that is executed, or false if any of the expressions is invalid.",for (( expr1 ; expr2 ; expr3 )) ; do commands ; done,1
-"The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.",if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi,1
+"Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",while test-commands; do consequent-commands; done,2
+"Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words …] ] ; ] do commands; done,2
+"First, the arithmetic expression expr1 is evaluated according to the rules described below (see Shell Arithmetic). The arithmetic expression expr2 is then evaluated repeatedly until it evaluates to zero. Each time expr2 evaluates to a non-zero value, commands are executed and the arithmetic expression expr3 is evaluated. If any expression is omitted, it behaves as if it evaluates to 1. The return value is the exit status of the last command in commands that is executed, or false if any of the expressions is invalid.",for (( expr1 ; expr2 ; expr3 )) ; do commands ; done,2
+"The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.",if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi,2
 "will selectively execute the command-list corresponding to the first pattern that matches word. The match is performed according to the rules described below in Pattern Matching. If the nocasematch shell option (see the description of shopt in The Shopt Builtin) is enabled, the match is performed without regard to the case of alphabetic characters. The ‘|’ is used to separate multiple patterns, and the ‘)’ operator terminates a pattern list. A list of patterns and an associated command-list is known as a clause.
 Each clause must be terminated with ‘;;’, ‘;&’, or ‘;;&’. The word undergoes tilde expansion, parameter expansion, command substitution, arithmetic expansion, and quote removal (see Shell Parameter Expansion) before matching is attempted. Each pattern undergoes tilde expansion, parameter expansion, command substitution, and arithmetic expansion.
 There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&’, or ‘;;&’. The first pattern that matches determines the command-list that is executed. It’s a common idiom to use ‘*’ as the final pattern to define the default case, since that pattern will always match.",case word in [ [(] pattern [| pattern]…) command-list ;;] esac,1
 Import TensorFlow.,import tensorflow as tf,3
-Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist,1
-Load the MNIST dataset.,"(x_train, y_train), (x_test, y_test) = mnist.load_data()",1
+Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist,2
+Load the MNIST dataset.,"(x_train, y_train), (x_test, y_test) = mnist.load_data()",2
 Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",0
-Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([]),1
+Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([]),2
 "A Flatten layer, with a square input shape with 28 values per side.","tf.keras.layers.Flatten(input_shape=(28, 28))",0
-A Dense layer with 128 neurons and relu activation.,"tf.keras.layers.Dense(128, activation='relu')",0
+A Dense layer with 128 neurons and relu activation.,"tf.keras.layers.Dense(128, activation='relu')",2
 A Dropout layer of 0.2.,tf.keras.layers.Dropout(0.2),0
-A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",1
+A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",2
 "Compile model with Adam optimiser, sparce categorical entropy as the loss function and accuracy as metric.","model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])",0
 Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",0
-Evaluate model with verbosity level 2.,"model.evaluate(x_test,  y_test, verbose=2)",0
-a high-level API to build and train models in TensorFlow,tf.keras,1
+Evaluate model with verbosity level 2.,"model.evaluate(x_test,  y_test, verbose=2)",2
+a high-level API to build and train models in TensorFlow,tf.keras,2
 Import Keras.,from tensorflow import keras,1
 Import PyPlot.,import matplotlib.pyplot as plt,0
-Print the version of TensorFlow.,print(tf.__version__),1
-Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,1
-"This measures how accurate the model is during training. You want to minimize this function to ""steer"" the model in the right direction.",loss function,1
-This is how the model is updated based on the data it sees and its loss function.,optimizer,1
-Used to monitor the training and testing steps.,metrics,1
+Print the version of TensorFlow.,print(tf.__version__),2
+Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,2
+"This measures how accurate the model is during training. You want to minimize this function to ""steer"" the model in the right direction.",loss function,2
+This is how the model is updated based on the data it sees and its loss function.,optimizer,2
+Used to monitor the training and testing steps.,metrics,2
 Use model to predict the labels for test_images.,predictions = model.predict(test_images),0
 Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),0
-collection of examples for simultaneous evaluation,batch,1
+collection of examples for simultaneous evaluation,batch,2
 Create a callback that saves the model's weights,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)",0
 Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10,
 validation_data=(test_images,test_labels), callbacks=[cp_callback])",0
@@ -164,3 +164,5 @@ Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""trai
 Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path),0
 Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",0
 Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),0
+Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),0
+Load the latest weights to model.,model.load_weights(latest),0

@@ -1,5 +1,3 @@
-Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir)
-Load the latest weights to model.,model.load_weights(latest)
 Manually save weights.,model.save_weights('./checkpoints/my_checkpoint')
 Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint')
 Save the model to a H5 file.,model.save('my_model.h5')
