@@ -1,15 +1,2 @@
-Manually save weights.,model.save_weights('./checkpoints/my_checkpoint')
-Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint')
-Save the model to a H5 file.,model.save('my_model.h5')
-Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5')
-Save the model as a SavedModel.,model.save('saved_model/my_model')
-URL path to a sample train dataset in CSV.,"TRAIN_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/train.csv"""
-URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/eval.csv"""
-Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)"
-Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)"
-Make numpy values easier to read.,"np.set_printoptions(precision=3, suppress=True)"
-Identify the ‘survived’ column as the one with the predicted value.,LABEL_COLUMN = 'survived'
-"Set the list of labels as [0, 1].","LABELS = [0, 1]"
-"Create a dataset from file_path, with batch size 5, NA’s as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)"
 Display a batch from the dataset.,show_batch(dataset)
 Basic normalization.,(data-mean)/std
