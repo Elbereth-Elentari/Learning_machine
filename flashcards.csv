@@ -126,7 +126,7 @@ a sequence of one or more commands separated by one of the control operators ‘|’
 "Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",while test-commands; do consequent-commands; done,2
 "Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words ...] ] ; ] do commands; done,2
 "First, the arithmetic expression expr1 is evaluated according to the rules described below (see Shell Arithmetic). The arithmetic expression expr2 is then evaluated repeatedly until it evaluates to zero. Each time expr2 evaluates to a non-zero value, commands are executed and the arithmetic expression expr3 is evaluated. If any expression is omitted, it behaves as if it evaluates to 1. The return value is the exit status of the last command in commands that is executed, or false if any of the expressions is invalid.",for (( expr1 ; expr2 ; expr3 )) ; do commands ; done,2
-"The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.",if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi,2
+"The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.",if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi,3
 "will selectively execute the command-list corresponding to the first pattern that matches word. The match is performed according to the rules described below in Pattern Matching. If the nocasematch shell option (see the description of shopt in The Shopt Builtin) is enabled, the match is performed without regard to the case of alphabetic characters. The ‘|’ is used to separate multiple patterns, and the ‘)’ operator terminates a pattern list. A list of patterns and an associated command-list is known as a clause.
 Each clause must be terminated with ‘;;’, ‘;&’, or ‘;;&’. The word undergoes tilde expansion, parameter expansion, command substitution, arithmetic expansion, and quote removal (see Shell Parameter Expansion) before matching is attempted. Each pattern undergoes tilde expansion, parameter expansion, command substitution, and arithmetic expansion.
 There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&’, or ‘;;&’. The first pattern that matches determines the command-list that is executed. It’s a common idiom to use ‘*’ as the final pattern to define the default case, since that pattern will always match.",case word in [ [(] pattern [| pattern]...) command-list ;;] esac,2
@@ -135,46 +135,46 @@ Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist,
 Load the MNIST dataset.,"(x_train, y_train), (x_test, y_test) = mnist.load_data()",2
 Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",1
 Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([]),2
-"A Flatten layer, with a square input shape with 28 values per side.","tf.keras.layers.Flatten(input_shape=(28, 28))",1
+"A Flatten layer, with a square input shape with 28 values per side.","tf.keras.layers.Flatten(input_shape=(28, 28))",2
 A Dense layer with 128 neurons and relu activation.,"tf.keras.layers.Dense(128, activation='relu')",2
 A Dropout layer of 0.2.,tf.keras.layers.Dropout(0.2),1
 A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",2
-"Compile model with Adam optimiser, sparce categorical entropy as the loss function and accuracy as metric.","model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])",0
-Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",1
+"Compile model with Adam optimiser, sparce categorical entropy as the loss function and accuracy as metric.","model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])",1
+Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",2
 Evaluate model with verbosity level 2.,"model.evaluate(x_test,  y_test, verbose=2)",2
 a high-level API to build and train models in TensorFlow,tf.keras,2
 Import Keras.,from tensorflow import keras,2
-Import PyPlot.,import matplotlib.pyplot as plt,1
-Print the version of TensorFlow.,print(tf.__version__),2
+Import PyPlot.,import matplotlib.pyplot as plt,2
+Print the version of TensorFlow.,print(tf.__version__),3
 Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,2
 "This measures how accurate the model is during training. You want to minimize this function to ""steer"" the model in the right direction.",loss function,2
 This is how the model is updated based on the data it sees and its loss function.,optimizer,2
 Used to monitor the training and testing steps.,metrics,2
 Use model to predict the labels for test_images.,predictions = model.predict(test_images),1
-Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),1
+Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),2
 collection of examples for simultaneous evaluation,batch,2
 Create a callback that saves the model's weights,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)",1
-Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10, validation_data=(test_images,test_labels), callbacks=[cp_callback])",0
+Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10, validation_data=(test_images,test_labels), callbacks=[cp_callback])",0
 Install dependencies for saving models in HDF5 format.,pip install -q pyyaml h5py,1
-Display the model's architecture,model.summary(),1
+Display the model's architecture,model.summary(),2
 creates a single collection of TensorFlow checkpoint files that are updated at the end of each epoch,ls {checkpoint_dir},1
-load the weights from the checkpoint ,model.load_weights(checkpoint_path),1
+load the weights from the checkpoint ,model.load_weights(checkpoint_path),2
 Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt""",1
 Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path),1
 Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",1
 Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),1
 Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),1
-Load the latest weights to model.,model.load_weights(latest),1
+Load the latest weights to model.,model.load_weights(latest),2
 Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),1
 Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint'),0
-Save the model to a H5 file.,model.save('my_model.h5'),1
+Save the model to a H5 file.,model.save('my_model.h5'),2
 Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),1
-Save the model as a SavedModel.,model.save('saved_model/my_model'),1
-URL path to a sample train dataset in CSV.,"TRAIN_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/train.csv""",0
-URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/eval.csv""",0
-Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)",0
-Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",0
-Make numpy values easier to read.,"np.set_printoptions(precision=3, suppress=True)",0
-Identify the 'survived' column as the one with the predicted value.,LABEL_COLUMN = 'survived',0
-"Set the list of labels as [0, 1].","LABELS = [0, 1]",1
+Save the model as a SavedModel.,model.save('saved_model/my_model'),2
+URL path to a sample train dataset in CSV.,"TRAIN_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/train.csv""",2
+URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/eval.csv""",2
+Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)",2
+Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",1
+Make numpy values easier to read.,"np.set_printoptions(precision=3, suppress=True)",2
+Identify the 'survived' column as the one with the predicted value.,LABEL_COLUMN = 'survived',2
+"Set the list of labels as [0, 1].","LABELS = [0, 1]",2
 "Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",0
