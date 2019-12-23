@@ -333,3 +333,98 @@ Return the stem of word w.,PorterStemmer().stem(w),5
 Import WordNet.,from nltk.corpus import wordnet,5
 Draw a plot of frequency distribution fd.,fd.plot(),5
 Import admin.,from django.contrib import admin,5
+Returns a list of all selected options.,select.all_selected_options,5
+"This waits up to 10 seconds before throwing a TimeoutException unless it finds the element by id ""myDynamicElement"", to return within 10 seconds.","element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, ""myDynamicElement"")))",5
+Select row number 3 in df.,df.iloc[3],5
+Read file foo.csv.,"pd.read_csv(""foo.csv"")",5
+cardinal digit,CD,5
+"noun, singular",NN,5
+adverb,RB,5
+"adverb, comparative",RBR,5
+interjection (goodbye),UH,5
+"wh-determiner (that, what)",WDT,5
+Import the Regex Parser.,from nltk import RegexpParser,5
+Import views.,from . import views,5
+An empty file that tells Python that this directory should be considered a Python package.,mysite/__init__.py,5
+The admin site.,django.contrib.admin,5
+Import models.,from django.db import models,5
+Import Render.,from django.shortcuts import render,5
+always return this after successfully dealing with POST data,HttpResponseRedirect,5
+A family of open system standards based on Unix.,POSIX,5
+"A command that is implemented internally by the shell itself, rather than by an executable program somewhere in the file system.",builtin,5
+A mechanism by which a process may be notified by the kernel of an event occurring in the system.,signal,5
+double quote,"\""",5
+a control-x character,\cx,5
+"The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.",if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi,5
+"A Flatten layer, with a square input shape with 28 values per side.","tf.keras.layers.Flatten(input_shape=(28, 28))",5
+Identify the 'survived' column as the one with the predicted value.,LABEL_COLUMN = 'survived',5
+"Merge dataframes left and right on key ""key"".","pd.merge(left, right, on=""key"")",5
+"Read foo.xlsx, Sheet1, with no column index, and empty cells filled with ""NA"".","pd.read_excel(""foo.xlsx"", ""Sheet1"", index_col=None, na_values=[""NA""])",5
+Import word tokenizer.,from nltk.tokenize import word_tokenize,5
+preposition/subordinating conjunction,IN,5
+possessive ending,POS,5
+"verb, present tense with 3rd person singular",VBZ,5
+"Return a list of tuples, whose 1st element is a word, while 2nd - its POS tag. The input is a list of words.",pos_tag(),5
+"Import a specified grammar (called ""grammar"") into regex parser.",nltk.RegexpParser(grammar),5
+"Print synsets of the word ""dog"".","wordnet.synsets(""dog"")",5
+Verify that the django project in path works.,python manage.py runserver,5
+Create a polls app.,python manage.py startapp polls,5
+Import HTTP Response.,from django.http import HttpResponse,5
+a string that contains a URL pattern,route,5
+"Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates. This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.",name,5
+An authentication system.,django.contrib.auth,5
+A framework for content types.,django.contrib.contenttypes,5
+A messaging framework.,django.contrib.messages,5
+"Import ""Page not Found"".",from django.http import Http404,5
+"Import ""get object or 404"".",from django.shortcuts import get_object_or_404,5
+Import HTTP Response Redirect.,from django.http import HttpResponseRedirect,5
+Import reverse.,from django.urls import reverse,5
+This function helps avoid having to hardcode a URL in the view function. It is given the name of the view that we want to pass control to and the variable portion of the URL pattern that points to that view.,reverse(),5
+This view displays a list of polls.,index(),5
+Import generic.,from django.views import generic,5
+"A token that performs a control function. It is a newline or one of the following: ‘||’, ‘&&’, ‘&’, ‘;’, ‘;;’, ‘;&’, ‘;;&’, ‘|’, ‘|&’, ‘(’, or ‘)’.",control operator,5
+"A character that, when unquoted, separates words. A metacharacter is a space, tab, newline, or one of the following characters: ‘|’, ‘&’, ‘;’, ‘(’, ‘)’, ‘<’, or ‘>’.",metacharacter,5
+"A control operator or a redirection operator. See Redirections, for a list of redirection operators. Operators contain at least one unquoted metacharacter.",operator,5
+carriage return,\r,5
+A Dense layer with 128 neurons and relu activation.,"tf.keras.layers.Dense(128, activation='relu')",5
+a high-level API to build and train models in TensorFlow,tf.keras,5
+Used to monitor the training and testing steps.,metrics,5
+Save the model as a SavedModel.,model.save('saved_model/my_model'),5
+URL path to a sample train dataset in CSV.,"TRAIN_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/train.csv""",5
+Make numpy values easier to read.,"np.set_printoptions(precision=3, suppress=True)",5
+Import the Keys class.,from selenium.webdriver.common.keys import Keys,5
+Waiting condition that the title contains a certain string.,title_contains,5
+Select three initial rows in df.,df[0:3],5
+"Write df to foo.xlsx, sheet Sheet1.","df.to_excel(""foo.xlsx"", sheet_name=""Sheet1"")",5
+"adjective, superlative",JJS,5
+"proper noun, singular",NNP,5
+"predeterminer (all, both, half)",PDT,5
+verb past tense,VBD,5
+verb past participle,VBN,5
+import stemmer,from nltk.stem import PorterStemmer,5
+"Parse ""tag"" (POS-tagged tokens) with rule cp.",cp.parse(tag),5
+Draw a syntactic tree of result.,result.draw(),5
+Return the frequency distribution of a list of words.,nltk.FreqDist(words),5
+Return a list of all bigrams made up of Tokens.,list(nltk.bigrams(Tokens)),5
+Return a list of all trigrams made up of Tokens.,list(nltk.trigrams(Tokens)),5
+Import path for django urls.,from django.urls import path,5
+A command-line utility that lets you interact with this Django project in various ways.,manage.py,5
+An entry-point for ASGI-compatible web servers to serve your project.,mysite/asgi.py,5
+"This function allows referencing other URLconfs. Whenever Django encounters the function, it chops off whatever part of the URL matched up to that point and sends the remaining string to the included URLconf for further processing.
+The idea behind this function is to make it easy to plug-and-play URLs. Since polls are in their own URLconf (polls/urls.py), they can be placed under “/polls/”, or under “/fun_polls/”, or under “/content/polls/”, or any other path root, and the app will still work.",include(),5
+Arbitrary keyword arguments can be passed in a dictionary to the target view.,kwargs,5
+A session framework.,django.contrib.sessions,5
+Import Question.,from .models import Question,5
+tell the admin that Question objects have an admin interface,admin.site.register(Question),5
+all POST forms that are targeted at internal URLs should use this template tag,{% csrf_token %},5
+"After somebody votes in a question, this view redirects to the results page for the question.",vote(),5
+A space or tab character.,blank,5
+"The value returned by a command to its caller. The value is restricted to eight bits, so the maximum value is 255.",exit status,5
+A string of characters used to identify a file.,filename,5
+A synonym for exit status.,return status,5
+alert (bell),\a,5
+question mark,\?,5
+"First, the arithmetic expression expr1 is evaluated according to the rules described below (see Shell Arithmetic). The arithmetic expression expr2 is then evaluated repeatedly until it evaluates to zero. Each time expr2 evaluates to a non-zero value, commands are executed and the arithmetic expression expr3 is evaluated. If any expression is omitted, it behaves as if it evaluates to 1. The return value is the exit status of the last command in commands that is executed, or false if any of the expressions is invalid.",for (( expr1 ; expr2 ; expr3 )) ; do commands ; done,5
+Evaluate model with verbosity level 2.,"model.evaluate(x_test,  y_test, verbose=2)",5
+Import Keras.,from tensorflow import keras,5
+collection of examples for simultaneous evaluation,batch,5

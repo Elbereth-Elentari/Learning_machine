@@ -1,2 +1,1 @@
-Display a batch from the dataset.,show_batch(dataset)
-Basic normalization.,(data-mean)/std
+
