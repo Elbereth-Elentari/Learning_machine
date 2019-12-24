@@ -428,3 +428,10 @@ question mark,\?,5
 Evaluate model with verbosity level 2.,"model.evaluate(x_test,  y_test, verbose=2)",5
 Import Keras.,from tensorflow import keras,5
 collection of examples for simultaneous evaluation,batch,5
+Locate all elements with a specific tag name.,driver.find_elements_by_tag_name(),5
+Sort by values in column B.,"df.sort_values(by=""B"")",5
+Write df to file foo.csv.,"df.to_csv(""foo.csv"")",5
+particle (about),RP,5
+Create urlpatterns from the index of views.,"urlpatterns = [path('', views.index, name='index'),]",5
+"This function is passed four arguments, two required: route and view, and two optional: kwargs, and name.",path(),5
+a dictionary-like object that lets you access submitted data by key name,request.POST,5

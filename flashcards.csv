@@ -1,20 +1,13 @@
-Locate all elements with a specific tag name.,driver.find_elements_by_tag_name(),4
-Sort by values in column B.,"df.sort_values(by=""B"")",4
-Write df to file foo.csv.,"df.to_csv(""foo.csv"")",4
 "adverb, superlative",RBS,3
-particle (about),RP,4
 Start the mysite project in django.,django-admin startproject mysite,3
 "Create HTTP Response ""Hello, world.""","HttpResponse(""Hello, world."")",3
-Create urlpatterns from the index of views.,"urlpatterns = [path('', views.index, name='index'),]",4
 Settings/configuration for this Django project.,mysite/settings.py,3
 The URL declarations for this Django project; a “table of contents” of your Django-powered site,mysite/urls.py,3
-"This function is passed four arguments, two required: route and view, and two optional: kwargs, and name.",path(),4
 "When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument and any “captured” values from the route as keyword arguments.",view,3
 create the tables in the database,python manage.py migrate,3
 the act of submitting this form will alter data server-side,"method=""post""",3
 indicates how many times the for tag has gone through its loop,forloop.counter,3
 Import Choice.,from .models import Choice,3
-a dictionary-like object that lets you access submitted data by key name,request.POST,4
 "A unit of text that is the result of one of the shell expansions. After expansion, when executing a command, the resulting fields are used as the command name and arguments.",field,3
 "A set of processes comprising a pipeline, and any processes descended from it, that are all in the same process group.",job,3
 A mechanism by which users can selectively stop (suspend) and restart (resume) execution of processes.,job control,3
@@ -51,7 +44,7 @@ Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist,
 Load the MNIST dataset.,"(x_train, y_train), (x_test, y_test) = mnist.load_data()",2
 Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",1
 Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([]),3
-A Dropout layer of 0.2.,tf.keras.layers.Dropout(0.2),1
+A Dropout layer of 0.2.,tf.keras.layers.Dropout(0.2),2
 A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",2
 "Compile model with Adam optimiser, sparce categorical entropy as the loss function and accuracy as metric.","model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])",1
 Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",2
@@ -60,37 +53,58 @@ Print the version of TensorFlow.,print(tf.__version__),3
 Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,2
 "This measures how accurate the model is during training. You want to minimize this function to ""steer"" the model in the right direction.",loss function,2
 This is how the model is updated based on the data it sees and its loss function.,optimizer,2
-Use model to predict the labels for test_images.,predictions = model.predict(test_images),1
+Use model to predict the labels for test_images.,predictions = model.predict(test_images),2
 Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),2
 Create a callback that saves the model's weights,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)",1
-Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10, validation_data=(test_images,test_labels), callbacks=[cp_callback])",0
-Install dependencies for saving models in HDF5 format.,pip install -q pyyaml h5py,1
+Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10, validation_data=(test_images,test_labels), callbacks=[cp_callback])",2
+Install dependencies for saving models in HDF5 format.,pip install -q pyyaml h5py,2
 Display the model's architecture,model.summary(),3
-creates a single collection of TensorFlow checkpoint files that are updated at the end of each epoch,ls {checkpoint_dir},1
+creates a single collection of TensorFlow checkpoint files that are updated at the end of each epoch,ls {checkpoint_dir},2
 load the weights from the checkpoint ,model.load_weights(checkpoint_path),2
-Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt""",1
-Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path),1
+Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt""",2
+Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path),2
 Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",1
-Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),1
+Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),2
 Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),1
 Load the latest weights to model.,model.load_weights(latest),3
-Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),1
-Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint'),0
+Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),2
+Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint'),2
 Save the model to a H5 file.,model.save('my_model.h5'),3
 Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),1
 URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/eval.csv""",2
 Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)",2
-Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",1
+Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",2
 "Set the list of labels as [0, 1].","LABELS = [0, 1]",2
 "Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",0
 Display a batch from the dataset.,show_batch(dataset),0
 Basic normalization.,(data-mean)/std,0
-"Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",0
+"Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",2
 "Assuming you have an array of labels, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","test_dataset = tf.data.Dataset.from_tensor_slices((test_examples, test_labels))",0
-Set the batch size to 64.,BATCH_SIZE = 64,0
-Set the shuffle buffer size to 100.,SHUFFLE_BUFFER_SIZE = 100,0
-Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),0
-Batch the test set.,test_dataset = test_dataset.batch(BATCH_SIZE),0
+Set the batch size to 64.,BATCH_SIZE = 64,2
+Set the shuffle buffer size to 100.,SHUFFLE_BUFFER_SIZE = 100,2
+Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),1
+Batch the test set.,test_dataset = test_dataset.batch(BATCH_SIZE),2
 Print the data types in df.,df.dtypes,0
-Import TensorFlow Datasets.,import tensorflow_datasets as tfds,0
+Import TensorFlow Datasets.,import tensorflow_datasets as tfds,2
 "Return example, label pair.","return example, tf.cast(index, tf.int64)",0
+Create an encoder by passing the vocabulary_set to TokenTextEncoder. The encoder's encode method takes in a string of text and returns a list of integers.,encoder = tfds.features.text.TokenTextEncoder(vocabulary_set),2
+create a larger training set,train_data = all_encoded_data.skip(TAKE_SIZE).shuffle(BUFFER_SIZE),2
+Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),1
+"Before being passed into the model, the datasets need to be batched. Typically, the examples inside of a batch need to be the same size and shape. But, the examples in these datasets are not all the same size — each line of text had a different number of words.","train_data = train_data.padded_batch(BATCH_SIZE, padded_shapes=([-1],[]))",2
+The first layer converts integer representations to dense vector embeddings.,"model.add(tf.keras.layers.Embedding(vocab_size, 64))",2
+"The next layer is a Long Short-Term Memory layer, which lets the model understand words in their context with other words. A bidirectional wrapper on the LSTM helps it to learn about the datapoints in relationship to the datapoints that came before it and after it.",model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))),2
+Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",0
+The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,0
+Is the string length is included in the tensor dimensions of a tf.string?,no,2
+here the sequence of code points is encoded using a known character encoding,string scalar,0
+here each position contains a single code point,int32 vector,0
+Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,0
+Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,0
+Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,0
+Convert batch_chars_ragged tensor to a dense tf.Tensor with padding.,batch_chars_padded = batch_chars_ragged.to_tensor(default_value=-1),0
+Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),0
+Convert batch_chars_ragged tensor to a sparse tf.Tensor.,batch_chars_sparse = batch_chars_ragged.to_sparse(),0
+"When encoding multiple strings with varyling length, a tf.RaggedTensor should be used as input","tf.strings.unicode_encode(batch_chars_ragged, output_encoding='UTF-8')",0
+"If you have a tensor with multiple strings in sparse format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_sparse(batch_chars_sparse), output_encoding='UTF-8')",0
+"If you have a tensor with multiple strings in padded format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_tensor(batch_chars_padded, padding=-1), output_encoding='UTF-8')",0
+Import TensorFlow Text.,import tensorflow_text as text,0
