@@ -11,7 +11,6 @@ print("=========================================================================
 for level in range(0, 5):
     print("Remaining questions at level", level, ":", len(flashcards.loc[flashcards[2] == level]), "/", max_definitions[level])
 
-# Saves a string for the last level
 with open("last_level.txt", "r") as saved_level:
     for line in saved_level:
         line = line.strip()
@@ -19,14 +18,11 @@ with open("last_level.txt", "r") as saved_level:
 print("CURRENT LEVEL:", last_level, "\n==========================================================================================================")
 
 session_count = 0
-current_level = int(last_level) # Current_level is an integer
+current_level = int(last_level)
 
 while session_count < session_limit:
-
-    # Check if there are questions at the current level. This is iterative, because we want to exhaust the current level.
     if len(flashcards.loc[flashcards[2] == int(current_level)]) == 0:
         print("==========================================================================================================\nNO MORE QUESTIONS AT LEVEL", current_level)
-        # Find another level, save it as integer
         x = 0
         while x in range(0, 5):
             if len(flashcards.loc[flashcards[2] == x]) > 0:
@@ -41,23 +37,23 @@ while session_count < session_limit:
             print("NEW LEVEL:", current_level, "\n==========================================================================================================")
 
     else:
-        # Check if the level directly above hasn't maxed up. If it has, we have to go to that level before continuing. The new level is saved as an integer.
         if current_level < 4:
             next_level = current_level + 1
             if len(flashcards.loc[flashcards[2] == next_level]) >= max_definitions[int(next_level)]:
                 current_level += 1
                 print("==========================================================================================================\nNEXT LEVEL MAXED OUT.\nNEW LEVEL:", current_level, "\n==========================================================================================================")
-        row = flashcards.loc[flashcards[2] == current_level].sample(n=1)
-        # Display as many questions as possible: either before session end, or before end of questions at the level.
-        print("---------------------------------------------- QUESTION", session_count, ": ---------------------------------------------\n", row[0].values[0])
-        answer = input("ANSWER:")
-        if answer == row[1].values[0]:
-            flashcards.loc[flashcards[0] == row[0].values[0], 2] += 1
-            print("CORRECT.")
-        else:
-            print("WRONG.")
-            print("                                            CORRECT ANSWER:\n", row[1].values[0])
-        session_count += 1
+        level = flashcards.loc[flashcards[2] == current_level]
+        for row in range(0,len(level)):
+            if session_count < session_limit:
+                print("---------------------------------------------- QUESTION", session_count, ": ---------------------------------------------\n", level.iloc[row][0])
+                answer = input("ANSWER:")
+                if answer == level.iloc[row][1]:
+                    flashcards.loc[flashcards[0] == level.iloc[row][0], 2] += 1
+                    print("CORRECT.")
+                else:
+                    print("WRONG.")
+                    print("                                            CORRECT ANSWER:\n", level.iloc[row][1])
+                session_count += 1
 
 print("======================================================\nEND OF SESSION.\n=======================================================")
 

@@ -63,49 +63,75 @@ creates a single collection of TensorFlow checkpoint files that are updated at t
 load the weights from the checkpoint ,model.load_weights(checkpoint_path),4
 Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt""",4
 Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path),2
-Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",1
+Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",2
 Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),4
 Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),1
 Load the latest weights to model.,model.load_weights(latest),4
 Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),2
 Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint'),4
 Save the model to a H5 file.,model.save('my_model.h5'),4
-Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),1
+Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),2
 URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/eval.csv""",4
 Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)",4
 Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",4
 "Set the list of labels as [0, 1].","LABELS = [0, 1]",4
-"Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",0
-Display a batch from the dataset.,show_batch(dataset),0
-Basic normalization.,(data-mean)/std,0
+"Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",1
+Display a batch from the dataset.,show_batch(dataset),2
+Basic normalization.,(data-mean)/std,1
 "Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",2
-"Assuming you have an array of labels, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","test_dataset = tf.data.Dataset.from_tensor_slices((test_examples, test_labels))",0
+"Assuming you have an array of labels, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","test_dataset = tf.data.Dataset.from_tensor_slices((test_examples, test_labels))",1
 Set the batch size to 64.,BATCH_SIZE = 64,4
 Set the shuffle buffer size to 100.,SHUFFLE_BUFFER_SIZE = 100,4
-Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),1
+Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),2
 Batch the test set.,test_dataset = test_dataset.batch(BATCH_SIZE),4
-Print the data types in df.,df.dtypes,0
+Print the data types in df.,df.dtypes,2
 Import TensorFlow Datasets.,import tensorflow_datasets as tfds,4
-"Return example, label pair.","return example, tf.cast(index, tf.int64)",0
+"Return example, label pair.","return example, tf.cast(index, tf.int64)",2
 Create an encoder by passing the vocabulary_set to TokenTextEncoder. The encoder's encode method takes in a string of text and returns a list of integers.,encoder = tfds.features.text.TokenTextEncoder(vocabulary_set),4
 create a larger training set,train_data = all_encoded_data.skip(TAKE_SIZE).shuffle(BUFFER_SIZE),4
-Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),1
+Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),2
 "Before being passed into the model, the datasets need to be batched. Typically, the examples inside of a batch need to be the same size and shape. But, the examples in these datasets are not all the same size — each line of text had a different number of words.","train_data = train_data.padded_batch(BATCH_SIZE, padded_shapes=([-1],[]))",4
 The first layer converts integer representations to dense vector embeddings.,"model.add(tf.keras.layers.Embedding(vocab_size, 64))",2
 "The next layer is a Long Short-Term Memory layer, which lets the model understand words in their context with other words. A bidirectional wrapper on the LSTM helps it to learn about the datapoints in relationship to the datapoints that came before it and after it.",model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))),2
-Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",0
-The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,1
+Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",1
+The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,2
 Is the string length is included in the tensor dimensions of a tf.string?,no,4
-here the sequence of code points is encoded using a known character encoding,string scalar,0
+here the sequence of code points is encoded using a known character encoding,string scalar,1
 here each position contains a single code point,int32 vector,0
-Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,0
-Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,0
-Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,0
-Convert batch_chars_ragged tensor to a dense tf.Tensor with padding.,batch_chars_padded = batch_chars_ragged.to_tensor(default_value=-1),0
-Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),0
-Convert batch_chars_ragged tensor to a sparse tf.Tensor.,batch_chars_sparse = batch_chars_ragged.to_sparse(),0
-"When encoding multiple strings with varyling length, a tf.RaggedTensor should be used as input","tf.strings.unicode_encode(batch_chars_ragged, output_encoding='UTF-8')",0
-"If you have a tensor with multiple strings in sparse format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_sparse(batch_chars_sparse), output_encoding='UTF-8')",0
+Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,2
+Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,1
+Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,2
+Convert batch_chars_ragged tensor to a dense tf.Tensor with padding.,batch_chars_padded = batch_chars_ragged.to_tensor(default_value=-1),2
+Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),2
+Convert batch_chars_ragged tensor to a sparse tf.Tensor.,batch_chars_sparse = batch_chars_ragged.to_sparse(),2
+"When encoding multiple strings with varyling length, a tf.RaggedTensor should be used as input","tf.strings.unicode_encode(batch_chars_ragged, output_encoding='UTF-8')",1
+"If you have a tensor with multiple strings in sparse format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_sparse(batch_chars_sparse), output_encoding='UTF-8')",2
 "If you have a tensor with multiple strings in padded format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_tensor(batch_chars_padded, padding=-1), output_encoding='UTF-8')",0
-Import TensorFlow Text.,import tensorflow_text as text,0
-Set the whitespace tokenizer to the tokenizer value.,tokenizer = text.WhitespaceTokenizer(),0
+Import TensorFlow Text.,import tensorflow_text as text,1
+Set the whitespace tokenizer to the tokenizer value.,tokenizer = text.WhitespaceTokenizer(),2
+Tokenize a list of strings with tokenizer.,tokens = tokenizer.tokenize([]),1
+Print tokens as a list.,print(tokens.to_list()),0
+"This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
+
+In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),0
+"When tokenizing languages without whitespace to segment words, it is common to just split by character.","tokens = tf.strings.unicode_split([u""string"".encode('UTF-8')], 'UTF-8')",0
+"When tokenizing strings, it is often desired to know where in the original string the token originated from. For this reason, each tokenizer which implements TokenizerWithOffsets has a method that will return the byte offsets along with the tokens.","(tokens, offset_starts, offset_limits) = tokenizer.tokenize_with_offsets([])",1
+"Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",0
+"Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",0
+"Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",0
+"Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",0
+"Divide tokens by space, into bigrams.","bigrams = text.ngrams(tokens, 2, reduction_type=text.Reduction.STRING_JOIN)",0
+a simple format for storing a sequence of binary records,TFRecord,2
+"a cross-platform, cross-language library for efficient serialization of structured data",Protocol buffers,0
+"defined by .proto files, these are often the easiest way to understand a message type",Protocol messages,0
+"a flexible message type that represents a {""string"": value} mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as TFX.",tf.Example,0
+"A Python dictionary in which:
+Each key is the name of a feature.
+Each value is an array containing all of that feature's values.",features,0
+An array containing the values of the label for every example.,label,1
+Convert the inputs to a Dataset.,"dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))",0
+Shuffle dataset and repeat.,dataset = dataset.shuffle(1000).repeat(),0
+an object describing how the model should use raw input data from the features dictionary,feature column,0
+A classifier Estimator for deep models that perform multi-class classification.,tf.estimator.DNNClassifier,0
+A classifier Estimator for wide & deep models.,tf.estimator.DNNLinearCombinedClassifier,0
+A classifier Estimator for classifiers based on linear models.,tf.estimator.LinearClassifier,0
