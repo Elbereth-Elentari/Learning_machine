@@ -97,7 +97,7 @@ Output layer. The first argument is the number of labels.,"model.add(tf.keras.la
 The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,2
 Is the string length is included in the tensor dimensions of a tf.string?,no,4
 here the sequence of code points is encoded using a known character encoding,string scalar,2
-here each position contains a single code point,int32 vector,0
+here each position contains a single code point,int32 vector,1
 Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,2
 Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,2
 Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,2
@@ -113,49 +113,49 @@ Tokenize a list of strings with tokenizer.,tokens = tokenizer.tokenize([]),2
 Print tokens as a list.,print(tokens.to_list()),1
 "This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
 
-In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),0
+In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),1
 "When tokenizing languages without whitespace to segment words, it is common to just split by character.","tokens = tf.strings.unicode_split([u""string"".encode('UTF-8')], 'UTF-8')",0
 "When tokenizing strings, it is often desired to know where in the original string the token originated from. For this reason, each tokenizer which implements TokenizerWithOffsets has a method that will return the byte offsets along with the tokens.","(tokens, offset_starts, offset_limits) = tokenizer.tokenize_with_offsets([])",2
 "Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",0
-"Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",0
-"Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",0
-"Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",0
+"Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",1
+"Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",1
+"Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",1
 "Divide tokens by space, into bigrams.","bigrams = text.ngrams(tokens, 2, reduction_type=text.Reduction.STRING_JOIN)",0
 a simple format for storing a sequence of binary records,TFRecord,2
-"a cross-platform, cross-language library for efficient serialization of structured data",Protocol buffers,0
-"defined by .proto files, these are often the easiest way to understand a message type",Protocol messages,0
-"a flexible message type that represents a {""string"": value} mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as TFX.",tf.Example,0
+"a cross-platform, cross-language library for efficient serialization of structured data",Protocol buffers,1
+"defined by .proto files, these are often the easiest way to understand a message type",Protocol messages,1
+"a flexible message type that represents a {""string"": value} mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as TFX.",tf.Example,1
 "A Python dictionary in which:
 Each key is the name of a feature.
 Each value is an array containing all of that feature's values.",features,1
 An array containing the values of the label for every example.,label,2
 Convert the inputs to a Dataset.,"dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))",0
-Shuffle dataset and repeat.,dataset = dataset.shuffle(1000).repeat(),0
-an object describing how the model should use raw input data from the features dictionary,feature column,0
-A classifier Estimator for deep models that perform multi-class classification.,tf.estimator.DNNClassifier,0
-A classifier Estimator for wide & deep models.,tf.estimator.DNNLinearCombinedClassifier,0
-A classifier Estimator for classifiers based on linear models.,tf.estimator.LinearClassifier,0
+Shuffle dataset and repeat.,dataset = dataset.shuffle(1000).repeat(),1
+an object describing how the model should use raw input data from the features dictionary,feature column,1
+A classifier Estimator for deep models that perform multi-class classification.,tf.estimator.DNNClassifier,1
+A classifier Estimator for wide & deep models.,tf.estimator.DNNLinearCombinedClassifier,1
+A classifier Estimator for classifiers based on linear models.,tf.estimator.LinearClassifier,1
 "Matches the empty string, but only at the beginning or end of a word.",\b,1
-Test whether every element in other is in the set.,set >= other,0
-"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,0
+Test whether every element in other is in the set.,set >= other,1
+"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,1
 Return the lowest index in string h where substring i is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if substring is not found.,"h.find(i, start, end)",0
 "This static method returns a translation table usable for str.translate().
 
 If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
 
 If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",0
-Remove all elements from the set.,clear(),0
-Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,0
-drops you into the debugger at the call site,breakpoint(),0
+Remove all elements from the set.,clear(),1
+Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,1
+drops you into the debugger at the call site,breakpoint(),1
 Remove element elem from the set. Raises KeyError if elem is not contained in the set.,remove(elem),0
 "Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",0
-Return a str version of object.,str(),0
-Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),0
-Invoke the built-in help system.,help(),0
-Matches any Unicode decimal digit,\d,0
-"Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),0
-"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,0
+Return a str version of object.,str(),1
+Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),1
+Invoke the built-in help system.,help(),1
+Matches any Unicode decimal digit,\d,1
+"Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),1
+"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,1
 "A string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.",string.whitespace,0
-"Return True if d has a key key, else False.",key in d,0
-"Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),0
-"Return a new set object, optionally with elements taken from iterable.",set(),0
+"Return True if d has a key key, else False.",key in d,1
+"Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),1
+"Return a new set object, optionally with elements taken from iterable.",set(),1
