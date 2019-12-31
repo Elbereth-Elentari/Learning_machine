@@ -42,120 +42,130 @@ There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&
 Import TensorFlow.,import tensorflow as tf,4
 Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist,4
 Load the MNIST dataset.,"(x_train, y_train), (x_test, y_test) = mnist.load_data()",2
-Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",2
+Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",3
 Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([]),4
 A Dropout layer of 0.2.,tf.keras.layers.Dropout(0.2),4
-A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",2
+A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",3
 "Compile model with Adam optimiser, sparce categorical entropy as the loss function and accuracy as metric.","model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])",4
-Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",2
+Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",3
 Import PyPlot.,import matplotlib.pyplot as plt,4
 Print the version of TensorFlow.,print(tf.__version__),4
-Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,2
+Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,3
 "This measures how accurate the model is during training. You want to minimize this function to ""steer"" the model in the right direction.",loss function,4
 This is how the model is updated based on the data it sees and its loss function.,optimizer,4
 Use model to predict the labels for test_images.,predictions = model.predict(test_images),4
-Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),2
-Create a callback that saves the model's weights,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)",2
+Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),3
+Create a callback that saves the model's weights,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)",3
 Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10, validation_data=(test_images,test_labels), callbacks=[cp_callback])",4
 Install dependencies for saving models in HDF5 format.,pip install -q pyyaml h5py,4
 Display the model's architecture,model.summary(),4
 creates a single collection of TensorFlow checkpoint files that are updated at the end of each epoch,ls {checkpoint_dir},4
 load the weights from the checkpoint ,model.load_weights(checkpoint_path),4
 Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt""",4
-Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path),2
-Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",2
+Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path),3
+Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",3
 Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),4
 Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),2
 Load the latest weights to model.,model.load_weights(latest),4
 Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),2
 Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint'),4
 Save the model to a H5 file.,model.save('my_model.h5'),4
-Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),2
+Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),3
 URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/eval.csv""",4
 Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)",4
 Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",4
 "Set the list of labels as [0, 1].","LABELS = [0, 1]",4
 "Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",2
-Display a batch from the dataset.,show_batch(dataset),2
-Basic normalization.,(data-mean)/std,2
-"Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",2
-"Assuming you have an array of labels, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","test_dataset = tf.data.Dataset.from_tensor_slices((test_examples, test_labels))",2
+Display a batch from the dataset.,show_batch(dataset),3
+Basic normalization.,(data-mean)/std,3
+"Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",3
+"Assuming you have an array of labels, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","test_dataset = tf.data.Dataset.from_tensor_slices((test_examples, test_labels))",3
 Set the batch size to 64.,BATCH_SIZE = 64,4
 Set the shuffle buffer size to 100.,SHUFFLE_BUFFER_SIZE = 100,4
 Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),2
 Batch the test set.,test_dataset = test_dataset.batch(BATCH_SIZE),4
-Print the data types in df.,df.dtypes,2
+Print the data types in df.,df.dtypes,3
 Import TensorFlow Datasets.,import tensorflow_datasets as tfds,4
-"Return example, label pair.","return example, tf.cast(index, tf.int64)",2
+"Return example, label pair.","return example, tf.cast(index, tf.int64)",3
 Create an encoder by passing the vocabulary_set to TokenTextEncoder. The encoder's encode method takes in a string of text and returns a list of integers.,encoder = tfds.features.text.TokenTextEncoder(vocabulary_set),4
 create a larger training set,train_data = all_encoded_data.skip(TAKE_SIZE).shuffle(BUFFER_SIZE),4
-Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),2
+Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),3
 "Before being passed into the model, the datasets need to be batched. Typically, the examples inside of a batch need to be the same size and shape. But, the examples in these datasets are not all the same size — each line of text had a different number of words.","train_data = train_data.padded_batch(BATCH_SIZE, padded_shapes=([-1],[]))",4
 The first layer converts integer representations to dense vector embeddings.,"model.add(tf.keras.layers.Embedding(vocab_size, 64))",2
 "The next layer is a Long Short-Term Memory layer, which lets the model understand words in their context with other words. A bidirectional wrapper on the LSTM helps it to learn about the datapoints in relationship to the datapoints that came before it and after it.",model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))),2
-Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",2
-The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,2
+Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",3
+The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,3
 Is the string length is included in the tensor dimensions of a tf.string?,no,4
 here the sequence of code points is encoded using a known character encoding,string scalar,2
-here each position contains a single code point,int32 vector,1
+here each position contains a single code point,int32 vector,3
 Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,2
-Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,2
-Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,2
+Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,3
+Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,3
 Convert batch_chars_ragged tensor to a dense tf.Tensor with padding.,batch_chars_padded = batch_chars_ragged.to_tensor(default_value=-1),2
-Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),2
+Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),3
 Convert batch_chars_ragged tensor to a sparse tf.Tensor.,batch_chars_sparse = batch_chars_ragged.to_sparse(),2
 "When encoding multiple strings with varyling length, a tf.RaggedTensor should be used as input","tf.strings.unicode_encode(batch_chars_ragged, output_encoding='UTF-8')",2
 "If you have a tensor with multiple strings in sparse format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_sparse(batch_chars_sparse), output_encoding='UTF-8')",2
 "If you have a tensor with multiple strings in padded format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_tensor(batch_chars_padded, padding=-1), output_encoding='UTF-8')",0
-Import TensorFlow Text.,import tensorflow_text as text,2
-Set the whitespace tokenizer to the tokenizer value.,tokenizer = text.WhitespaceTokenizer(),2
-Tokenize a list of strings with tokenizer.,tokens = tokenizer.tokenize([]),2
-Print tokens as a list.,print(tokens.to_list()),1
+Import TensorFlow Text.,import tensorflow_text as text,3
+Set the whitespace tokenizer to the tokenizer value.,tokenizer = text.WhitespaceTokenizer(),3
+Tokenize a list of strings with tokenizer.,tokens = tokenizer.tokenize([]),3
+Print tokens as a list.,print(tokens.to_list()),3
 "This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
 
 In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),1
 "When tokenizing languages without whitespace to segment words, it is common to just split by character.","tokens = tf.strings.unicode_split([u""string"".encode('UTF-8')], 'UTF-8')",0
 "When tokenizing strings, it is often desired to know where in the original string the token originated from. For this reason, each tokenizer which implements TokenizerWithOffsets has a method that will return the byte offsets along with the tokens.","(tokens, offset_starts, offset_limits) = tokenizer.tokenize_with_offsets([])",2
 "Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",0
-"Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",1
-"Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",1
-"Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",1
+"Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",3
+"Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",3
+"Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",3
 "Divide tokens by space, into bigrams.","bigrams = text.ngrams(tokens, 2, reduction_type=text.Reduction.STRING_JOIN)",0
 a simple format for storing a sequence of binary records,TFRecord,2
-"a cross-platform, cross-language library for efficient serialization of structured data",Protocol buffers,1
+"a cross-platform, cross-language library for efficient serialization of structured data",Protocol buffers,3
 "defined by .proto files, these are often the easiest way to understand a message type",Protocol messages,1
-"a flexible message type that represents a {""string"": value} mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as TFX.",tf.Example,1
+"a flexible message type that represents a {""string"": value} mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as TFX.",tf.Example,2
 "A Python dictionary in which:
 Each key is the name of a feature.
 Each value is an array containing all of that feature's values.",features,1
-An array containing the values of the label for every example.,label,2
+An array containing the values of the label for every example.,label,3
 Convert the inputs to a Dataset.,"dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))",0
-Shuffle dataset and repeat.,dataset = dataset.shuffle(1000).repeat(),1
+Shuffle dataset and repeat.,dataset = dataset.shuffle(1000).repeat(),3
 an object describing how the model should use raw input data from the features dictionary,feature column,1
 A classifier Estimator for deep models that perform multi-class classification.,tf.estimator.DNNClassifier,1
-A classifier Estimator for wide & deep models.,tf.estimator.DNNLinearCombinedClassifier,1
-A classifier Estimator for classifiers based on linear models.,tf.estimator.LinearClassifier,1
-"Matches the empty string, but only at the beginning or end of a word.",\b,1
-Test whether every element in other is in the set.,set >= other,1
-"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,1
+A classifier Estimator for wide & deep models.,tf.estimator.DNNLinearCombinedClassifier,3
+A classifier Estimator for classifiers based on linear models.,tf.estimator.LinearClassifier,2
+"Matches the empty string, but only at the beginning or end of a word.",\b,3
+Test whether every element in other is in the set.,set >= other,3
+"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,3
 Return the lowest index in string h where substring i is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if substring is not found.,"h.find(i, start, end)",0
 "This static method returns a translation table usable for str.translate().
 
 If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
 
 If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",0
-Remove all elements from the set.,clear(),1
-Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,1
-drops you into the debugger at the call site,breakpoint(),1
+Remove all elements from the set.,clear(),3
+Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,2
+drops you into the debugger at the call site,breakpoint(),2
 Remove element elem from the set. Raises KeyError if elem is not contained in the set.,remove(elem),0
 "Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",0
-Return a str version of object.,str(),1
-Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),1
-Invoke the built-in help system.,help(),1
-Matches any Unicode decimal digit,\d,1
-"Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),1
-"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,1
+Return a str version of object.,str(),2
+Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),2
+Invoke the built-in help system.,help(),2
+Matches any Unicode decimal digit,\d,2
+"Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),2
+"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,2
 "A string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.",string.whitespace,0
-"Return True if d has a key key, else False.",key in d,1
-"Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),1
-"Return a new set object, optionally with elements taken from iterable.",set(),1
+"Return True if d has a key key, else False.",key in d,2
+"Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),2
+"Return a new set object, optionally with elements taken from iterable.",set(),2
+Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each. The model must choose between 3 classes.,"classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns, hidden_units=[30, 10], n_classes=3)",0
+Train the classifier model.,"classifier.train(input_fn=lambda: input_fn(train, train_y, training=True), steps=5000)",0
+Import ROC curve.,from sklearn.metrics import roc_curve,0
+Is a Tensor mutable?,no,0
+A vector with mostly 0 values.,sparse,0
+this matches any character except a newline,.,0
+Return the largest item in an iterable or the largest of two or more arguments.,max(),0
+The mouse cursor is over the widget and pressing a mouse button will cause some action to occur,active,0
+Widget is disabled under program control,disabled,0
+Is a string mutable?,no,0
