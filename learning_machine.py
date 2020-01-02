@@ -65,7 +65,7 @@ while session_count < session_limit:
                     print("CORRECT.")
                 else:
                     print("WRONG.")
-                    print("                                                CORRECT ANSWER:\n", level.iloc[row][1])
+                    print("                                                   CORRECT ANSWER:\n", level.iloc[row][1])
                 session_count += 1
 
 print(equals, "\nEND OF SESSION.")

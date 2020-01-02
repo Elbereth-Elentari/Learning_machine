@@ -1,19 +1,3 @@
-Used to indicate a set of characters for matching.,[],5
-Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),5
-Return the absolute value of a number,abs(),5
-The string '0123456789'.,string.digits,5
-remove all case distinctions in string b,b.casefold(),5
-index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",5
-Matches the end of the string or just before the newline at the end of the string,$,5
-delete the first item from s where s[i] is equal to x,s.remove(x),5
-"Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),5
-The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,5
-Return a new set with elements in either the set or other but not both,set ^ other,5
-Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},5
-"Return an iterator that applies function to every item of iterable, yielding the results.",map(),5
-Return the length (the number of items) of an object.,len(),5
-Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),5
-"Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),5
 Return a new set with elements common to the set and all others.,intersection(*others),5
 Return the current local date.,date.today(),5
 Return x to the power y,"pow(x, y)",5
