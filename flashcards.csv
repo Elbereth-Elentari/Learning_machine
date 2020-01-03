@@ -169,34 +169,34 @@ Return the largest item in an iterable or the largest of two or more arguments.,
 The mouse cursor is over the widget and pressing a mouse button will cause some action to occur,active,2
 Widget is disabled under program control,disabled,2
 Is a string mutable?,no,2
-"a dense vector of floating point values (the length of the vector is a parameter you specify). Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer). It is common to see word embeddings that are 8-dimensional (for small datasets), up to 1024-dimensions when working with large datasets. A higher dimensional embedding can capture fine-grained relationships between words, but takes more data to learn.",embedding,1
-Import layers.,from tensorflow.keras import layers,1
-"The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",0
+"a dense vector of floating point values (the length of the vector is a parameter you specify). Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer). It is common to see word embeddings that are 8-dimensional (for small datasets), up to 1024-dimensions when working with large datasets. A higher dimensional embedding can capture fine-grained relationships between words, but takes more data to learn.",embedding,2
+Import layers.,from tensorflow.keras import layers,2
+"The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",2
 Load IMDB dataset.,"(train_data, test_data), info = tfds.load('imdb_reviews/subwords8k', split = (tfds.Split.TRAIN, tfds.Split.TEST), with_info=True, as_supervised=True)",0
-Subword encoder.,tfds.features.text.SubwordTextEncoder,0
-Represents spaces in the subword vocabulary.,_,1
-"the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",0
-"a GlobalAveragePooling1D layer returns a fixed-length output vector for each example by averaging over the sequence dimension. This allows the model to handle input of variable length, in the simplest way possible.",layers.GlobalAveragePooling1D(),0
-This fixed-length output vector is piped through a fully-connected (Dense) layer with 16 hidden units.,"layers.Dense(16, activation='relu')",0
-"The last layer is densely connected with a single output node. Using the sigmoid activation function, this value is a float between 0 and 1, representing a probability (or confidence level) that the review is positive.","layers.Dense(1, activation='sigmoid')",0
-Used to indicate a set of characters for matching.,[],1
-Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),1
-Return the absolute value of a number,abs(),1
+Subword encoder.,tfds.features.text.SubwordTextEncoder,2
+Represents spaces in the subword vocabulary.,_,2
+"the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",2
+"a GlobalAveragePooling1D layer returns a fixed-length output vector for each example by averaging over the sequence dimension. This allows the model to handle input of variable length, in the simplest way possible.",layers.GlobalAveragePooling1D(),2
+This fixed-length output vector is piped through a fully-connected (Dense) layer with 16 hidden units.,"layers.Dense(16, activation='relu')",2
+"The last layer is densely connected with a single output node. Using the sigmoid activation function, this value is a float between 0 and 1, representing a probability (or confidence level) that the review is positive.","layers.Dense(1, activation='sigmoid')",2
+Used to indicate a set of characters for matching.,[],2
+Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),2
+Return the absolute value of a number,abs(),2
 The string '0123456789'.,string.digits,1
-remove all case distinctions in string b,b.casefold(),1
-index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",0
+remove all case distinctions in string b,b.casefold(),2
+index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",2
 Matches the end of the string or just before the newline at the end of the string,$,1
-delete the first item from s where s[i] is equal to x,s.remove(x),0
+delete the first item from s where s[i] is equal to x,s.remove(x),1
 "Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),1
 The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,1
-"Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",0
-"Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",0
-Save the dictionary of history.,history_dict = history.history,0
-Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],0
-Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],0
-Return a new set with elements in either the set or other but not both,set ^ other,0
-Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},0
-"Return an iterator that applies function to every item of iterable, yielding the results.",map(),0
-Return the length (the number of items) of an object.,len(),0
-Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),0
-"Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),0
+"Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",1
+"Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",1
+Save the dictionary of history.,history_dict = history.history,1
+Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],1
+Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],1
+Return a new set with elements in either the set or other but not both,set ^ other,1
+Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},1
+"Return an iterator that applies function to every item of iterable, yielding the results.",map(),1
+Return the length (the number of items) of an object.,len(),1
+Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),1
+"Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),1
