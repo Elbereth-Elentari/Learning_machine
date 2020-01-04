@@ -1,116 +1,79 @@
-"adverb, superlative",RBS,4
 Start the mysite project in django.,django-admin startproject mysite,4
-"Create HTTP Response ""Hello, world.""","HttpResponse(""Hello, world."")",4
 Settings/configuration for this Django project.,mysite/settings.py,4
-The URL declarations for this Django project; a “table of contents” of your Django-powered site,mysite/urls.py,4
 "When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument and any “captured” values from the route as keyword arguments.",view,4
-create the tables in the database,python manage.py migrate,4
 the act of submitting this form will alter data server-side,"method=""post""",4
-indicates how many times the for tag has gone through its loop,forloop.counter,4
 Import Choice.,from .models import Choice,4
-"A unit of text that is the result of one of the shell expansions. After expansion, when executing a command, the resulting fields are used as the command name and arguments.",field,4
 "A set of processes comprising a pipeline, and any processes descended from it, that are all in the same process group.",job,4
-A mechanism by which users can selectively stop (suspend) and restart (resume) execution of processes.,job control,4
 "A word consisting solely of letters, numbers, and underscores, and beginning with a letter or underscore. Names are used as shell variable and function names. Also referred to as an identifier.",name,4
-A collection of related processes each having the same process group ID.,process group,4
 A unique identifier that represents a process group during its lifetime.,process group ID,4
-"A word that has a special meaning to the shell. Most reserved words introduce shell flow control constructs, such as for and while.",reserved word,4
 A shell builtin command that has been classified as special by the POSIX standard.,special builtin,4
-A sequence of characters considered a single unit by the shell. It is either a word or an operator.,token,4
 A sequence of characters treated as a unit by the shell. Words may not include unquoted metacharacters.,word,4
-"Bash escape character. It preserves the literal value of the next character that follows, with the exception of newline. If a \newline pair appears, and the backslash itself is not quoted, the \newline is treated as a line continuation (that is, it is removed from the input stream and effectively ignored).",\,4
 preserves the literal value of each character within it,',4
-" preserves the literal value of all characters within the quotes, with the exception of ‘$’, ‘`’, ‘\’, and, when history expansion is enabled, ‘!’. When the shell is in POSIX mode (see Bash POSIX Mode), the ‘!’ has no special meaning within double quotes, even when history expansion is enabled. The characters ‘$’ and ‘`’ retain their special meaning within double quotes (see Shell Expansions). The backslash retains its special meaning only when followed by one of the following characters: ‘$’, ‘`’, ‘""’, ‘\’, or newline. Within double quotes, backslashes that are followed by one of these characters are removed. Backslashes preceding characters without a special meaning are left unmodified. A double quote may be quoted within double quotes by preceding it with a backslash. If enabled, history expansion will be performed unless an ‘!’ appearing in double quotes is escaped using a backslash. The backslash preceding the ‘!’ is not removed.
-The special parameters ‘*’ and ‘@’ have special meaning when in double quotes (see Shell Parameter Expansion).","""",4
 backspace,\b,4
-an escape character (not ANSI C),\E,4
 form feed,\f,4
-newline,\n,4
 horizontal tab,\t,4
-vertical tab,\v,4
 backslash,\\,4
-single quote,\',4
 the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHH (one to four hex digits),\uHHHH,4
-a sequence of one or more commands separated by one of the control operators ‘|’ or ‘|&’.,pipeline,4
 " a sequence of one or more pipelines separated by one of the operators ‘;’, ‘&’, ‘&&’, or ‘||’, and optionally terminated by one of ‘;’, ‘&’, or a newline.",list,4
-"Execute consequent-commands as long as test-commands has an exit status which is not zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",until test-commands; do consequent-commands; done,4
 "Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",while test-commands; do consequent-commands; done,4
-"Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words ...] ] ; ] do commands; done,3
+"Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words ...] ] ; ] do commands; done,4
 "will selectively execute the command-list corresponding to the first pattern that matches word. The match is performed according to the rules described below in Pattern Matching. If the nocasematch shell option (see the description of shopt in The Shopt Builtin) is enabled, the match is performed without regard to the case of alphabetic characters. The ‘|’ is used to separate multiple patterns, and the ‘)’ operator terminates a pattern list. A list of patterns and an associated command-list is known as a clause.
 Each clause must be terminated with ‘;;’, ‘;&’, or ‘;;&’. The word undergoes tilde expansion, parameter expansion, command substitution, arithmetic expansion, and quote removal (see Shell Parameter Expansion) before matching is attempted. Each pattern undergoes tilde expansion, parameter expansion, command substitution, and arithmetic expansion.
 There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&’, or ‘;;&’. The first pattern that matches determines the command-list that is executed. It’s a common idiom to use ‘*’ as the final pattern to define the default case, since that pattern will always match.",case word in [ [(] pattern [| pattern]...) command-list ;;] esac,3
-Import TensorFlow.,import tensorflow as tf,4
 Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist,4
-Load the MNIST dataset.,"(x_train, y_train), (x_test, y_test) = mnist.load_data()",3
 Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",3
 Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([]),4
-A Dropout layer of 0.2.,tf.keras.layers.Dropout(0.2),4
-A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",3
-"Compile model with Adam optimiser, sparce categorical entropy as the loss function and accuracy as metric.","model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])",4
+A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",4
 Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",3
 Import PyPlot.,import matplotlib.pyplot as plt,4
-Print the version of TensorFlow.,print(tf.__version__),4
-Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,3
-"This measures how accurate the model is during training. You want to minimize this function to ""steer"" the model in the right direction.",loss function,4
+Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,4
 This is how the model is updated based on the data it sees and its loss function.,optimizer,4
-Use model to predict the labels for test_images.,predictions = model.predict(test_images),4
-Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),3
-Create a callback that saves the model's weights,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)",3
+Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),4
 Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10, validation_data=(test_images,test_labels), callbacks=[cp_callback])",4
-Install dependencies for saving models in HDF5 format.,pip install -q pyyaml h5py,4
 Display the model's architecture,model.summary(),4
 creates a single collection of TensorFlow checkpoint files that are updated at the end of each epoch,ls {checkpoint_dir},4
-load the weights from the checkpoint ,model.load_weights(checkpoint_path),4
 Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt""",4
-Name the directory after the checkpoint_path.,checkpoint_dir = os.path.dirname(checkpoint_path),3
 Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",3
 Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),4
 Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),3
-Load the latest weights to model.,model.load_weights(latest),4
-Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),3
-Manually restore weights.,model.load_weights('./checkpoints/my_checkpoint'),4
+Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),4
 Save the model to a H5 file.,model.save('my_model.h5'),4
-Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),3
-URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.googleapis.com/tf-datasets/titanic/eval.csv""",4
+Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),4
 Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)",4
 Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",4
-"Set the list of labels as [0, 1].","LABELS = [0, 1]",4
 "Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",3
-Display a batch from the dataset.,show_batch(dataset),3
-Basic normalization.,(data-mean)/std,3
-"Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",3
-"Assuming you have an array of labels, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","test_dataset = tf.data.Dataset.from_tensor_slices((test_examples, test_labels))",3
+Display a batch from the dataset.,show_batch(dataset),4
+"Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",4
 Set the batch size to 64.,BATCH_SIZE = 64,4
-Set the shuffle buffer size to 100.,SHUFFLE_BUFFER_SIZE = 100,4
-Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),3
+Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),4
 Batch the test set.,test_dataset = test_dataset.batch(BATCH_SIZE),4
-Print the data types in df.,df.dtypes,3
+Print the data types in df.,df.dtypes,4
 Import TensorFlow Datasets.,import tensorflow_datasets as tfds,4
 "Return example, label pair.","return example, tf.cast(index, tf.int64)",3
 Create an encoder by passing the vocabulary_set to TokenTextEncoder. The encoder's encode method takes in a string of text and returns a list of integers.,encoder = tfds.features.text.TokenTextEncoder(vocabulary_set),4
 create a larger training set,train_data = all_encoded_data.skip(TAKE_SIZE).shuffle(BUFFER_SIZE),4
-Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),3
+Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),4
 "Before being passed into the model, the datasets need to be batched. Typically, the examples inside of a batch need to be the same size and shape. But, the examples in these datasets are not all the same size — each line of text had a different number of words.","train_data = train_data.padded_batch(BATCH_SIZE, padded_shapes=([-1],[]))",4
-The first layer converts integer representations to dense vector embeddings.,"model.add(tf.keras.layers.Embedding(vocab_size, 64))",3
-"The next layer is a Long Short-Term Memory layer, which lets the model understand words in their context with other words. A bidirectional wrapper on the LSTM helps it to learn about the datapoints in relationship to the datapoints that came before it and after it.",model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))),3
+The first layer converts integer representations to dense vector embeddings.,"model.add(tf.keras.layers.Embedding(vocab_size, 64))",4
+"The next layer is a Long Short-Term Memory layer, which lets the model understand words in their context with other words. A bidirectional wrapper on the LSTM helps it to learn about the datapoints in relationship to the datapoints that came before it and after it.",model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))),4
 Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",3
-The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,3
+The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,4
 Is the string length is included in the tensor dimensions of a tf.string?,no,4
-here the sequence of code points is encoded using a known character encoding,string scalar,3
+here the sequence of code points is encoded using a known character encoding,string scalar,4
 here each position contains a single code point,int32 vector,3
-Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,3
-Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,3
-Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,3
-Convert batch_chars_ragged tensor to a dense tf.Tensor with padding.,batch_chars_padded = batch_chars_ragged.to_tensor(default_value=-1),3
-Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),3
-Convert batch_chars_ragged tensor to a sparse tf.Tensor.,batch_chars_sparse = batch_chars_ragged.to_sparse(),3
-"When encoding multiple strings with varyling length, a tf.RaggedTensor should be used as input","tf.strings.unicode_encode(batch_chars_ragged, output_encoding='UTF-8')",3
-"If you have a tensor with multiple strings in sparse format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_sparse(batch_chars_sparse), output_encoding='UTF-8')",3
-"If you have a tensor with multiple strings in padded format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_tensor(batch_chars_padded, padding=-1), output_encoding='UTF-8')",2
-Import TensorFlow Text.,import tensorflow_text as text,3
-Set the whitespace tokenizer to the tokenizer value.,tokenizer = text.WhitespaceTokenizer(),3
-Tokenize a list of strings with tokenizer.,tokens = tokenizer.tokenize([]),3
-Print tokens as a list.,print(tokens.to_list()),3
+Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,4
+Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,4
+Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,4
+Convert batch_chars_ragged tensor to a dense tf.Tensor with padding.,batch_chars_padded = batch_chars_ragged.to_tensor(default_value=-1),4
+Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),4
+Convert batch_chars_ragged tensor to a sparse tf.Tensor.,batch_chars_sparse = batch_chars_ragged.to_sparse(),4
+"When encoding multiple strings with varyling length, a tf.RaggedTensor should be used as input","tf.strings.unicode_encode(batch_chars_ragged, output_encoding='UTF-8')",4
+"If you have a tensor with multiple strings in sparse format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_sparse(batch_chars_sparse), output_encoding='UTF-8')",4
+"If you have a tensor with multiple strings in padded format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_tensor(batch_chars_padded, padding=-1), output_encoding='UTF-8')",4
+Import TensorFlow Text.,import tensorflow_text as text,4
+Set the whitespace tokenizer to the tokenizer value.,tokenizer = text.WhitespaceTokenizer(),4
+Tokenize a list of strings with tokenizer.,tokens = tokenizer.tokenize([]),4
+Print tokens as a list.,print(tokens.to_list()),4
 "This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
 
 In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),2
@@ -182,15 +145,15 @@ This fixed-length output vector is piped through a fully-connected (Dense) layer
 Used to indicate a set of characters for matching.,[],2
 Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),2
 Return the absolute value of a number,abs(),2
-The string '0123456789'.,string.digits,1
+The string '0123456789'.,string.digits,2
 remove all case distinctions in string b,b.casefold(),2
 index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",2
-Matches the end of the string or just before the newline at the end of the string,$,1
-delete the first item from s where s[i] is equal to x,s.remove(x),1
+Matches the end of the string or just before the newline at the end of the string,$,2
+delete the first item from s where s[i] is equal to x,s.remove(x),2
 "Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),1
-The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,1
-"Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",1
-"Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",1
+The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,2
+"Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",2
+"Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",2
 Save the dictionary of history.,history_dict = history.history,1
 Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],1
 Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],1
