@@ -1,23 +1,3 @@
-Return a new set with elements common to the set and all others.,intersection(*others),5
-Return the current local date.,date.today(),5
-Return x to the power y,"pow(x, y)",5
-Create a new list.,list(),5
-returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),5
-"Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",5
-Return True if all elements of the iterable are true (or if the iterable is empty).,all(),5
-"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,5
-Create a new tuple.,tuple(),5
-Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),5
-Return a floating point number constructed from a number or string x.,float(),5
-total number of occurrences of x in s,s.count(x),5
-Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),5
-Is a tuple mutable?,no,5
-Test whether every element in the set is in other.,set <= other,5
-Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),5
-Retrieve the subsequent item from the iterator.,next(),5
-"With one argument, return the type of an object.",type(),5
-Sums start and the items of an iterable from left to right and returns the total.,sum(),5
-"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),5
 "Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),5
 Return a random element from the non-empty sequence seq.,random.choice(seq),5
 Return a list of the words in string o.,o.split(),5
@@ -427,3 +407,68 @@ URL path to a sample test dataset in CSV.,"TEST_DATA_URL = ""https://storage.goo
 Basic normalization.,(data-mean)/std,5
 "Assuming you have an array of labels, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","test_dataset = tf.data.Dataset.from_tensor_slices((test_examples, test_labels))",5
 Set the shuffle buffer size to 100.,SHUFFLE_BUFFER_SIZE = 100,5
+Start the mysite project in django.,django-admin startproject mysite,5
+Settings/configuration for this Django project.,mysite/settings.py,5
+"When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument and any “captured” values from the route as keyword arguments.",view,5
+the act of submitting this form will alter data server-side,"method=""post""",5
+Import Choice.,from .models import Choice,5
+"A set of processes comprising a pipeline, and any processes descended from it, that are all in the same process group.",job,5
+"A word consisting solely of letters, numbers, and underscores, and beginning with a letter or underscore. Names are used as shell variable and function names. Also referred to as an identifier.",name,5
+A unique identifier that represents a process group during its lifetime.,process group ID,5
+A shell builtin command that has been classified as special by the POSIX standard.,special builtin,5
+preserves the literal value of each character within it,',5
+backspace,\b,5
+form feed,\f,5
+horizontal tab,\t,5
+backslash,\\,5
+the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHH (one to four hex digits),\uHHHH,5
+" a sequence of one or more pipelines separated by one of the operators ‘;’, ‘&’, ‘&&’, or ‘||’, and optionally terminated by one of ‘;’, ‘&’, or a newline.",list,5
+Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist,5
+A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",5
+Import PyPlot.,import matplotlib.pyplot as plt,5
+Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,5
+Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),5
+Display the model's architecture,model.summary(),5
+Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),5
+Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)",5
+Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",5
+Display a batch from the dataset.,show_batch(dataset),5
+Set the batch size to 64.,BATCH_SIZE = 64,5
+Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),5
+Batch the test set.,test_dataset = test_dataset.batch(BATCH_SIZE),5
+Print the data types in df.,df.dtypes,5
+Import TensorFlow Datasets.,import tensorflow_datasets as tfds,5
+Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),5
+"The next layer is a Long Short-Term Memory layer, which lets the model understand words in their context with other words. A bidirectional wrapper on the LSTM helps it to learn about the datapoints in relationship to the datapoints that came before it and after it.",model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))),5
+The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,5
+A sequence of characters treated as a unit by the shell. Words may not include unquoted metacharacters.,word,5
+"Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",while test-commands; do consequent-commands; done,5
+"Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words ...] ] ; ] do commands; done,5
+Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([]),5
+This is how the model is updated based on the data it sees and its loss function.,optimizer,5
+Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10, validation_data=(test_images,test_labels), callbacks=[cp_callback])",5
+creates a single collection of TensorFlow checkpoint files that are updated at the end of each epoch,ls {checkpoint_dir},5
+Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt""",5
+Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),5
+Save the model to a H5 file.,model.save('my_model.h5'),5
+Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),5
+"Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",5
+Create an encoder by passing the vocabulary_set to TokenTextEncoder. The encoder's encode method takes in a string of text and returns a list of integers.,encoder = tfds.features.text.TokenTextEncoder(vocabulary_set),5
+create a larger training set,train_data = all_encoded_data.skip(TAKE_SIZE).shuffle(BUFFER_SIZE),5
+"Before being passed into the model, the datasets need to be batched. Typically, the examples inside of a batch need to be the same size and shape. But, the examples in these datasets are not all the same size — each line of text had a different number of words.","train_data = train_data.padded_batch(BATCH_SIZE, padded_shapes=([-1],[]))",5
+The first layer converts integer representations to dense vector embeddings.,"model.add(tf.keras.layers.Embedding(vocab_size, 64))",5
+Is the string length is included in the tensor dimensions of a tf.string?,no,5
+here the sequence of code points is encoded using a known character encoding,string scalar,5
+Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,5
+Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,5
+Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,5
+Convert batch_chars_ragged tensor to a dense tf.Tensor with padding.,batch_chars_padded = batch_chars_ragged.to_tensor(default_value=-1),5
+Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),5
+Convert batch_chars_ragged tensor to a sparse tf.Tensor.,batch_chars_sparse = batch_chars_ragged.to_sparse(),5
+"When encoding multiple strings with varyling length, a tf.RaggedTensor should be used as input","tf.strings.unicode_encode(batch_chars_ragged, output_encoding='UTF-8')",5
+"If you have a tensor with multiple strings in sparse format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_sparse(batch_chars_sparse), output_encoding='UTF-8')",5
+"If you have a tensor with multiple strings in padded format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_tensor(batch_chars_padded, padding=-1), output_encoding='UTF-8')",5
+Import TensorFlow Text.,import tensorflow_text as text,5
+Set the whitespace tokenizer to the tokenizer value.,tokenizer = text.WhitespaceTokenizer(),5
+Tokenize a list of strings with tokenizer.,tokens = tokenizer.tokenize([]),5
+Print tokens as a list.,print(tokens.to_list()),5

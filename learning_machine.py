@@ -25,7 +25,7 @@ with open("last_level.txt", "r") as saved_level:
 print("CURRENT LEVEL:", last_level)
 print(equals * 2)
 
-current_level = int(last_level)
+level = int(last_level)
 
 session_count = 0
 
@@ -56,10 +56,10 @@ while session_count < session_limit:
         if check_for_max(level):
             level += 1
 
-        for row in range(0,len(questions(level))):
+        questions_df = flashcards.loc[flashcards[2] == level]
+        for row in range(0,len(questions_df)):
             if session_count < session_limit:
                 if check_for_max(level) == False:
-                    questions_df = flashcards.loc[flashcards[2] == level]
                     print(dash, " QUESTION", session_count, ":", dash, "\n", questions_df.iloc[row][0])
                     answer = input("ANSWER:")
                     if answer == questions_df.iloc[row][1]:

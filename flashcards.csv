@@ -1,85 +1,20 @@
-Start the mysite project in django.,django-admin startproject mysite,4
-Settings/configuration for this Django project.,mysite/settings.py,4
-"When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument and any “captured” values from the route as keyword arguments.",view,4
-the act of submitting this form will alter data server-side,"method=""post""",4
-Import Choice.,from .models import Choice,4
-"A set of processes comprising a pipeline, and any processes descended from it, that are all in the same process group.",job,4
-"A word consisting solely of letters, numbers, and underscores, and beginning with a letter or underscore. Names are used as shell variable and function names. Also referred to as an identifier.",name,4
-A unique identifier that represents a process group during its lifetime.,process group ID,4
-A shell builtin command that has been classified as special by the POSIX standard.,special builtin,4
-A sequence of characters treated as a unit by the shell. Words may not include unquoted metacharacters.,word,4
-preserves the literal value of each character within it,',4
-backspace,\b,4
-form feed,\f,4
-horizontal tab,\t,4
-backslash,\\,4
-the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHH (one to four hex digits),\uHHHH,4
-" a sequence of one or more pipelines separated by one of the operators ‘;’, ‘&’, ‘&&’, or ‘||’, and optionally terminated by one of ‘;’, ‘&’, or a newline.",list,4
-"Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",while test-commands; do consequent-commands; done,4
-"Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words ...] ] ; ] do commands; done,4
 "will selectively execute the command-list corresponding to the first pattern that matches word. The match is performed according to the rules described below in Pattern Matching. If the nocasematch shell option (see the description of shopt in The Shopt Builtin) is enabled, the match is performed without regard to the case of alphabetic characters. The ‘|’ is used to separate multiple patterns, and the ‘)’ operator terminates a pattern list. A list of patterns and an associated command-list is known as a clause.
 Each clause must be terminated with ‘;;’, ‘;&’, or ‘;;&’. The word undergoes tilde expansion, parameter expansion, command substitution, arithmetic expansion, and quote removal (see Shell Parameter Expansion) before matching is attempted. Each pattern undergoes tilde expansion, parameter expansion, command substitution, and arithmetic expansion.
 There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&’, or ‘;;&’. The first pattern that matches determines the command-list that is executed. It’s a common idiom to use ‘*’ as the final pattern to define the default case, since that pattern will always match.",case word in [ [(] pattern [| pattern]...) command-list ;;] esac,3
-Assign the MNIST dataset to the variable mnist.,mnist = tf.keras.datasets.mnist,4
 Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",3
-Build the Sequential model with a list of layers.,model = tf.keras.models.Sequential([]),4
-A Dense layer with 10 neurons and softmax activation.,"tf.keras.layers.Dense(10, activation='softmax')",4
 Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",3
-Import PyPlot.,import matplotlib.pyplot as plt,4
-Assign the Fashion MNIST dataset to variable fashion_mnist.,fashion_mnist = keras.datasets.fashion_mnist,4
-This is how the model is updated based on the data it sees and its loss function.,optimizer,4
-Returns the highest confidence value for the first prediction array.,np.argmax(predictions[0]),4
-Train the model with the cp_callback,"model.fit(train_images, train_labels, epochs=10, validation_data=(test_images,test_labels), callbacks=[cp_callback])",4
-Display the model's architecture,model.summary(),4
-creates a single collection of TensorFlow checkpoint files that are updated at the end of each epoch,ls {checkpoint_dir},4
-Include the epoch in the file name (uses `str.format`),"checkpoint_path = ""training_2/cp-{epoch:04d}.ckpt""",4
 Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",3
-Save the weights using the `checkpoint_path` format,model.save_weights(checkpoint_path.format(epoch=0)),4
 Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),3
-Manually save weights.,model.save_weights('./checkpoints/my_checkpoint'),4
-Save the model to a H5 file.,model.save('my_model.h5'),4
-Recreate new_model from file my_model.h5.,new_model = tf.keras.models.load_model('my_model.h5'),4
-Download sample CSV train dataset.,"train_file_path = tf.keras.utils.get_file(""train.csv"", TRAIN_DATA_URL)",4
-Download sample CSV test dataset.,"test_file_path = tf.keras.utils.get_file(""eval.csv"", TEST_DATA_URL)",4
 "Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",3
-Display a batch from the dataset.,show_batch(dataset),4
-"Assuming you have an array of examples, pass it as a tuple into tf.data.Dataset.from_tensor_slices to create a tf.data.Dataset.","train_dataset = tf.data.Dataset.from_tensor_slices((train_examples, train_labels))",4
-Set the batch size to 64.,BATCH_SIZE = 64,4
-Shuffle and batch the train set.,train_dataset = train_dataset.shuffle(SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE),4
-Batch the test set.,test_dataset = test_dataset.batch(BATCH_SIZE),4
-Print the data types in df.,df.dtypes,4
-Import TensorFlow Datasets.,import tensorflow_datasets as tfds,4
 "Return example, label pair.","return example, tf.cast(index, tf.int64)",3
-Create an encoder by passing the vocabulary_set to TokenTextEncoder. The encoder's encode method takes in a string of text and returns a list of integers.,encoder = tfds.features.text.TokenTextEncoder(vocabulary_set),4
-create a larger training set,train_data = all_encoded_data.skip(TAKE_SIZE).shuffle(BUFFER_SIZE),4
-Create a smaller test set.,test_data = all_encoded_data.take(TAKE_SIZE),4
-"Before being passed into the model, the datasets need to be batched. Typically, the examples inside of a batch need to be the same size and shape. But, the examples in these datasets are not all the same size — each line of text had a different number of words.","train_data = train_data.padded_batch(BATCH_SIZE, padded_shapes=([-1],[]))",4
-The first layer converts integer representations to dense vector embeddings.,"model.add(tf.keras.layers.Embedding(vocab_size, 64))",4
-"The next layer is a Long Short-Term Memory layer, which lets the model understand words in their context with other words. A bidirectional wrapper on the LSTM helps it to learn about the datapoints in relationship to the datapoints that came before it and after it.",model.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64))),4
 Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",3
-The basic TensorFlow dtype allows you to build tensors of byte strings. Unicode strings are utf-8 encoded by default.,tf.string,4
-Is the string length is included in the tensor dimensions of a tf.string?,no,4
-here the sequence of code points is encoded using a known character encoding,string scalar,4
 here each position contains a single code point,int32 vector,3
-Converts an encoded string scalar to a vector of code points.,tf.strings.unicode_decode,4
-Converts a vector of code points to an encoded string scalar.,tf.strings.unicode_encode,4
-Converts an encoded string scalar to a different encoding.,tf.strings.unicode_transcode,4
-Convert batch_chars_ragged tensor to a dense tf.Tensor with padding.,batch_chars_padded = batch_chars_ragged.to_tensor(default_value=-1),4
-Display the batch_chars_padded dense tensor.,print(batch_chars_padded.numpy()),4
-Convert batch_chars_ragged tensor to a sparse tf.Tensor.,batch_chars_sparse = batch_chars_ragged.to_sparse(),4
-"When encoding multiple strings with varyling length, a tf.RaggedTensor should be used as input","tf.strings.unicode_encode(batch_chars_ragged, output_encoding='UTF-8')",4
-"If you have a tensor with multiple strings in sparse format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_sparse(batch_chars_sparse), output_encoding='UTF-8')",4
-"If you have a tensor with multiple strings in padded format, then convert it to a tf.RaggedTensor before calling unicode_encode","tf.strings.unicode_encode(tf.RaggedTensor.from_tensor(batch_chars_padded, padding=-1), output_encoding='UTF-8')",4
-Import TensorFlow Text.,import tensorflow_text as text,4
-Set the whitespace tokenizer to the tokenizer value.,tokenizer = text.WhitespaceTokenizer(),4
-Tokenize a list of strings with tokenizer.,tokens = tokenizer.tokenize([]),4
-Print tokens as a list.,print(tokens.to_list()),4
 "This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
 
-In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),2
+In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),3
 "When tokenizing languages without whitespace to segment words, it is common to just split by character.","tokens = tf.strings.unicode_split([u""string"".encode('UTF-8')], 'UTF-8')",2
 "When tokenizing strings, it is often desired to know where in the original string the token originated from. For this reason, each tokenizer which implements TokenizerWithOffsets has a method that will return the byte offsets along with the tokens.","(tokens, offset_starts, offset_limits) = tokenizer.tokenize_with_offsets([])",3
-"Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",2
+"Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",3
 "Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",3
 "Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",3
 "Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",3
@@ -90,43 +25,43 @@ a simple format for storing a sequence of binary records,TFRecord,3
 "a flexible message type that represents a {""string"": value} mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as TFX.",tf.Example,3
 "A Python dictionary in which:
 Each key is the name of a feature.
-Each value is an array containing all of that feature's values.",features,2
+Each value is an array containing all of that feature's values.",features,3
 An array containing the values of the label for every example.,label,3
 Convert the inputs to a Dataset.,"dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))",2
 Shuffle dataset and repeat.,dataset = dataset.shuffle(1000).repeat(),3
-an object describing how the model should use raw input data from the features dictionary,feature column,2
-A classifier Estimator for deep models that perform multi-class classification.,tf.estimator.DNNClassifier,2
+an object describing how the model should use raw input data from the features dictionary,feature column,3
+A classifier Estimator for deep models that perform multi-class classification.,tf.estimator.DNNClassifier,3
 A classifier Estimator for wide & deep models.,tf.estimator.DNNLinearCombinedClassifier,3
 A classifier Estimator for classifiers based on linear models.,tf.estimator.LinearClassifier,3
 "Matches the empty string, but only at the beginning or end of a word.",\b,3
 Test whether every element in other is in the set.,set >= other,3
 "An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,3
-Return the lowest index in string h where substring i is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if substring is not found.,"h.find(i, start, end)",2
+Return the lowest index in string h where substring i is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if substring is not found.,"h.find(i, start, end)",3
 "This static method returns a translation table usable for str.translate().
 
 If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
 
-If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",2
+If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",3
 Remove all elements from the set.,clear(),3
 Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,3
 drops you into the debugger at the call site,breakpoint(),3
-Remove element elem from the set. Raises KeyError if elem is not contained in the set.,remove(elem),2
-"Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",2
+Remove element elem from the set. Raises KeyError if elem is not contained in the set.,remove(elem),3
+"Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",3
 Return a str version of object.,str(),3
 Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),3
 Invoke the built-in help system.,help(),3
 Matches any Unicode decimal digit,\d,3
 "Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),3
 "Matches the empty string, but only when it is not at the beginning or end of a word.",\B,3
-"A string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.",string.whitespace,2
+"A string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.",string.whitespace,3
 "Return True if d has a key key, else False.",key in d,3
 "Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),3
 "Return a new set object, optionally with elements taken from iterable.",set(),3
 Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each. The model must choose between 3 classes.,"classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns, hidden_units=[30, 10], n_classes=3)",2
 Train the classifier model.,"classifier.train(input_fn=lambda: input_fn(train, train_y, training=True), steps=5000)",2
 Import ROC curve.,from sklearn.metrics import roc_curve,2
-Is a Tensor mutable?,no,2
-A vector with mostly 0 values.,sparse,2
+Is a Tensor mutable?,no,3
+A vector with mostly 0 values.,sparse,3
 this matches any character except a newline,.,2
 Return the largest item in an iterable or the largest of two or more arguments.,max(),2
 The mouse cursor is over the widget and pressing a mouse button will cause some action to occur,active,2
@@ -154,7 +89,7 @@ delete the first item from s where s[i] is equal to x,s.remove(x),2
 The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,2
 "Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",2
 "Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",2
-Save the dictionary of history.,history_dict = history.history,1
+Save the dictionary of history.,history_dict = history.history,2
 Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],1
 Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],1
 Return a new set with elements in either the set or other but not both,set ^ other,1
@@ -163,3 +98,42 @@ Specifies that exactly m copies of the previous RE should be matched; fewer matc
 Return the length (the number of items) of an object.,len(),1
 Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),1
 "Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),1
+Save the values of 'loss' into the 'loss' variable.,loss = history_dict['loss'],1
+Save the values of 'val_loss' into the 'val_loss' variable.,val_loss = history_dict['val_loss'],1
+Set the figure size to 1200 x 900 pixels.,"plt.figure(figsize=(12,9))",1
+Plot accuracy by epochs.,"plt.plot(epochs, acc, 'bo', label='Training acc')",0
+Plot validation accuracy by epochs.,"plt.plot(epochs, val_acc, 'b', label='Validation acc')",1
+"Name the figure ""Training and validation accuracy"".",plt.title('Training and validation accuracy'),1
+"Label the x axis ""Epochs"".",plt.xlabel('Epochs'),1
+"Label the y axis ""Accuracy"".",plt.ylabel('Accuracy'),1
+Place the figure legend in the lower right-hand corner.,plt.legend(loc='lower right'),1
+Return a new set with elements common to the set and all others.,intersection(*others),1
+Return the current local date.,date.today(),1
+Return x to the power y,"pow(x, y)",1
+Create a new list.,list(),1
+returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),1
+"Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",1
+Return True if all elements of the iterable are true (or if the iterable is empty).,all(),1
+"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,1
+Create a new tuple.,tuple(),1
+Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),1
+"Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",1
+Display the figure.,plt.show(),0
+Return a floating point number constructed from a number or string x.,float(),1
+Assign the first layer to variable e.,e = model.layers[0],0
+Retrieve weights learned at layer e.,weights = e.get_weights()[0],0
+"Print the word embeddings learned during training. This will be a matrix of shape (vocab_size, embedding-dimension).",print(weights.shape),0
+Assign the text features to variable encoder.,encoder = info.features['text'].encoder,0
+Print the vocabulary size in encoder.,print ('Vocabulary size: {}'.format(encoder.vocab_size)),0
+Import Time.,import time,0
+Download the Shakespeare dataset.,"path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')",0
+"Assign a set of index, vocab element to variable char2idx.","char2idx = {u:i for i, u in enumerate(vocab)}",0
+total number of occurrences of x in s,s.count(x),0
+Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),0
+Is a tuple mutable?,no,0
+Test whether every element in the set is in other.,set <= other,0
+Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),0
+Retrieve the subsequent item from the iterator.,next(),0
+"With one argument, return the type of an object.",type(),0
+Sums start and the items of an iterable from left to right and returns the total.,sum(),0
+"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),0
