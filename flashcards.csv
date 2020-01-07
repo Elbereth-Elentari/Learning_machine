@@ -1,27 +1,27 @@
 "will selectively execute the command-list corresponding to the first pattern that matches word. The match is performed according to the rules described below in Pattern Matching. If the nocasematch shell option (see the description of shopt in The Shopt Builtin) is enabled, the match is performed without regard to the case of alphabetic characters. The ‘|’ is used to separate multiple patterns, and the ‘)’ operator terminates a pattern list. A list of patterns and an associated command-list is known as a clause.
 Each clause must be terminated with ‘;;’, ‘;&’, or ‘;;&’. The word undergoes tilde expansion, parameter expansion, command substitution, arithmetic expansion, and quote removal (see Shell Parameter Expansion) before matching is attempted. Each pattern undergoes tilde expansion, parameter expansion, command substitution, and arithmetic expansion.
-There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&’, or ‘;;&’. The first pattern that matches determines the command-list that is executed. It’s a common idiom to use ‘*’ as the final pattern to define the default case, since that pattern will always match.",case word in [ [(] pattern [| pattern]...) command-list ;;] esac,3
-Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",3
+There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&’, or ‘;;&’. The first pattern that matches determines the command-list that is executed. It’s a common idiom to use ‘*’ as the final pattern to define the default case, since that pattern will always match.",case word in [ [(] pattern [| pattern]...) command-list ;;] esac,4
+Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",4
 Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",3
 Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",3
-Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),3
+Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),4
 "Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",3
-"Return example, label pair.","return example, tf.cast(index, tf.int64)",3
+"Return example, label pair.","return example, tf.cast(index, tf.int64)",4
 Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",3
 here each position contains a single code point,int32 vector,3
 "This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
 
-In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),3
+In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),4
 "When tokenizing languages without whitespace to segment words, it is common to just split by character.","tokens = tf.strings.unicode_split([u""string"".encode('UTF-8')], 'UTF-8')",2
 "When tokenizing strings, it is often desired to know where in the original string the token originated from. For this reason, each tokenizer which implements TokenizerWithOffsets has a method that will return the byte offsets along with the tokens.","(tokens, offset_starts, offset_limits) = tokenizer.tokenize_with_offsets([])",3
-"Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",3
-"Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",3
-"Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",3
+"Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",4
+"Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",4
+"Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",4
 "Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",3
 "Divide tokens by space, into bigrams.","bigrams = text.ngrams(tokens, 2, reduction_type=text.Reduction.STRING_JOIN)",2
-a simple format for storing a sequence of binary records,TFRecord,3
+a simple format for storing a sequence of binary records,TFRecord,4
 "a cross-platform, cross-language library for efficient serialization of structured data",Protocol buffers,3
-"defined by .proto files, these are often the easiest way to understand a message type",Protocol messages,2
+"defined by .proto files, these are often the easiest way to understand a message type",Protocol messages,3
 "a flexible message type that represents a {""string"": value} mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as TFX.",tf.Example,3
 "A Python dictionary in which:
 Each key is the name of a feature.
@@ -59,37 +59,37 @@ Matches any Unicode decimal digit,\d,3
 "Return a new set object, optionally with elements taken from iterable.",set(),3
 Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each. The model must choose between 3 classes.,"classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns, hidden_units=[30, 10], n_classes=3)",2
 Train the classifier model.,"classifier.train(input_fn=lambda: input_fn(train, train_y, training=True), steps=5000)",2
-Import ROC curve.,from sklearn.metrics import roc_curve,2
+Import ROC curve.,from sklearn.metrics import roc_curve,3
 Is a Tensor mutable?,no,3
 A vector with mostly 0 values.,sparse,3
-this matches any character except a newline,.,2
-Return the largest item in an iterable or the largest of two or more arguments.,max(),2
-The mouse cursor is over the widget and pressing a mouse button will cause some action to occur,active,2
-Widget is disabled under program control,disabled,2
-Is a string mutable?,no,2
-"a dense vector of floating point values (the length of the vector is a parameter you specify). Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer). It is common to see word embeddings that are 8-dimensional (for small datasets), up to 1024-dimensions when working with large datasets. A higher dimensional embedding can capture fine-grained relationships between words, but takes more data to learn.",embedding,2
+this matches any character except a newline,.,3
+Return the largest item in an iterable or the largest of two or more arguments.,max(),3
+The mouse cursor is over the widget and pressing a mouse button will cause some action to occur,active,3
+Widget is disabled under program control,disabled,3
+Is a string mutable?,no,3
+"a dense vector of floating point values (the length of the vector is a parameter you specify). Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer). It is common to see word embeddings that are 8-dimensional (for small datasets), up to 1024-dimensions when working with large datasets. A higher dimensional embedding can capture fine-grained relationships between words, but takes more data to learn.",embedding,3
 Import layers.,from tensorflow.keras import layers,2
 "The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",2
 Load IMDB dataset.,"(train_data, test_data), info = tfds.load('imdb_reviews/subwords8k', split = (tfds.Split.TRAIN, tfds.Split.TEST), with_info=True, as_supervised=True)",0
 Subword encoder.,tfds.features.text.SubwordTextEncoder,2
-Represents spaces in the subword vocabulary.,_,2
+Represents spaces in the subword vocabulary.,_,3
 "the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",2
-"a GlobalAveragePooling1D layer returns a fixed-length output vector for each example by averaging over the sequence dimension. This allows the model to handle input of variable length, in the simplest way possible.",layers.GlobalAveragePooling1D(),2
+"a GlobalAveragePooling1D layer returns a fixed-length output vector for each example by averaging over the sequence dimension. This allows the model to handle input of variable length, in the simplest way possible.",layers.GlobalAveragePooling1D(),3
 This fixed-length output vector is piped through a fully-connected (Dense) layer with 16 hidden units.,"layers.Dense(16, activation='relu')",2
-"The last layer is densely connected with a single output node. Using the sigmoid activation function, this value is a float between 0 and 1, representing a probability (or confidence level) that the review is positive.","layers.Dense(1, activation='sigmoid')",2
-Used to indicate a set of characters for matching.,[],2
-Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),2
-Return the absolute value of a number,abs(),2
-The string '0123456789'.,string.digits,2
+"The last layer is densely connected with a single output node. Using the sigmoid activation function, this value is a float between 0 and 1, representing a probability (or confidence level) that the review is positive.","layers.Dense(1, activation='sigmoid')",3
+Used to indicate a set of characters for matching.,[],3
+Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),3
+Return the absolute value of a number,abs(),3
+The string '0123456789'.,string.digits,3
 remove all case distinctions in string b,b.casefold(),2
-index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",2
-Matches the end of the string or just before the newline at the end of the string,$,2
-delete the first item from s where s[i] is equal to x,s.remove(x),2
+index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",3
+Matches the end of the string or just before the newline at the end of the string,$,3
+delete the first item from s where s[i] is equal to x,s.remove(x),3
 "Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),1
-The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,2
-"Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",2
+The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,3
+"Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",3
 "Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",2
-Save the dictionary of history.,history_dict = history.history,2
+Save the dictionary of history.,history_dict = history.history,3
 Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],1
 Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],1
 Return a new set with elements in either the set or other but not both,set ^ other,1
