@@ -68,9 +68,9 @@ The mouse cursor is over the widget and pressing a mouse button will cause some 
 Widget is disabled under program control,disabled,4
 Is a string mutable?,no,4
 "a dense vector of floating point values (the length of the vector is a parameter you specify). Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer). It is common to see word embeddings that are 8-dimensional (for small datasets), up to 1024-dimensions when working with large datasets. A higher dimensional embedding can capture fine-grained relationships between words, but takes more data to learn.",embedding,4
-Import layers.,from tensorflow.keras import layers,2
+Import layers.,from tensorflow.keras import layers,3
 "The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",2
-Load IMDB dataset.,"(train_data, test_data), info = tfds.load('imdb_reviews/subwords8k', split = (tfds.Split.TRAIN, tfds.Split.TEST), with_info=True, as_supervised=True)",0
+Load IMDB dataset.,"(train_data, test_data), info = tfds.load('imdb_reviews/subwords8k', split = (tfds.Split.TRAIN, tfds.Split.TEST), with_info=True, as_supervised=True)",3
 Subword encoder.,tfds.features.text.SubwordTextEncoder,2
 Represents spaces in the subword vocabulary.,_,4
 "the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",2
@@ -81,17 +81,17 @@ Used to indicate a set of characters for matching.,[],4
 Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),4
 Return the absolute value of a number,abs(),4
 The string '0123456789'.,string.digits,4
-remove all case distinctions in string b,b.casefold(),2
+remove all case distinctions in string b,b.casefold(),3
 index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",4
 Matches the end of the string or just before the newline at the end of the string,$,4
 delete the first item from s where s[i] is equal to x,s.remove(x),4
-"Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),2
+"Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),3
 The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,4
 "Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",4
 "Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",2
 Save the dictionary of history.,history_dict = history.history,4
-Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],2
-Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],2
+Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],3
+Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],3
 Return a new set with elements in either the set or other but not both,set ^ other,2
 Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},2
 "Return an iterator that applies function to every item of iterable, yielding the results.",map(),2
@@ -101,14 +101,14 @@ Return a copy of string j with all the cased characters converted to lowercase.,
 Save the values of 'loss' into the 'loss' variable.,loss = history_dict['loss'],2
 Save the values of 'val_loss' into the 'val_loss' variable.,val_loss = history_dict['val_loss'],2
 Set the figure size to 1200 x 900 pixels.,"plt.figure(figsize=(12,9))",2
-Plot accuracy by epochs.,"plt.plot(epochs, acc, 'bo', label='Training acc')",0
-Plot validation accuracy by epochs.,"plt.plot(epochs, val_acc, 'b', label='Validation acc')",1
+Plot accuracy by epochs.,"plt.plot(epochs, acc, 'bo', label='Training acc')",1
+Plot validation accuracy by epochs.,"plt.plot(epochs, val_acc, 'b', label='Validation acc')",2
 "Name the figure ""Training and validation accuracy"".",plt.title('Training and validation accuracy'),2
 "Label the x axis ""Epochs"".",plt.xlabel('Epochs'),2
 "Label the y axis ""Accuracy"".",plt.ylabel('Accuracy'),2
 Place the figure legend in the lower right-hand corner.,plt.legend(loc='lower right'),2
 Return a new set with elements common to the set and all others.,intersection(*others),2
-Return the current local date.,date.today(),1
+Return the current local date.,date.today(),2
 Return x to the power y,"pow(x, y)",2
 Create a new list.,list(),2
 returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),2
@@ -117,23 +117,41 @@ Return True if all elements of the iterable are true (or if the iterable is empt
 "Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,2
 Create a new tuple.,tuple(),2
 Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),2
-"Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",1
-Display the figure.,plt.show(),1
-Return a floating point number constructed from a number or string x.,float(),1
-Assign the first layer to variable e.,e = model.layers[0],0
-Retrieve weights learned at layer e.,weights = e.get_weights()[0],0
-"Print the word embeddings learned during training. This will be a matrix of shape (vocab_size, embedding-dimension).",print(weights.shape),0
-Assign the text features to variable encoder.,encoder = info.features['text'].encoder,0
-Print the vocabulary size in encoder.,print ('Vocabulary size: {}'.format(encoder.vocab_size)),0
-Import Time.,import time,0
-Download the Shakespeare dataset.,"path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')",0
-"Assign a set of index, vocab element to variable char2idx.","char2idx = {u:i for i, u in enumerate(vocab)}",0
-total number of occurrences of x in s,s.count(x),0
-Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),0
-Is a tuple mutable?,no,0
-Test whether every element in the set is in other.,set <= other,0
-Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),0
-Retrieve the subsequent item from the iterator.,next(),0
-"With one argument, return the type of an object.",type(),0
-Sums start and the items of an iterable from left to right and returns the total.,sum(),0
-"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),0
+"Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",2
+Display the figure.,plt.show(),2
+Return a floating point number constructed from a number or string x.,float(),2
+Assign the first layer to variable e.,e = model.layers[0],2
+Retrieve weights learned at layer e.,weights = e.get_weights()[0],2
+"Print the word embeddings learned during training. This will be a matrix of shape (vocab_size, embedding-dimension).",print(weights.shape),1
+Assign the text features to variable encoder.,encoder = info.features['text'].encoder,1
+Print the vocabulary size in encoder.,print ('Vocabulary size: {}'.format(encoder.vocab_size)),1
+Import Time.,import time,1
+Download the Shakespeare dataset.,"path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')",1
+"Assign a set of index, vocab element to variable char2idx.","char2idx = {u:i for i, u in enumerate(vocab)}",1
+total number of occurrences of x in s,s.count(x),1
+Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),1
+Is a tuple mutable?,no,1
+Test whether every element in the set is in other.,set <= other,1
+Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),1
+Retrieve the subsequent item from the iterator.,next(),1
+"With one argument, return the type of an object.",type(),1
+Sums start and the items of an iterable from left to right and returns the total.,sum(),1
+"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),1
+"Create a lookup table mapping characters to numbers, save it as text_as_int.",text_as_int = np.array([char2idx[c] for c in text]),0
+Set the maximum length sentence we want for a single input in characters to 100.,seq_length = 100,1
+Create training examples / targets.,char_dataset = tf.data.Dataset.from_tensor_slices(text_as_int),0
+The batch method lets us easily convert these individual characters to sequences of the desired size.,"sequences = char_dataset.batch(seq_length+1, drop_remainder=True)",0
+A type of RNN with size units=rnn_units (You can also use a LSTM layer here.),tf.keras.layers.GRU,1
+Set the embedding dimension to 256.,embedding_dim = 256,1
+Set the number of RNN units to 1024.,rnn_units = 1024,1
+"An Embedding layer with batch input shape [batch_size, None]","tf.keras.layers.Embedding(vocab_size, embedding_dim, batch_input_shape=[batch_size, None])",1
+A GRU layer with recurrent initialiser glorot uniform.,"tf.keras.layers.GRU(rnn_units, return_sequences=True, stateful=True, recurrent_initializer='glorot_uniform')",0
+"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),1
+Return a random element from the non-empty sequence seq.,random.choice(seq),1
+Return a list of the words in string o.,o.split(),0
+"Write the row parameter to the writer’s file object, formatted according to the current dialect.",csvwriter.writerow(row),0
+"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),1
+Rename the file or directory src to dst.,"os.rename(src, dst)",1
+"Test whether the set is a proper superset of other, that is, set >= other and set != other.",set > other,0
+matches any character except '5',[^5],1
+"Changes ., *, and ? into non-greedy matching.",?,1

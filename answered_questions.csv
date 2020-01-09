@@ -1,12 +1,3 @@
-"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),5
-Return a random element from the non-empty sequence seq.,random.choice(seq),5
-Return a list of the words in string o.,o.split(),5
-"Write the row parameter to the writer’s file object, formatted according to the current dialect.",csvwriter.writerow(row),5
-"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),5
-Rename the file or directory src to dst.,"os.rename(src, dst)",5
-"Test whether the set is a proper superset of other, that is, set >= other and set != other.",set > other,5
-matches any character except '5',[^5],5
-"Changes ., *, and ? into non-greedy matching.",?,5
 A class that implements the tzinfo abstract base class as a fixed offset from the UTC.,datetime.timezone,5
 Is a list mutable?,yes,5
 String of ASCII characters which are considered punctuation characters in the C locale.,string.punctuation,5
