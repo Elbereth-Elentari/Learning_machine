@@ -12,13 +12,13 @@ here each position contains a single code point,int32 vector,4
 "This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
 
 In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),4
-"When tokenizing languages without whitespace to segment words, it is common to just split by character.","tokens = tf.strings.unicode_split([u""string"".encode('UTF-8')], 'UTF-8')",2
+"When tokenizing languages without whitespace to segment words, it is common to just split by character.","tokens = tf.strings.unicode_split([u""string"".encode('UTF-8')], 'UTF-8')",3
 "When tokenizing strings, it is often desired to know where in the original string the token originated from. For this reason, each tokenizer which implements TokenizerWithOffsets has a method that will return the byte offsets along with the tokens.","(tokens, offset_starts, offset_limits) = tokenizer.tokenize_with_offsets([])",4
 "Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",4
 "Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",4
 "Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",4
 "Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",4
-"Divide tokens by space, into bigrams.","bigrams = text.ngrams(tokens, 2, reduction_type=text.Reduction.STRING_JOIN)",2
+"Divide tokens by space, into bigrams.","bigrams = text.ngrams(tokens, 2, reduction_type=text.Reduction.STRING_JOIN)",3
 a simple format for storing a sequence of binary records,TFRecord,4
 "a cross-platform, cross-language library for efficient serialization of structured data",Protocol buffers,4
 "defined by .proto files, these are often the easiest way to understand a message type",Protocol messages,4
@@ -27,7 +27,7 @@ a simple format for storing a sequence of binary records,TFRecord,4
 Each key is the name of a feature.
 Each value is an array containing all of that feature's values.",features,4
 An array containing the values of the label for every example.,label,4
-Convert the inputs to a Dataset.,"dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))",2
+Convert the inputs to a Dataset.,"dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))",3
 Shuffle dataset and repeat.,dataset = dataset.shuffle(1000).repeat(),4
 an object describing how the model should use raw input data from the features dictionary,feature column,4
 A classifier Estimator for deep models that perform multi-class classification.,tf.estimator.DNNClassifier,4
@@ -57,8 +57,8 @@ Matches any Unicode decimal digit,\d,4
 "Return True if d has a key key, else False.",key in d,4
 "Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),4
 "Return a new set object, optionally with elements taken from iterable.",set(),4
-Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each. The model must choose between 3 classes.,"classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns, hidden_units=[30, 10], n_classes=3)",2
-Train the classifier model.,"classifier.train(input_fn=lambda: input_fn(train, train_y, training=True), steps=5000)",2
+Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each. The model must choose between 3 classes.,"classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns, hidden_units=[30, 10], n_classes=3)",3
+Train the classifier model.,"classifier.train(input_fn=lambda: input_fn(train, train_y, training=True), steps=5000)",3
 Import ROC curve.,from sklearn.metrics import roc_curve,4
 Is a Tensor mutable?,no,4
 A vector with mostly 0 values.,sparse,4
@@ -69,13 +69,13 @@ Widget is disabled under program control,disabled,4
 Is a string mutable?,no,4
 "a dense vector of floating point values (the length of the vector is a parameter you specify). Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer). It is common to see word embeddings that are 8-dimensional (for small datasets), up to 1024-dimensions when working with large datasets. A higher dimensional embedding can capture fine-grained relationships between words, but takes more data to learn.",embedding,4
 Import layers.,from tensorflow.keras import layers,3
-"The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",2
+"The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",3
 Load IMDB dataset.,"(train_data, test_data), info = tfds.load('imdb_reviews/subwords8k', split = (tfds.Split.TRAIN, tfds.Split.TEST), with_info=True, as_supervised=True)",3
-Subword encoder.,tfds.features.text.SubwordTextEncoder,2
+Subword encoder.,tfds.features.text.SubwordTextEncoder,3
 Represents spaces in the subword vocabulary.,_,4
-"the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",2
+"the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",3
 "a GlobalAveragePooling1D layer returns a fixed-length output vector for each example by averaging over the sequence dimension. This allows the model to handle input of variable length, in the simplest way possible.",layers.GlobalAveragePooling1D(),4
-This fixed-length output vector is piped through a fully-connected (Dense) layer with 16 hidden units.,"layers.Dense(16, activation='relu')",2
+This fixed-length output vector is piped through a fully-connected (Dense) layer with 16 hidden units.,"layers.Dense(16, activation='relu')",3
 "The last layer is densely connected with a single output node. Using the sigmoid activation function, this value is a float between 0 and 1, representing a probability (or confidence level) that the review is positive.","layers.Dense(1, activation='sigmoid')",4
 Used to indicate a set of characters for matching.,[],4
 Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),4
@@ -88,70 +88,83 @@ delete the first item from s where s[i] is equal to x,s.remove(x),4
 "Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),3
 The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,4
 "Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",4
-"Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",2
+"Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",3
 Save the dictionary of history.,history_dict = history.history,4
 Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],3
 Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],3
-Return a new set with elements in either the set or other but not both,set ^ other,2
-Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},2
-"Return an iterator that applies function to every item of iterable, yielding the results.",map(),2
-Return the length (the number of items) of an object.,len(),2
-Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),2
-"Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),2
-Save the values of 'loss' into the 'loss' variable.,loss = history_dict['loss'],2
-Save the values of 'val_loss' into the 'val_loss' variable.,val_loss = history_dict['val_loss'],2
-Set the figure size to 1200 x 900 pixels.,"plt.figure(figsize=(12,9))",2
-Plot accuracy by epochs.,"plt.plot(epochs, acc, 'bo', label='Training acc')",1
-Plot validation accuracy by epochs.,"plt.plot(epochs, val_acc, 'b', label='Validation acc')",2
-"Name the figure ""Training and validation accuracy"".",plt.title('Training and validation accuracy'),2
-"Label the x axis ""Epochs"".",plt.xlabel('Epochs'),2
-"Label the y axis ""Accuracy"".",plt.ylabel('Accuracy'),2
-Place the figure legend in the lower right-hand corner.,plt.legend(loc='lower right'),2
-Return a new set with elements common to the set and all others.,intersection(*others),2
-Return the current local date.,date.today(),2
-Return x to the power y,"pow(x, y)",2
-Create a new list.,list(),2
-returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),2
-"Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",2
-Return True if all elements of the iterable are true (or if the iterable is empty).,all(),2
-"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,2
-Create a new tuple.,tuple(),2
-Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),2
-"Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",2
-Display the figure.,plt.show(),2
-Return a floating point number constructed from a number or string x.,float(),2
-Assign the first layer to variable e.,e = model.layers[0],2
-Retrieve weights learned at layer e.,weights = e.get_weights()[0],2
-"Print the word embeddings learned during training. This will be a matrix of shape (vocab_size, embedding-dimension).",print(weights.shape),1
+Return a new set with elements in either the set or other but not both,set ^ other,3
+Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},3
+"Return an iterator that applies function to every item of iterable, yielding the results.",map(),3
+Return the length (the number of items) of an object.,len(),3
+Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),3
+"Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),3
+Save the values of 'loss' into the 'loss' variable.,loss = history_dict['loss'],3
+Save the values of 'val_loss' into the 'val_loss' variable.,val_loss = history_dict['val_loss'],3
+Set the figure size to 1200 x 900 pixels.,"plt.figure(figsize=(12,9))",3
+Plot accuracy by epochs.,"plt.plot(epochs, acc, 'bo', label='Training acc')",2
+Plot validation accuracy by epochs.,"plt.plot(epochs, val_acc, 'b', label='Validation acc')",3
+"Name the figure ""Training and validation accuracy"".",plt.title('Training and validation accuracy'),3
+"Label the x axis ""Epochs"".",plt.xlabel('Epochs'),3
+"Label the y axis ""Accuracy"".",plt.ylabel('Accuracy'),3
+Place the figure legend in the lower right-hand corner.,plt.legend(loc='lower right'),3
+Return a new set with elements common to the set and all others.,intersection(*others),3
+Return the current local date.,date.today(),3
+Return x to the power y,"pow(x, y)",3
+Create a new list.,list(),3
+returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),3
+"Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",3
+Return True if all elements of the iterable are true (or if the iterable is empty).,all(),3
+"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,3
+Create a new tuple.,tuple(),3
+Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),3
+"Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",3
+Display the figure.,plt.show(),3
+Return a floating point number constructed from a number or string x.,float(),3
+Assign the first layer to variable e.,e = model.layers[0],3
+Retrieve weights learned at layer e.,weights = e.get_weights()[0],3
+"Print the word embeddings learned during training. This will be a matrix of shape (vocab_size, embedding-dimension).",print(weights.shape),2
 Assign the text features to variable encoder.,encoder = info.features['text'].encoder,1
 Print the vocabulary size in encoder.,print ('Vocabulary size: {}'.format(encoder.vocab_size)),1
-Import Time.,import time,1
-Download the Shakespeare dataset.,"path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')",1
-"Assign a set of index, vocab element to variable char2idx.","char2idx = {u:i for i, u in enumerate(vocab)}",1
-total number of occurrences of x in s,s.count(x),1
-Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),1
-Is a tuple mutable?,no,1
-Test whether every element in the set is in other.,set <= other,1
-Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),1
-Retrieve the subsequent item from the iterator.,next(),1
-"With one argument, return the type of an object.",type(),1
-Sums start and the items of an iterable from left to right and returns the total.,sum(),1
+Import Time.,import time,2
+Download the Shakespeare dataset.,"path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')",2
+"Assign a set of index, vocab element to variable char2idx.","char2idx = {u:i for i, u in enumerate(vocab)}",2
+total number of occurrences of x in s,s.count(x),2
+Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),2
+Is a tuple mutable?,no,2
+Test whether every element in the set is in other.,set <= other,2
+Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),2
+Retrieve the subsequent item from the iterator.,next(),2
+"With one argument, return the type of an object.",type(),2
+Sums start and the items of an iterable from left to right and returns the total.,sum(),2
 "Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),1
 "Create a lookup table mapping characters to numbers, save it as text_as_int.",text_as_int = np.array([char2idx[c] for c in text]),0
-Set the maximum length sentence we want for a single input in characters to 100.,seq_length = 100,1
+Set the maximum length sentence we want for a single input in characters to 100.,seq_length = 100,2
 Create training examples / targets.,char_dataset = tf.data.Dataset.from_tensor_slices(text_as_int),0
 The batch method lets us easily convert these individual characters to sequences of the desired size.,"sequences = char_dataset.batch(seq_length+1, drop_remainder=True)",0
 A type of RNN with size units=rnn_units (You can also use a LSTM layer here.),tf.keras.layers.GRU,1
-Set the embedding dimension to 256.,embedding_dim = 256,1
-Set the number of RNN units to 1024.,rnn_units = 1024,1
-"An Embedding layer with batch input shape [batch_size, None]","tf.keras.layers.Embedding(vocab_size, embedding_dim, batch_input_shape=[batch_size, None])",1
+Set the embedding dimension to 256.,embedding_dim = 256,2
+Set the number of RNN units to 1024.,rnn_units = 1024,2
+"An Embedding layer with batch input shape [batch_size, None]","tf.keras.layers.Embedding(vocab_size, embedding_dim, batch_input_shape=[batch_size, None])",2
 A GRU layer with recurrent initialiser glorot uniform.,"tf.keras.layers.GRU(rnn_units, return_sequences=True, stateful=True, recurrent_initializer='glorot_uniform')",0
-"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),1
-Return a random element from the non-empty sequence seq.,random.choice(seq),1
-Return a list of the words in string o.,o.split(),0
+"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),2
+Return a random element from the non-empty sequence seq.,random.choice(seq),2
+Return a list of the words in string o.,o.split(),2
 "Write the row parameter to the writer’s file object, formatted according to the current dialect.",csvwriter.writerow(row),0
-"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),1
-Rename the file or directory src to dst.,"os.rename(src, dst)",1
-"Test whether the set is a proper superset of other, that is, set >= other and set != other.",set > other,0
-matches any character except '5',[^5],1
-"Changes ., *, and ? into non-greedy matching.",?,1
+"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),2
+Rename the file or directory src to dst.,"os.rename(src, dst)",2
+"Test whether the set is a proper superset of other, that is, set >= other and set != other.",set > other,2
+matches any character except '5',[^5],2
+"Changes ., *, and ? into non-greedy matching.",?,2
+A class that implements the tzinfo abstract base class as a fixed offset from the UTC.,datetime.timezone,0
+Is a list mutable?,yes,2
+String of ASCII characters which are considered punctuation characters in the C locale.,string.punctuation,0
+Return the smallest item in an iterable or the smallest of two or more arguments.,min(),0
+"open for exclusive creation, failing if the file already exists",x,0
+printf-style for integer,%d,0
+removes all items from s (same as del s[:]),s.clear(),0
+"Return a copy of string n with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.","n.replace(old, new, count)",0
+Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl.,"re.sub(pattern, repl, string)",0
+retrieves the item at i and also removes it from s,s.pop([i]),0
+"open for writing, appending to the end of the file if it exists",a,0
+"Either escapes special characters (permitting you to match characters like '*', '?', and so forth), or signals a special sequence; special sequences are discussed below.",\,0
+"If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.",input(),0
