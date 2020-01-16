@@ -1,170 +1,102 @@
-"will selectively execute the command-list corresponding to the first pattern that matches word. The match is performed according to the rules described below in Pattern Matching. If the nocasematch shell option (see the description of shopt in The Shopt Builtin) is enabled, the match is performed without regard to the case of alphabetic characters. The ‘|’ is used to separate multiple patterns, and the ‘)’ operator terminates a pattern list. A list of patterns and an associated command-list is known as a clause.
-Each clause must be terminated with ‘;;’, ‘;&’, or ‘;;&’. The word undergoes tilde expansion, parameter expansion, command substitution, arithmetic expansion, and quote removal (see Shell Parameter Expansion) before matching is attempted. Each pattern undergoes tilde expansion, parameter expansion, command substitution, and arithmetic expansion.
-There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&’, or ‘;;&’. The first pattern that matches determines the command-list that is executed. It’s a common idiom to use ‘*’ as the final pattern to define the default case, since that pattern will always match.",case word in [ [(] pattern [| pattern]...) command-list ;;] esac,4
-Convert the MNIST samples from integers to floating-point numbers,"x_train, x_test = x_train / 255.0, x_test / 255.0",4
-Train model with 5 epochs.,"model.fit(x_train, y_train, epochs=5)",4
-Create a callback that saves the model's weights every 5 epochs,"cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, Verbose=1, save_weights_only=True, period=5)",4
-Choose the latest checkpoint.,latest = tf.train.latest_checkpoint(checkpoint_dir),4
 "Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",4
-"Return example, label pair.","return example, tf.cast(index, tf.int64)",4
-Output layer. The first argument is the number of labels.,"model.add(tf.keras.layers.Dense(3, activation='softmax'))",4
-here each position contains a single code point,int32 vector,4
 "This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
 
 In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),4
-"When tokenizing languages without whitespace to segment words, it is common to just split by character.","tokens = tf.strings.unicode_split([u""string"".encode('UTF-8')], 'UTF-8')",3
-"When tokenizing strings, it is often desired to know where in the original string the token originated from. For this reason, each tokenizer which implements TokenizerWithOffsets has a method that will return the byte offsets along with the tokens.","(tokens, offset_starts, offset_limits) = tokenizer.tokenize_with_offsets([])",4
-"Returns True/False values for each token in tokens, for whether they're capitalised or not.","text.wordshape(tokens, text.WordShape.HAS_TITLE_CASE)",4
-"Returns True/False values for each token in tokens, for whether they're all uppercase or not.","text.wordshape(tokens, text.WordShape.IS_UPPERCASE)",4
-"Returns True/False values for each token in tokens, for whether they contain some punctuation or symbol.","text.wordshape(tokens, text.WordShape.HAS_SOME_PUNCT_OR_SYMBOL)",4
-"Returns True/False values for each token in tokens, for whether they are numbers.","text.wordshape(tokens, text.WordShape.IS_NUMERIC_VALUE)",4
-"Divide tokens by space, into bigrams.","bigrams = text.ngrams(tokens, 2, reduction_type=text.Reduction.STRING_JOIN)",3
-a simple format for storing a sequence of binary records,TFRecord,4
-"a cross-platform, cross-language library for efficient serialization of structured data",Protocol buffers,4
-"defined by .proto files, these are often the easiest way to understand a message type",Protocol messages,4
-"a flexible message type that represents a {""string"": value} mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as TFX.",tf.Example,4
-"A Python dictionary in which:
-Each key is the name of a feature.
-Each value is an array containing all of that feature's values.",features,4
-An array containing the values of the label for every example.,label,4
-Convert the inputs to a Dataset.,"dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))",3
-Shuffle dataset and repeat.,dataset = dataset.shuffle(1000).repeat(),4
 an object describing how the model should use raw input data from the features dictionary,feature column,4
-A classifier Estimator for deep models that perform multi-class classification.,tf.estimator.DNNClassifier,4
-A classifier Estimator for wide & deep models.,tf.estimator.DNNLinearCombinedClassifier,4
-A classifier Estimator for classifiers based on linear models.,tf.estimator.LinearClassifier,4
-"Matches the empty string, but only at the beginning or end of a word.",\b,4
-Test whether every element in other is in the set.,set >= other,4
-"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,4
-Return the lowest index in string h where substring i is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if substring is not found.,"h.find(i, start, end)",4
-"This static method returns a translation table usable for str.translate().
-
-If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
-
-If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",4
-Remove all elements from the set.,clear(),4
-Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,4
-drops you into the debugger at the call site,breakpoint(),4
-Remove element elem from the set. Raises KeyError if elem is not contained in the set.,remove(elem),4
-"Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",4
-Return a str version of object.,str(),4
-Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),4
-Invoke the built-in help system.,help(),4
-Matches any Unicode decimal digit,\d,4
-"Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),4
-"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,4
-"A string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.",string.whitespace,4
-"Return True if d has a key key, else False.",key in d,4
-"Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),4
-"Return a new set object, optionally with elements taken from iterable.",set(),4
 Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each. The model must choose between 3 classes.,"classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns, hidden_units=[30, 10], n_classes=3)",3
 Train the classifier model.,"classifier.train(input_fn=lambda: input_fn(train, train_y, training=True), steps=5000)",3
-Import ROC curve.,from sklearn.metrics import roc_curve,4
-Is a Tensor mutable?,no,4
-A vector with mostly 0 values.,sparse,4
-this matches any character except a newline,.,4
-Return the largest item in an iterable or the largest of two or more arguments.,max(),4
-The mouse cursor is over the widget and pressing a mouse button will cause some action to occur,active,4
-Widget is disabled under program control,disabled,4
-Is a string mutable?,no,4
-"a dense vector of floating point values (the length of the vector is a parameter you specify). Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer). It is common to see word embeddings that are 8-dimensional (for small datasets), up to 1024-dimensions when working with large datasets. A higher dimensional embedding can capture fine-grained relationships between words, but takes more data to learn.",embedding,4
-Import layers.,from tensorflow.keras import layers,3
-"The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",3
+"The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",4
 Load IMDB dataset.,"(train_data, test_data), info = tfds.load('imdb_reviews/subwords8k', split = (tfds.Split.TRAIN, tfds.Split.TEST), with_info=True, as_supervised=True)",3
 Subword encoder.,tfds.features.text.SubwordTextEncoder,3
-Represents spaces in the subword vocabulary.,_,4
 "the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",3
 "a GlobalAveragePooling1D layer returns a fixed-length output vector for each example by averaging over the sequence dimension. This allows the model to handle input of variable length, in the simplest way possible.",layers.GlobalAveragePooling1D(),4
 This fixed-length output vector is piped through a fully-connected (Dense) layer with 16 hidden units.,"layers.Dense(16, activation='relu')",3
 "The last layer is densely connected with a single output node. Using the sigmoid activation function, this value is a float between 0 and 1, representing a probability (or confidence level) that the review is positive.","layers.Dense(1, activation='sigmoid')",4
-Used to indicate a set of characters for matching.,[],4
 Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),4
-Return the absolute value of a number,abs(),4
-The string '0123456789'.,string.digits,4
-remove all case distinctions in string b,b.casefold(),3
 index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",4
-Matches the end of the string or just before the newline at the end of the string,$,4
-delete the first item from s where s[i] is equal to x,s.remove(x),4
-"Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.",zip(),3
-The lowercase letters 'abcdefghijklmnopqrstuvwxyz'.,string.ascii_lowercase,4
-"Compile model with Adam optimiser, binary crossentropy as loss and accuracy as metric.","model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",4
-"Train model with train_batches, 10 epochs, test_batches and 20 validation steps. Save into variable history.","history = model.fit(train_batches, epochs=10, validation_data=test_batches, validation_steps=20)",3
-Save the dictionary of history.,history_dict = history.history,4
-Save the values of 'accuracy' into the 'acc' variable.,acc = history_dict['accuracy'],3
-Save the values of 'val_accuracy' into the 'val_acc' variable.,val_acc = history_dict['val_accuracy'],3
-Return a new set with elements in either the set or other but not both,set ^ other,3
-Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},3
-"Return an iterator that applies function to every item of iterable, yielding the results.",map(),3
-Return the length (the number of items) of an object.,len(),3
-Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),3
-"Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),3
-Save the values of 'loss' into the 'loss' variable.,loss = history_dict['loss'],3
-Save the values of 'val_loss' into the 'val_loss' variable.,val_loss = history_dict['val_loss'],3
 Set the figure size to 1200 x 900 pixels.,"plt.figure(figsize=(12,9))",3
 Plot accuracy by epochs.,"plt.plot(epochs, acc, 'bo', label='Training acc')",2
 Plot validation accuracy by epochs.,"plt.plot(epochs, val_acc, 'b', label='Validation acc')",3
-"Name the figure ""Training and validation accuracy"".",plt.title('Training and validation accuracy'),3
-"Label the x axis ""Epochs"".",plt.xlabel('Epochs'),3
-"Label the y axis ""Accuracy"".",plt.ylabel('Accuracy'),3
-Place the figure legend in the lower right-hand corner.,plt.legend(loc='lower right'),3
-Return a new set with elements common to the set and all others.,intersection(*others),3
-Return the current local date.,date.today(),3
-Return x to the power y,"pow(x, y)",3
-Create a new list.,list(),3
-returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),3
-"Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",3
-Return True if all elements of the iterable are true (or if the iterable is empty).,all(),3
-"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,3
-Create a new tuple.,tuple(),3
-Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),3
-"Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",3
+"Label the x axis ""Epochs"".",plt.xlabel('Epochs'),4
+Place the figure legend in the lower right-hand corner.,plt.legend(loc='lower right'),4
+Return a new set with elements common to the set and all others.,intersection(*others),4
+Return True if all elements of the iterable are true (or if the iterable is empty).,all(),4
+"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,4
+Create a new tuple.,tuple(),4
+Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),4
+"Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",4
 Display the figure.,plt.show(),3
 Return a floating point number constructed from a number or string x.,float(),3
 Assign the first layer to variable e.,e = model.layers[0],3
 Retrieve weights learned at layer e.,weights = e.get_weights()[0],3
 "Print the word embeddings learned during training. This will be a matrix of shape (vocab_size, embedding-dimension).",print(weights.shape),2
-Assign the text features to variable encoder.,encoder = info.features['text'].encoder,1
-Print the vocabulary size in encoder.,print ('Vocabulary size: {}'.format(encoder.vocab_size)),1
-Import Time.,import time,2
-Download the Shakespeare dataset.,"path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')",2
+Assign the text features to variable encoder.,encoder = info.features['text'].encoder,3
+Print the vocabulary size in encoder.,print ('Vocabulary size: {}'.format(encoder.vocab_size)),3
+Import Time.,import time,3
+Download the Shakespeare dataset.,"path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')",3
 "Assign a set of index, vocab element to variable char2idx.","char2idx = {u:i for i, u in enumerate(vocab)}",2
-total number of occurrences of x in s,s.count(x),2
-Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),2
-Is a tuple mutable?,no,2
+total number of occurrences of x in s,s.count(x),3
+Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),3
+Is a tuple mutable?,no,3
 Test whether every element in the set is in other.,set <= other,2
-Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),2
-Retrieve the subsequent item from the iterator.,next(),2
-"With one argument, return the type of an object.",type(),2
-Sums start and the items of an iterable from left to right and returns the total.,sum(),2
-"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),1
-"Create a lookup table mapping characters to numbers, save it as text_as_int.",text_as_int = np.array([char2idx[c] for c in text]),0
-Set the maximum length sentence we want for a single input in characters to 100.,seq_length = 100,2
-Create training examples / targets.,char_dataset = tf.data.Dataset.from_tensor_slices(text_as_int),0
-The batch method lets us easily convert these individual characters to sequences of the desired size.,"sequences = char_dataset.batch(seq_length+1, drop_remainder=True)",0
-A type of RNN with size units=rnn_units (You can also use a LSTM layer here.),tf.keras.layers.GRU,1
-Set the embedding dimension to 256.,embedding_dim = 256,2
-Set the number of RNN units to 1024.,rnn_units = 1024,2
+Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),3
+Retrieve the subsequent item from the iterator.,next(),3
+"With one argument, return the type of an object.",type(),3
+Sums start and the items of an iterable from left to right and returns the total.,sum(),3
+"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),2
+"Create a lookup table mapping characters to numbers, save it as text_as_int.",text_as_int = np.array([char2idx[c] for c in text]),3
+Set the maximum length sentence we want for a single input in characters to 100.,seq_length = 100,3
+Create training examples / targets.,char_dataset = tf.data.Dataset.from_tensor_slices(text_as_int),1
+The batch method lets us easily convert these individual characters to sequences of the desired size.,"sequences = char_dataset.batch(seq_length+1, drop_remainder=True)",1
+A type of RNN with size units=rnn_units (You can also use a LSTM layer here.),tf.keras.layers.GRU,3
+Set the embedding dimension to 256.,embedding_dim = 256,3
+Set the number of RNN units to 1024.,rnn_units = 1024,3
 "An Embedding layer with batch input shape [batch_size, None]","tf.keras.layers.Embedding(vocab_size, embedding_dim, batch_input_shape=[batch_size, None])",2
-A GRU layer with recurrent initialiser glorot uniform.,"tf.keras.layers.GRU(rnn_units, return_sequences=True, stateful=True, recurrent_initializer='glorot_uniform')",0
-"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),2
-Return a random element from the non-empty sequence seq.,random.choice(seq),2
-Return a list of the words in string o.,o.split(),2
-"Write the row parameter to the writer’s file object, formatted according to the current dialect.",csvwriter.writerow(row),0
-"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),2
-Rename the file or directory src to dst.,"os.rename(src, dst)",2
+A GRU layer with recurrent initialiser glorot uniform.,"tf.keras.layers.GRU(rnn_units, return_sequences=True, stateful=True, recurrent_initializer='glorot_uniform')",3
+"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),3
+Return a random element from the non-empty sequence seq.,random.choice(seq),3
+Return a list of the words in string o.,o.split(),3
+"Write the row parameter to the writer’s file object, formatted according to the current dialect.",csvwriter.writerow(row),3
+"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),3
+Rename the file or directory src to dst.,"os.rename(src, dst)",3
 "Test whether the set is a proper superset of other, that is, set >= other and set != other.",set > other,2
 matches any character except '5',[^5],2
 "Changes ., *, and ? into non-greedy matching.",?,2
-A class that implements the tzinfo abstract base class as a fixed offset from the UTC.,datetime.timezone,0
+A class that implements the tzinfo abstract base class as a fixed offset from the UTC.,datetime.timezone,2
 Is a list mutable?,yes,2
-String of ASCII characters which are considered punctuation characters in the C locale.,string.punctuation,0
-Return the smallest item in an iterable or the smallest of two or more arguments.,min(),0
-"open for exclusive creation, failing if the file already exists",x,0
-printf-style for integer,%d,0
-removes all items from s (same as del s[:]),s.clear(),0
-"Return a copy of string n with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.","n.replace(old, new, count)",0
-Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl.,"re.sub(pattern, repl, string)",0
-retrieves the item at i and also removes it from s,s.pop([i]),0
-"open for writing, appending to the end of the file if it exists",a,0
-"Either escapes special characters (permitting you to match characters like '*', '?', and so forth), or signals a special sequence; special sequences are discussed below.",\,0
-"If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.",input(),0
+String of ASCII characters which are considered punctuation characters in the C locale.,string.punctuation,2
+Return the smallest item in an iterable or the smallest of two or more arguments.,min(),2
+"open for exclusive creation, failing if the file already exists",x,2
+printf-style for integer,%d,2
+removes all items from s (same as del s[:]),s.clear(),2
+"Return a copy of string n with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.","n.replace(old, new, count)",2
+Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl.,"re.sub(pattern, repl, string)",2
+retrieves the item at i and also removes it from s,s.pop([i]),2
+"open for writing, appending to the end of the file if it exists",a,2
+"Either escapes special characters (permitting you to match characters like '*', '?', and so forth), or signals a special sequence; special sequences are discussed below.",\,2
+"If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.",input(),2
+"The output layer, with vocab_size outputs.",tf.keras.layers.Dense,1
+The input layer. A trainable lookup table that will map the numbers of each character to a vector with embedding_dim dimensions,tf.keras.layers.Embedding,1
+"Attach an optimizer, and a loss function
+The standard tf.keras.losses.sparse_categorical_crossentropy loss function works in this case because it is applied across the last dimension of the predictions.
+
+Because our model returns logits, we need to set the from_logits flag.","example_batch_loss  = tf.keras.losses.sparse_categorical_crossentropy(target_example_batch, example_batch_predictions, from_logits=True)",0
+Set the number of characters to generate to 1000.,num_generate = 1000,0
+Converting our start string to numbers (vectorizing),"input_eval = tf.expand_dims([char2idx[s] for s in start_string], 0)",0
+Empty string to store our results,text_generated = [],1
+Low temperatures results in more predictable text. Higher temperatures results in more surprising text. Experiment to find the best setting.,temperature = 1.0,1
+Reset the model's states.,model.reset_states(),1
+remove the batch dimension,"predictions = tf.squeeze(predictions, 0)",0
+using a categorical distribution to predict the word returned by the model,"predicted_id = tf.random.categorical(predictions / temperature, num_samples=1)[-1,0].numpy()",0
+"We pass the predicted word as the next input to the model, along with the previous hidden state","input_eval = tf.expand_dims([predicted_id], 0)",0
+Append the next character to text_generated.,text_generated.append(idx2char[predicted_id]),0
+Return the start_string followed by the generated text.,return (start_string + ''.join(text_generated)),0
+printf-style for float,%f,1
+"Return a new sorted list from the items in iterable. reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.",sorted(),1
+"Return the number of non-overlapping occurrences of substring d in the range [start, end] of string c.","c.count(d, start, end)",1
+Return a copy of string r with the leading and trailing characters removed.,r.strip(),1
+Create a new dictionary.,dict(),1
+Matches the start of the string,^,1
+Is a set mutable?,yes,1
+Return a new set with elements in the set that are not in the others.,difference(*others),1
+"Return an encoded (utf-8) version of string e, as a bytes object.","e.encode(encoding=""utf-8"")",0
