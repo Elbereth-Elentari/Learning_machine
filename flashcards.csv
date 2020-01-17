@@ -1,30 +1,12 @@
-"Create a dataset from file_path, with batch size 5, NA's as ?, with a single epoch.","dataset = tf.data.experimental.make_csv_dataset(file_path, batch_size=5, label_name=LABEL_COLUMN, na_value=""?"", num_epochs=1, ignore_errors=True, **kwargs)",4
-"This tokenizer splits UTF-8 strings based on Unicode script boundaries. The script codes used correspond to International Components for Unicode (ICU) UScriptCode values. See: http://icu-project.org/apiref/icu4c/uscript_8h.html
-
-In practice, this is similar to the WhitespaceTokenizer with the most apparent difference being that it will split punctuation (USCRIPT_COMMON) from language texts (eg. USCRIPT_LATIN, USCRIPT_CYRILLIC, etc) while also separating language texts from each other.",tokenizer = text.UnicodeScriptTokenizer(),4
-an object describing how the model should use raw input data from the features dictionary,feature column,4
 Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each. The model must choose between 3 classes.,"classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns, hidden_units=[30, 10], n_classes=3)",3
 Train the classifier model.,"classifier.train(input_fn=lambda: input_fn(train, train_y, training=True), steps=5000)",3
-"The Embedding layer can be understood as a lookup table that maps from integer indices (which stand for specific words) to dense vectors (their embeddings). The dimensionality (or width) of the embedding is a parameter you can experiment with to see what works well for your problem, much in the same way you would experiment with the number of neurons in a Dense layer.   For text or sequence problems, the Embedding layer takes a 2D tensor of integers, of shape (samples, sequence_length), where each entry is a sequence of integers. It can embed sequences of variable lengths. You could feed into the embedding layer above batches with shapes (32, 10) (batch of 32 sequences of length 10) or (64, 15) (batch of 64 sequences of length 15).","embedding_layer = layers.Embedding(1000, 5)",4
 Load IMDB dataset.,"(train_data, test_data), info = tfds.load('imdb_reviews/subwords8k', split = (tfds.Split.TRAIN, tfds.Split.TEST), with_info=True, as_supervised=True)",3
 Subword encoder.,tfds.features.text.SubwordTextEncoder,3
 "the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",3
-"a GlobalAveragePooling1D layer returns a fixed-length output vector for each example by averaging over the sequence dimension. This allows the model to handle input of variable length, in the simplest way possible.",layers.GlobalAveragePooling1D(),4
 This fixed-length output vector is piped through a fully-connected (Dense) layer with 16 hidden units.,"layers.Dense(16, activation='relu')",3
-"The last layer is densely connected with a single output node. Using the sigmoid activation function, this value is a float between 0 and 1, representing a probability (or confidence level) that the review is positive.","layers.Dense(1, activation='sigmoid')",4
-Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),4
-index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",4
 Set the figure size to 1200 x 900 pixels.,"plt.figure(figsize=(12,9))",3
 Plot accuracy by epochs.,"plt.plot(epochs, acc, 'bo', label='Training acc')",2
 Plot validation accuracy by epochs.,"plt.plot(epochs, val_acc, 'b', label='Validation acc')",3
-"Label the x axis ""Epochs"".",plt.xlabel('Epochs'),4
-Place the figure legend in the lower right-hand corner.,plt.legend(loc='lower right'),4
-Return a new set with elements common to the set and all others.,intersection(*others),4
-Return True if all elements of the iterable are true (or if the iterable is empty).,all(),4
-"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,4
-Create a new tuple.,tuple(),4
-Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),4
-"Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",4
 Display the figure.,plt.show(),3
 Return a floating point number constructed from a number or string x.,float(),3
 Assign the first layer to variable e.,e = model.layers[0],3
@@ -75,28 +57,52 @@ retrieves the item at i and also removes it from s,s.pop([i]),2
 "open for writing, appending to the end of the file if it exists",a,2
 "Either escapes special characters (permitting you to match characters like '*', '?', and so forth), or signals a special sequence; special sequences are discussed below.",\,2
 "If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.",input(),2
-"The output layer, with vocab_size outputs.",tf.keras.layers.Dense,1
-The input layer. A trainable lookup table that will map the numbers of each character to a vector with embedding_dim dimensions,tf.keras.layers.Embedding,1
+"The output layer, with vocab_size outputs.",tf.keras.layers.Dense,2
+The input layer. A trainable lookup table that will map the numbers of each character to a vector with embedding_dim dimensions,tf.keras.layers.Embedding,2
 "Attach an optimizer, and a loss function
 The standard tf.keras.losses.sparse_categorical_crossentropy loss function works in this case because it is applied across the last dimension of the predictions.
 
 Because our model returns logits, we need to set the from_logits flag.","example_batch_loss  = tf.keras.losses.sparse_categorical_crossentropy(target_example_batch, example_batch_predictions, from_logits=True)",0
-Set the number of characters to generate to 1000.,num_generate = 1000,0
+Set the number of characters to generate to 1000.,num_generate = 1000,2
 Converting our start string to numbers (vectorizing),"input_eval = tf.expand_dims([char2idx[s] for s in start_string], 0)",0
-Empty string to store our results,text_generated = [],1
-Low temperatures results in more predictable text. Higher temperatures results in more surprising text. Experiment to find the best setting.,temperature = 1.0,1
-Reset the model's states.,model.reset_states(),1
+Empty string to store our results,text_generated = [],2
+Low temperatures results in more predictable text. Higher temperatures results in more surprising text. Experiment to find the best setting.,temperature = 1.0,2
+Reset the model's states.,model.reset_states(),2
 remove the batch dimension,"predictions = tf.squeeze(predictions, 0)",0
 using a categorical distribution to predict the word returned by the model,"predicted_id = tf.random.categorical(predictions / temperature, num_samples=1)[-1,0].numpy()",0
-"We pass the predicted word as the next input to the model, along with the previous hidden state","input_eval = tf.expand_dims([predicted_id], 0)",0
+"We pass the predicted word as the next input to the model, along with the previous hidden state","input_eval = tf.expand_dims([predicted_id], 0)",1
 Append the next character to text_generated.,text_generated.append(idx2char[predicted_id]),0
 Return the start_string followed by the generated text.,return (start_string + ''.join(text_generated)),0
-printf-style for float,%f,1
-"Return a new sorted list from the items in iterable. reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.",sorted(),1
-"Return the number of non-overlapping occurrences of substring d in the range [start, end] of string c.","c.count(d, start, end)",1
-Return a copy of string r with the leading and trailing characters removed.,r.strip(),1
-Create a new dictionary.,dict(),1
-Matches the start of the string,^,1
+printf-style for float,%f,2
+"Return a new sorted list from the items in iterable. reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.",sorted(),2
+"Return the number of non-overlapping occurrences of substring d in the range [start, end] of string c.","c.count(d, start, end)",2
+Return a copy of string r with the leading and trailing characters removed.,r.strip(),2
+Create a new dictionary.,dict(),2
+Matches the start of the string,^,2
 Is a set mutable?,yes,1
 Return a new set with elements in the set that are not in the others.,difference(*others),1
-"Return an encoded (utf-8) version of string e, as a bytes object.","e.encode(encoding=""utf-8"")",0
+"Return an encoded (utf-8) version of string e, as a bytes object.","e.encode(encoding=""utf-8"")",2
+"Print the output of generate_text from model, with u""ROMEO: "" as the starting string.","print(generate_text(model, start_string=u""ROMEO: ""))",1
+A container for accessing linguistic annotations.,Doc,2
+A slice from a Doc object.,Span,2
+"An individual token — i.e. a word, punctuation symbol, whitespace, etc.",Token,2
+"An entry in the vocabulary. It’s a word type with no context, as opposed to a word token. It therefore has no part-of-speech tag, dependency parse etc.",Lexeme,1
+"Method sorting list s in place, in descending order.","sort(s, reverse=True)",2
+"Test whether the set is a proper subset of other, that is, set <= other and set != other.",set < other,2
+Is a set ordered?,no,2
+Matches any character which is not a decimal digit.,\D,2
+Return the sample arithmetic mean of data which can be a sequence or iterator.,statistics.mean(data),2
+Return the population standard deviation (the square root of the population variance). See pvariance() for arguments and other details.,statistics.pstdev(data),2
+A text-processing pipeline. Usually you’ll load this once per process as nlp and pass the instance around your application.,Language,0
+"Segment text, and create Doc objects with the discovered segment boundaries.",Tokenizer,0
+Determine the base forms of words.,Lemmatizer,0
+"Assign linguistic features like lemmas, noun case, verb tense etc. based on the word and its part-of-speech tag.",Morphology,0
+Annotate part-of-speech tags on Doc objects.,Tagger,2
+Annotate syntactic dependencies on Doc objects.,DependencyParser,0
+Return the sample standard deviation (the square root of the sample variance).,statistics.stdev(data),0
+Specifies a text string to be displayed inside the widget.,text,0
+"If greater than zero, specifies how much space, in character widths, to allocate for the text label, if less than zero, specifies a minimum width. If zero or unspecified, the natural width of the text label is used.",width,0
+Clear the regular expression cache.,re.purge(),0
+Add element elem to the set.,add(elem),0
+"Method sorting list s in place, in ascending order.","sort(s, reverse=False)",0
+return an integer representing the Unicode code point of a character,ord(),0
