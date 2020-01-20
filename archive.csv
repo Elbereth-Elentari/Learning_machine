@@ -1,0 +1,51 @@
+"Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",while test-commands; do consequent-commands; done,5
+"Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words ...] ] ; ] do commands; done,5
+"Matches the empty string, but only at the beginning or end of a word.",\b,5
+Test whether every element in other is in the set.,set >= other,5
+"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,5
+"This static method returns a translation table usable for str.translate().
+
+If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
+
+If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",5
+Remove all elements from the set.,clear(),5
+Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,5
+drops you into the debugger at the call site,breakpoint(),5
+"Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",5
+Return a str version of object.,str(),5
+Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),5
+Invoke the built-in help system.,help(),5
+Matches any Unicode decimal digit,\d,5
+"Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),5
+"Matches the empty string, but only when it is not at the beginning or end of a word.",\B,5
+"A string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.",string.whitespace,5
+"Return True if d has a key key, else False.",key in d,5
+"Return True if string p starts with prefix q, otherwise return False. prefix can also be a tuple of prefixes to look for.",p.startswith(q),5
+"Return a new set object, optionally with elements taken from iterable.",set(),5
+this matches any character except a newline,.,5
+Return the largest item in an iterable or the largest of two or more arguments.,max(),5
+The mouse cursor is over the widget and pressing a mouse button will cause some action to occur,active,5
+Widget is disabled under program control,disabled,5
+Is a string mutable?,no,5
+"will selectively execute the command-list corresponding to the first pattern that matches word. The match is performed according to the rules described below in Pattern Matching. If the nocasematch shell option (see the description of shopt in The Shopt Builtin) is enabled, the match is performed without regard to the case of alphabetic characters. The ‘|’ is used to separate multiple patterns, and the ‘)’ operator terminates a pattern list. A list of patterns and an associated command-list is known as a clause.
+Each clause must be terminated with ‘;;’, ‘;&’, or ‘;;&’. The word undergoes tilde expansion, parameter expansion, command substitution, arithmetic expansion, and quote removal (see Shell Parameter Expansion) before matching is attempted. Each pattern undergoes tilde expansion, parameter expansion, command substitution, and arithmetic expansion.
+There may be an arbitrary number of case clauses, each terminated by a ‘;;’, ‘;&’, or ‘;;&’. The first pattern that matches determines the command-list that is executed. It’s a common idiom to use ‘*’ as the final pattern to define the default case, since that pattern will always match.",case word in [ [(] pattern [| pattern]...) command-list ;;] esac,5
+Matches the end of the string or just before the newline at the end of the string,$,5
+Return a new set with elements in either the set or other but not both,set ^ other,5
+Specifies that exactly m copies of the previous RE should be matched; fewer matches cause the entire RE not to match.,{m},5
+"Return an iterator that applies function to every item of iterable, yielding the results.",map(),5
+Return the length (the number of items) of an object.,len(),5
+Return a copy of string j with all the cased characters converted to lowercase.,j.lower(),5
+"Return True if any element of the iterable is true. If the iterable is empty, return False.",any(),5
+Return the current local date.,date.today(),5
+Return x to the power y,"pow(x, y)",5
+Create a new list.,list(),5
+"Return a string which is the concatenation of the strings in iterable, concatenated by space.",""" "".join(iterable)",5
+Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.,pop(),5
+index of the first occurrence of x in s (at or after index i and before index j),"s.index(x, i, j)",5
+Return a new set with elements common to the set and all others.,intersection(*others),5
+Return True if all elements of the iterable are true (or if the iterable is empty).,all(),5
+"Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible.",*,5
+Create a new tuple.,tuple(),5
+Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),5
+returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),5
