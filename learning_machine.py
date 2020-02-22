@@ -7,7 +7,7 @@ with open("flashcards.csv", "r") as flashcards:
     flashcards = pd.read_csv(flashcards, header=None)
 
 equals = "=========================================================="
-dash = "---------------------------------------------------"
+dash = "----------------------------------------------------------"
 
 print(equals * 2)
 
@@ -55,18 +55,26 @@ def handle_finished_level(checked_level):
         print(equals * 2)
     return level
 
-def handle_1_question(df, index, row, session_count):
-    print("Remaining questions to finish this level:", question_count(level))
+def motivation(level, session_count):
     if level < 4:
-        print("Remaining questions to max out next level:", max_definitions[level + 1] - question_count(level + 1))
-    print(dash, " QUESTION", session_count, ":", dash, "\n", row[0])
-    answer = input("ANSWER:")
+        to_max = max_definitions[level + 1] - question_count(level + 1)
+    else:
+        to_max = max_definitions[4] + 1
+    to_end = session_limit - session_count
+    level_end = question_count(level)
+    motives = {to_max : "Remaining questions to max out next level:", level_end : "Remaining questions to finish this level:", to_end : "Remaining questions to end session:"}
+    to_print = min([number for number in motives])
+    print(motives[to_print], to_print)
+    return True
+
+def handle_1_question(df, index, row, session_count):
+    print(dash * 2)
+    print(row[0])
+    answer = input()
     if answer == row[1]:
         df.iat[index, 2] += 1
-        print("CORRECT.")
     else:
-        print("WRONG.")
-        print("                                                   CORRECT ANSWER:\n", row[1])
+        print(row[1])
     print(equals * 2)
     session_count += 1
     return df, session_count
@@ -75,6 +83,7 @@ def handle_questions_at_1_level(df, level, session_count):
     for index, row in df.loc[df[2] == level].iterrows():
         if session_count < session_limit:
             if check_for_max(level) == False:
+                motivation(level, session_count)
                 df, session_count = handle_1_question(df, index, row, session_count)
             else:
                 level += 1

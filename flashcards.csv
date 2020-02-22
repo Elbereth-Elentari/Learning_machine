@@ -45,7 +45,7 @@ Deserialize fp (a .read()-supporting text file or binary file containing a JSON 
 "Factories that create pre-defined pipeline components, e.g. the tagger, parser or entity recognizer, keyed by their component name.",factories,4
 Tokenization rules and exceptions.,tokenizer,4
 Exceptions and special-cases for the tokenizer.,rules,4
-A function matching the signature of re.compile(string).search to match prefixes.,prefix_search,3
+A function matching the signature of re.compile(string).search to match prefixes.,prefix_search,4
 A function matching the signature of re.compile(string).search to match suffixes.,suffix_search,4
 A function matching the signature of re.compile(string).finditer to find infixes.,infix_finditer,4
 Create an instance of Firefox WebDriver.,driver = webdriver.Firefox(),4
@@ -63,43 +63,43 @@ Create a blank Tokenizer with just the English vocab,tokenizer = Tokenizer(nlp.v
 import Tokenizer,from spacy.tokenizer import Tokenizer,4
 "Create a Tokenizer with the default settings for English, including punctuation rules and exceptions.",tokenizer = nlp.Defaults.create_tokenizer(nlp),4
 Tokenize a stream of texts.,Tokenizer.pipe,3
-Find internal split points of the string.,Tokenizer.find_infix,3
-"Find the length of a prefix that should be segmented from the string, or None if no prefix rules match.",Tokenizer.find_prefix,3
-"Find the length of a suffix that should be segmented from the string, or None if no suffix rules match.",Tokenizer.find_suffix,3
+Find internal split points of the string.,Tokenizer.find_infix,4
+"Find the length of a prefix that should be segmented from the string, or None if no prefix rules match.",Tokenizer.find_prefix,4
+"Find the length of a suffix that should be segmented from the string, or None if no suffix rules match.",Tokenizer.find_suffix,4
 Waiting condition that the title has a certain value.,title_is,4
 View top 5 rows of df.,df.head(),4
 Display the index of df.,df.index,4
 "Sort df by axis 1, in descending order.","df.sort_index(axis=1, ascending=False)",4
 "Select rows with value greater than 0 in column ""A"", in df.","df[df[""A""] > 0]",4
-Grouping df by column A and then applying the sum function to the resulting groups.,"df.groupby(""A"").sum()",3
-coordinating conjunction,CC,3
-existential there,EX,3
-"The lookups object containing the (optional) tables ""lemma_rules"", ""lemma_index"", ""lemma_exc"" and ""lemma_lookup"".",lookups,3
-Import Lemmatizer.,from spacy.lemmatizer import Lemmatizer,3
-Import Lookups.,from spacy.lookups import Lookups,3
+Grouping df by column A and then applying the sum function to the resulting groups.,"df.groupby(""A"").sum()",4
+coordinating conjunction,CC,4
+existential there,EX,4
+"The lookups object containing the (optional) tables ""lemma_rules"", ""lemma_index"", ""lemma_exc"" and ""lemma_lookup"".",lookups,4
+Import Lemmatizer.,from spacy.lemmatizer import Lemmatizer,4
+Import Lookups.,from spacy.lookups import Lookups,4
 "Add a lemmatization rule for nouns deleting final ""s"".","lookups.add_table(""lemma_rules"", {""noun"": [[""s"", """"]]})",3
-The token’s universal part-of-speech tag.,univ_pos,3
-"Look up a lemma in the lookup table, if available. If no lemma is found, the original string is returned. Languages can provide a lookup table via the Lookups.",Lemmatizer.lookup,3
-"Check whether we’re dealing with an uninflected paradigm, so we can avoid lemmatization entirely.",is_base_form,3
-"proper noun, plural",NNPS,3
-personal pronoun,PRP,3
-verb,VB,3
-wh- adverb (how),WRB,3
-Return the stem of word w.,PorterStemmer().stem(w),3
-Import WordNet.,from nltk.corpus import wordnet,3
-Draw a plot of frequency distribution fd.,fd.plot(),3
+The token’s universal part-of-speech tag.,univ_pos,4
+"Look up a lemma in the lookup table, if available. If no lemma is found, the original string is returned. Languages can provide a lookup table via the Lookups.",Lemmatizer.lookup,4
+"Check whether we’re dealing with an uninflected paradigm, so we can avoid lemmatization entirely.",is_base_form,4
+"proper noun, plural",NNPS,4
+personal pronoun,PRP,4
+verb,VB,4
+wh- adverb (how),WRB,4
+Return the stem of word w.,PorterStemmer().stem(w),4
+Import WordNet.,from nltk.corpus import wordnet,4
+Draw a plot of frequency distribution fd.,fd.plot(),4
 Initialize a model for the pipe. The model should implement the thinc.neural.Model API. Wrappers are under development for most major machine learning libraries.,Tagger.Model,3
-"The model powering the pipeline component. If no model is supplied, the model is created when you call begin_training, from_disk or from_bytes.",model,3
-Construction of the tagger model via create_pipe.,"tagger = nlp.create_pipe(""tagger"")",3
-Import Tagger.,from spacy.pipeline import Tagger,3
-Initialize the tagger model from disk.,"tagger.from_disk(""/path/to/model"")",3
-Apply the pipe to a stream of documents. This usually happens under the hood when the nlp object is called on a text and all pipeline components are applied to the Doc in order. Both __call__ and pipe delegate to the predict and set_annotations methods.,Tagger.pipe,3
-A stream of documents.,stream,3
-"Apply the pipeline’s model to a batch of docs, without modifying them.",Tagger.predict,3
-Import admin.,from django.contrib import admin,3
-Returns a list of all selected options.,select.all_selected_options,3
-"This waits up to 10 seconds before throwing a TimeoutException unless it finds the element by id ""myDynamicElement"", to return within 10 seconds.","element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, ""myDynamicElement"")))",3
-Select row number 3 in df.,df.iloc[3],3
+"The model powering the pipeline component. If no model is supplied, the model is created when you call begin_training, from_disk or from_bytes.",model,4
+Construction of the tagger model via create_pipe.,"tagger = nlp.create_pipe(""tagger"")",4
+Import Tagger.,from spacy.pipeline import Tagger,4
+Initialize the tagger model from disk.,"tagger.from_disk(""/path/to/model"")",4
+Apply the pipe to a stream of documents. This usually happens under the hood when the nlp object is called on a text and all pipeline components are applied to the Doc in order. Both __call__ and pipe delegate to the predict and set_annotations methods.,Tagger.pipe,4
+A stream of documents.,stream,4
+"Apply the pipeline’s model to a batch of docs, without modifying them.",Tagger.predict,4
+Import admin.,from django.contrib import admin,4
+Returns a list of all selected options.,select.all_selected_options,4
+"This waits up to 10 seconds before throwing a TimeoutException unless it finds the element by id ""myDynamicElement"", to return within 10 seconds.","element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, ""myDynamicElement"")))",4
+Select row number 3 in df.,df.iloc[3],4
 Read file foo.csv.,"pd.read_csv(""foo.csv"")",3
 cardinal digit,CD,3
 "noun, singular",NN,3
@@ -116,25 +116,25 @@ Make categories mutually exclusive. Defaults to False.,exclusive_classes,3
 "Text classification models can be used to solve a wide variety of problems. Differences in text length, number of labels, difficulty, and runtime performance constraints mean that no single algorithm performs well on all types of problems. To handle a wider variety of problems, the TextCategorizer object allows configuration of its model architecture, using the architecture keyword argument.",Architectures,3
 Default: Stacked ensemble of a bag-of-words model and a neural network model. The neural network uses a CNN with mean pooling and attention. The “ngram_size” and “attr” arguments can be used to configure the feature extraction for the bag-of-words model.,ensemble,3
 "A neural network model where token vectors are calculated using a CNN. The vectors are mean pooled and used as features in a feed-forward network. This architecture is usually less accurate than the ensemble, but runs faster.",simple_cnn,3
-"wh-determiner (that, what)",WDT,2
-Import the Regex Parser.,from nltk import RegexpParser,2
-Import views.,from . import views,2
-An empty file that tells Python that this directory should be considered a Python package.,mysite/__init__.py,2
-The admin site.,django.contrib.admin,2
-Import models.,from django.db import models,2
-Import Render.,from django.shortcuts import render,2
-always return this after successfully dealing with POST data,HttpResponseRedirect,2
-A family of open system standards based on Unix.,POSIX,2
-"A command that is implemented internally by the shell itself, rather than by an executable program somewhere in the file system.",builtin,2
-"An ngram “bag-of-words” model. This architecture should run much faster than the others, but may not be as accurate, especially if texts are short. The features extracted can be controlled using the keyword arguments ngram_size and attr. For instance, ngram_size=3 and attr=""lower"" would give lower-cased unigram, trigram and bigram features. 2, 3 or 4 are usually good choices of ngram size.",bow,2
-Validate all patterns added to this matcher.,validate,2
-"Yield the match lists along with the docs, making results (doc, matches) tuples.",return_matches,2
-"Interpret the input stream as (doc, context) tuples, and yield (result, context) tuples out. If both return_matches and as_tuples are True, the output will be a sequence of ((doc, matches), context) tuples.",as_tuples,2
-"Get the number of rules added to the matcher. Note that this only returns the number of rules (identical with the number of IDs), not the number of individual patterns.",Matcher.__len__,2
+"wh-determiner (that, what)",WDT,3
+Import the Regex Parser.,from nltk import RegexpParser,3
+Import views.,from . import views,3
+An empty file that tells Python that this directory should be considered a Python package.,mysite/__init__.py,3
+The admin site.,django.contrib.admin,3
+Import models.,from django.db import models,3
+Import Render.,from django.shortcuts import render,3
+always return this after successfully dealing with POST data,HttpResponseRedirect,3
+A family of open system standards based on Unix.,POSIX,3
+"A command that is implemented internally by the shell itself, rather than by an executable program somewhere in the file system.",builtin,3
+"An ngram “bag-of-words” model. This architecture should run much faster than the others, but may not be as accurate, especially if texts are short. The features extracted can be controlled using the keyword arguments ngram_size and attr. For instance, ngram_size=3 and attr=""lower"" would give lower-cased unigram, trigram and bigram features. 2, 3 or 4 are usually good choices of ngram size.",bow,3
+Validate all patterns added to this matcher.,validate,3
+"Yield the match lists along with the docs, making results (doc, matches) tuples.",return_matches,3
+"Interpret the input stream as (doc, context) tuples, and yield (result, context) tuples out. If both return_matches and as_tuples are True, the output will be a sequence of ((doc, matches), context) tuples.",as_tuples,3
+"Get the number of rules added to the matcher. Note that this only returns the number of rules (identical with the number of IDs), not the number of individual patterns.",Matcher.__len__,3
 Check whether the matcher contains rules for a match ID.,Matcher.__contains__,2
-A mechanism by which a process may be notified by the kernel of an event occurring in the system.,signal,2
-double quote,"\""",2
-a control-x character,\cx,2
+A mechanism by which a process may be notified by the kernel of an event occurring in the system.,signal,3
+double quote,"\""",3
+a control-x character,\cx,3
 "The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.",if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi,2
 "A Flatten layer, with a square input shape with 28 values per side.","tf.keras.layers.Flatten(input_shape=(28, 28))",2
 Identify the 'survived' column as the one with the predicted value.,LABEL_COLUMN = 'survived',2
