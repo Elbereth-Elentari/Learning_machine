@@ -16,7 +16,7 @@ Box 2 - 45.<br>
 Box 3 - 68.<br>
 Box 4 - 101 - this is the final box.
 
-If you answer a question correctly, it's level is increased by 1 (it's "moved" to a higher box). If not, it stays on the same level.<br>
+If you answer a question correctly, its level is increased by 1 (it's "moved" to a higher box). If not, it stays on the same level.<br>
 Once a higher box is full, you start answering questions from that higher box.<br>
 Once you finish with the higher box, you go back to whichever level is full, or to level 0.
 
