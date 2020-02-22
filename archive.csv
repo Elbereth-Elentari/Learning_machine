@@ -1,19 +1,3 @@
-"Execute consequent-commands as long as test-commands has an exit status of zero. The return status is the exit status of the last command executed in consequent-commands, or zero if none was executed.",while test-commands; do consequent-commands; done,5
-"Expand words (see Shell Expansions), and execute commands once for each member in the resultant list, with name bound to the current member. If ‘in words’ is not present, the for command executes the commands once for each positional parameter that is set, as if ‘in ""$@""’ had been specified (see Special Parameters).",for name [ [in [words ...] ] ; ] do commands; done,5
-"Matches the empty string, but only at the beginning or end of a word.",\b,5
-Test whether every element in other is in the set.,set >= other,5
-"An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect. Attributes: year, month, and day.",datetime.date,5
-"This static method returns a translation table usable for str.translate().
-
-If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters (strings of length 1) to Unicode ordinals, strings (of arbitrary lengths) or None. Character keys will then be converted to ordinals.
-
-If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. If there is a third argument, it must be a string, whose characters will be mapped to None in the result.","str.maketrans(x, y, z)",5
-Remove all elements from the set.,clear(),5
-Causes the resulting RE to match 0 or 1 repetitions of the preceding RE.,?,5
-drops you into the debugger at the call site,breakpoint(),5
-"Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible.","{m, n}",5
-Return a str version of object.,str(),5
-Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime.,id(),5
 Invoke the built-in help system.,help(),5
 Matches any Unicode decimal digit,\d,5
 "Return an integer object constructed from a number or string, or return 0 if no arguments are given.",int(),5
@@ -49,3 +33,240 @@ Return True if all elements of the iterable are true (or if the iterable is empt
 Create a new tuple.,tuple(),5
 Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.,isdisjoint(other),5
 returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.,enumerate(),5
+Return a floating point number constructed from a number or string x.,float(),5
+total number of occurrences of x in s,s.count(x),5
+Return a copy of string a with its first character capitalized and the rest lowercased.,a.capitalize(),5
+Is a tuple mutable?,no,5
+Test whether every element in the set is in other.,set <= other,5
+Return a copy of string t with all the cased characters converted to uppercase.,t.upper(),5
+Retrieve the subsequent item from the iterator.,next(),5
+"With one argument, return the type of an object.",type(),5
+Sums start and the items of an iterable from left to right and returns the total.,sum(),5
+"Return True if the float instance is finite with integral value, and False otherwise",float.is_integer(),5
+"Return True if string f ends with suffix g, otherwise return False. suffix can also be a tuple of suffixes to look for.",f.endswith(g),5
+Return a random element from the non-empty sequence seq.,random.choice(seq),5
+Return a list of the words in string o.,o.split(),5
+"Write the row parameter to the writer’s file object, formatted according to the current dialect.",csvwriter.writerow(row),5
+"Write all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.",csvwriter.writerows(rows),5
+Rename the file or directory src to dst.,"os.rename(src, dst)",5
+"Test whether the set is a proper superset of other, that is, set >= other and set != other.",set > other,5
+matches any character except '5',[^5],5
+"Changes ., *, and ? into non-greedy matching.",?,5
+A class that implements the tzinfo abstract base class as a fixed offset from the UTC.,datetime.timezone,5
+Is a list mutable?,yes,5
+String of ASCII characters which are considered punctuation characters in the C locale.,string.punctuation,5
+Return the smallest item in an iterable or the smallest of two or more arguments.,min(),5
+"open for exclusive creation, failing if the file already exists",x,5
+printf-style for integer,%d,5
+"Return a copy of string n with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.","n.replace(old, new, count)",5
+Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl.,"re.sub(pattern, repl, string)",5
+retrieves the item at i and also removes it from s,s.pop([i]),5
+"open for writing, appending to the end of the file if it exists",a,5
+"Either escapes special characters (permitting you to match characters like '*', '?', and so forth), or signals a special sequence; special sequences are discussed below.",\,5
+"If the prompt argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.",input(),5
+printf-style for float,%f,5
+removes all items from s (same as del s[:]),s.clear(),5
+"Return a new sorted list from the items in iterable. reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.",sorted(),5
+"Return the number of non-overlapping occurrences of substring d in the range [start, end] of string c.","c.count(d, start, end)",5
+Return a copy of string r with the leading and trailing characters removed.,r.strip(),5
+Create a new dictionary.,dict(),5
+Matches the start of the string,^,5
+Is a set mutable?,yes,5
+Return a new set with elements in the set that are not in the others.,difference(*others),5
+"Return an encoded (utf-8) version of string e, as a bytes object.","e.encode(encoding=""utf-8"")",5
+"Method sorting list s in place, in descending order.","sort(s, reverse=True)",5
+"Test whether the set is a proper subset of other, that is, set <= other and set != other.",set < other,5
+Is a set ordered?,no,5
+Matches any character which is not a decimal digit.,\D,5
+Return the sample arithmetic mean of data which can be a sequence or iterator.,statistics.mean(data),5
+Return the population standard deviation (the square root of the population variance). See pvariance() for arguments and other details.,statistics.pstdev(data),5
+Return the sample standard deviation (the square root of the sample variance).,statistics.stdev(data),5
+Specifies a text string to be displayed inside the widget.,text,5
+"If greater than zero, specifies how much space, in character widths, to allocate for the text label, if less than zero, specifies a minimum width. If zero or unspecified, the natural width of the text label is used.",width,5
+Clear the regular expression cache.,re.purge(),5
+Add element elem to the set.,add(elem),5
+"Method sorting list s in place, in ascending order.","sort(s, reverse=False)",5
+Matches Unicode whitespace characters (which includes [ \t\n\r\f\v],\s,5
+Return a copy of string s in which each character has been mapped through the given translation table.,s.translate(),5
+"Return the next random floating point number in the range [0.0, 1.0).",random.random(),5
+Drag-and-drop support for tkinter. This is experimental and should become deprecated when it is replaced with the Tk DND.,tkinter.dnd,5
+Used to communicate with vertical scrollbars.,yscrollcommand,5
+"“On”, “true”, or “current” for things like Checkbuttons and radiobuttons",selected,5
+A widget-specific alternate display format,alternate,5
+"represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.",test fixture,5
+"Method called immediately after the test method has been called and the result recorded. This is called even if the test method raised an exception, so the implementation in subclasses may need to be particularly careful about checking internal state. Any exception, other than AssertionError or SkipTest, raised by this method will be considered an additional error rather than a test failure (thus increasing the total number of reported errors). This method will only be called if the setUp() succeeds, regardless of the outcome of the test method. The default implementation does nothing.",tearDown(),5
+"Run the test without collecting the result. This allows exceptions raised by the test to be propagated to the caller, and can be used to support running tests under a debugger.",debug(),5
+Return a list of all tags a in soup.,"soup.find_all(""a"")",5
+"Return a list of all tags a with value sister for a class, in soup.","soup.find_all(""a"", class_=""sister"")",5
+"Enter ""some text"" into a text field.","element.send_keys(""some text"")",5
+Move backward in the browser history.,driver.back(),5
+return an integer representing the Unicode code point of a character,ord(),5
+Serialize obj as a JSON formatted stream to fp (a .write()-supporting file-like object),"json.dump(obj, fp)",5
+"Test that first and second are equal. If the values do not compare equal, the test will fail.
+
+In addition, if first and second are the exact same type and one of list, tuple, dict, set, frozenset or str or any type that a subclass registers with addTypeEqualityFunc() the type-specific equality function will be called in order to generate a more useful default error message (see also the list of type-specific methods).","assertEqual(first, second)",5
+Locate the first element with a specific partial link text.,driver.find_element_by_partial_link_text(),5
+Locate all elements with a specific css selector.,driver.find_elements_by_css_selector(),5
+Import ExpectedConditions.,from selenium.webdriver.support import expected_conditions as EC,5
+Wait 10 seconds.,driver.implicitly_wait(10),5
+Shuffle the sequence x in place.,random.shuffle(x),5
+"A combination of a date and a time. Attributes: year, month, day, hour, minute, second, microsecond, and tzinfo.",datetime.datetime,5
+Matches any character which is not a whitespace character.,\S,5
+"If zero or more characters at the beginning of string match the regular expression Pattern, return a corresponding match object.",Pattern.match(string),5
+"Compile a regular expression pattern into a regular expression object, which can be used for matching using its match(), search() and other methods, described below.",re.compile(),5
+Remove element elem from the set if it is present.,discard(elem),5
+"Split string k at the first occurrence of m, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator.",k.partition(m),5
+"String of ASCII characters which are considered printable. This is a combination of digits, ascii_letters, punctuation, and whitespace.",string.printable,5
+"Scan through string looking for the first location where this regular expression produces a match with Pattern, and return a corresponding match object.",Pattern.search(string),5
+Return the string representing a character whose Unicode code point is the integer i.,chr(i),5
+printf-style for string,%s,5
+"Return the harmonic mean of data, a sequence or iterator of real-valued numbers.
+
+The harmonic mean, sometimes called the subcontrary mean, is the reciprocal of the arithmetic mean() of the reciprocals of the data. For example, the harmonic mean of three values a, b and c will be equivalent to 3/(1/a + 1/b + 1/c).",statistics.harmonic_mean(data),5
+"Return the most common data point from discrete or nominal data. The mode (when it exists) is the most typical value, and is a robust measure of central location.",statistics.mode(data),5
+"Return the sample variance of data, an iterable of at least two real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.variance(data),5
+Return a reader object which will iterate over lines in the given csvfile.,csv.reader(csvfile),5
+"Return a writer object responsible for converting the user’s data into delimited strings on the given file-like object. csvfile can be any object with a write() method. If csvfile is a file object, it should be opened with newline='' .",csv.writer(csvfile),5
+"Return a list containing the names of the entries in the directory given by path. The list is in arbitrary order, and does not include the special entries '.' and '..' even if they are present in the directory.",os.listdir(path),5
+Create a directory named path,os.mkdir(path),5
+"Rename the file or directory src to dst. If dst is a directory, OSError will be raised. If dst exists and is a file, it will be replaced silently if the user has permission.","os.replace(src, dst)",5
+Remove (delete) the directory path.,os.rmdir(path),5
+Serialize obj to a JSON formatted str,json.dumps(obj),5
+"Deserialize s (a str, bytes or bytearray instance containing a JSON document) to a Python object",json.loads(s),5
+Text widget with a vertical scroll bar built in.,tkinter.scrolledtext,5
+Dialog to let the user choose a color.,tkinter.colorchooser,5
+Turtle graphics in a Tk window.,turtle,5
+Specifies a name whose value will be used in place of the text option resource.,textvariable,5
+Specifies an image to display.,image,5
+Widget is being pressed,pressed,5
+"Windows and Mac have a notion of an “active” or foreground window. The background state is set for widgets in a background window, and cleared for those in the foreground window",background,5
+Widget should not allow user modification,readonly,5
+The widget’s value is invalid,invalid,5
+"Returns the name of the element at position x y, or the empty string if the point does not lie within any element.
+
+x and y are pixel coordinates relative to the widget.","identify(x, y)",5
+"Method called to prepare the test fixture. This is called immediately before calling the test method; other than AssertionError or SkipTest, any exception raised by this method will be considered an error rather than a test failure. The default implementation does nothing.",setUp(),5
+A class method called after tests in an individual class have run.,tearDownClass(),5
+"Test that first and second are not equal. If the values do compare equal, the test will fail.","assertNotEqual(first, second)",5
+Test that expr is true.,assertTrue(expr),5
+Test that first and second evaluate to the same object.,"assertIs(first, second)",5
+Test that expr is None.,assertIsNone(expr),5
+Test that first is not in second.,"assertNotIn(first, second)",5
+"Test that obj is an instance of cls (which can be a class or a tuple of classes, as supported by isinstance()). To check for the exact type, use assertIs(type(obj), cls).","assertIsInstance(obj, cls)",5
+"Test that a warning is triggered when callable is called with any positional or keyword arguments that are also passed to assertWarns(). The test passes if warning is triggered and fails if it isn’t. Any exception is an error. To catch any of a group of warnings, a tuple containing the warning classes may be passed as warnings.","assertWarns(warning, callable)",5
+Import BeautifulSoup.,from bs4 import BeautifulSoup,5
+"Return a list of all tags p with a value title within the tag, in soup.","soup.find_all(""p"", ""title"")",5
+"Return a list of all tags with value link2 for argument id, in soup.","soup.find_all(id=""link2"")",5
+"Close the browser window if there was only one tab. If there was more than one tab, the command will close only the tab.",driver.close(),5
+Submit an element from a form.,element.submit(),5
+Causes the resulting RE to match 1 or more repetitions of the preceding RE.,+,5
+"Scan through string looking for the first location where the regular expression pattern produces a match, and return a corresponding match object.","re.search(pattern, string)",5
+"An idealized time, independent of any particular day, assuming that every day has exactly 24*60*60 seconds (there is no notion of “leap seconds” here). Attributes: hour, minute, second, microsecond, and tzinfo.",datetime.time,5
+printf-style for single character,%c,5
+Return a new set with elements from the set and all others.,union(*others),5
+Return a list of all the keys used in the dictionary d.,list(d),5
+The concatenation of the ascii_lowercase and ascii_uppercase constants.,string.ascii_letters,5
+open a disk file for updating (reading and writing),+,5
+"If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.","re.match(pattern, string)",5
+The concatenation of the ascii_lowercase and ascii_uppercase constants.,string.ascii_letters,5
+open a disk file for updating (reading and writing),+,5
+"If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.","re.match(pattern, string)",5
+The uppercase letters 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.,string.ascii_uppercase,5
+Return the number of items in the dictionary d.,len(d),5
+"Return the median (middle value) of numeric data, using the common “mean of middle two” method.",statistics.median(data),5
+"Return the population variance of data, a non-empty iterable of real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.pvariance(data),5
+The Tk class is instantiated without arguments. This creates a toplevel widget of Tk which usually is the main window of an application. Each instance has its own associated Tcl interpreter.,tkinter.Tk(),5
+"Save the list [""hello"", ""world"", ""!""] as variable words.","words = [""hello"", ""world"", ""!""]",5
+"Save the list [True, False, False] as variable spaces.","spaces = [True, False, False]",5
+Common dialogs to allow the user to specify a file to open or save.,tkinter.filedialog,5
+"Specifies how to display the image relative to the text, in the case both text and images options are present. Valid values are:
+
+text: display text only
+
+image: display image only
+
+top, bottom, left, right: display image above, below, left of, or right of the text, respectively.
+
+none: the default. display the image if present, otherwise the text.",compound,5
+Widget has keyboard focus,focus,5
+"Modify or inquire widget state. If statespec is specified, sets the widget state according to it and return a new statespec indicating which flags were changed. If statespec is not specified, returns the currently-enabled state flags.
+
+statespec will usually be a list or a tuple.",state(statespec),5
+"a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.",test suite,5
+Locate the first element with a specific name.,driver.find_element_by_name(),5
+Return a k length list of unique elements chosen from the population sequence or set.,"random.sample(population, k)",5
+"a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.",test runner,5
+A class method called before tests in an individual class are run.,setUpClass(),5
+"Run the test, collecting the result into the TestResult object passed as result. If result is omitted or None, a temporary result object is created (by calling the defaultTestResult() method) and used. The result object is returned to run()’s caller.
+
+The same effect may be had by simply calling the TestCase instance.",run(result),5
+Return a context manager which executes the enclosed code block as a subtest.,subTest(),5
+Test that first and second don’t evaluate to the same object.,"assertIsNot(first, second)",5
+Click a button.,button.click(),5
+"Move to window ""windowName"".","driver.switch_to_window(""windowName"")",5
+Locate all elements with a specific partial link text.,driver.find_elements_by_partial_link_text(),5
+Transpose df.,df.T,5
+Access to standard Tk dialog boxes.,tkinter.messagebox,5
+"Used to communicate with horizontal scrollbars.
+
+When the view in the widget’s window change, the widget will generate a Tcl command based on the scrollcommand.
+
+Usually this option consists of the method Scrollbar.set() of some scrollbar. This will cause the scrollbar to be updated whenever the view in the window changes.",xscrollcommand,5
+"the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.",test case,5
+"Instances of the TestCase class represent the logical test units in the unittest universe. This class is intended to be used as a base class, with specific tests being implemented by concrete subclasses. This class implements the interface needed by the test runner to allow it to drive the tests, and methods that the test code can use to check for and report various kinds of failure.
+
+Each instance of TestCase will run a single base method: the method named methodName. In most uses of TestCase, you will neither change the methodName nor reimplement the default runTest() method.
+
+Changed in version 3.2: TestCase can be instantiated successfully without providing a methodName. This makes it easier to experiment with TestCase from the interactive interpreter.
+
+TestCase instances provide three groups of methods: one group used to run the test, another used by the test implementation to check conditions and report failures, and some inquiry methods allowing information about the test itself to be gathered.",unittest.TestCase(),5
+"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,5
+"Test that an exception is raised when callable is called with any positional or keyword arguments that are also passed to assertRaises(). The test passes if exception is raised, is an error if another exception is raised, or fails if no exception is raised. To catch any of a group of exceptions, a tuple containing the exception classes may be passed as exception.","assertRaises(exception, callable)",5
+Return text from soup.,soup.get_text(),5
+Import webdriver.,from selenium import webdriver,5
+navigate to a page given by url,"driver.get(""url"")",5
+clear the contents of a text field or textarea,element.clear(),5
+Locate the first element with a specific xpath.,driver.find_element_by_xpath(),5
+Locate the first element with a specific css selector.,driver.find_element_by_css_selector(),5
+Locate all elements with a specific link text.,driver.find_elements_by_link_text(),5
+Locate all elements with a specific class name.,driver.find_elements_by_class_name(),5
+Waiting condition that a specified element is visible.,visibility_of_element_located,5
+Display the column names of df.,df.columns,5
+Show a quick statistic summary of df.,df.describe(),5
+Select column A in df.,"df[""A""]",5
+drop any rows that have missing data,"df.dropna(how=""any"")",5
+Fill missing data in df with 5.,df.fillna(value=5),5
+determiner,DT,5
+adjective,JJ,5
+list marker,LS,5
+modal,MD,5
+noun plural,NNS,5
+Return a dictionary with all attributes of tag.,tag.attrs,5
+Locate all elements with a specific id.,driver.find_elements_by_id(),5
+Waiting condition that driver detected the presence of an element.,presence_of_element_located,5
+possessive pronoun,PRP$,5
+"verb, present tense not 3rd person singular",VBP,5
+wh- pronoun (who),WP,5
+"Define ""grammar"" for parsing, as a noun phrase that is composed of 0 or 1 determiner, at least 0 adjectives, and one noun.","grammar = ""NP: {<DT>?<JJ>*<NN>}""",5
+create a user who can login to the admin site,python manage.py createsuperuser,5
+Split string by the occurrences of pattern.,"re.split(pattern, string)",5
+"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),5
+"Test the widget’s state. If a callback is not specified, returns True if the widget state matches statespec and False otherwise.",instate(statespec),5
+Calling this during a test method or setUp() skips the current test.,skipTest(reason),5
+Test that expr is false.,assertFalse(expr),5
+Test that expr is not None.,assertIsNotNone(expr),5
+Test that first is in second.,"assertIn(first, second)",5
+Parse html_doc into a soup object.,"soup = BeautifulSoup(html_doc, ""html.parser"")",5
+Return the first instance of tag id equal to link3.,"soup.find(id=""link3"")",5
+"Return a list of all p tags with css class values strikeout and body, in css_soup.","css_soup.select(""p.strikeout.body"")",5
+Close the browser window irrespective of the number of tabs.,driver.quit(),5
+"Enter "" and some"" into a text field, and simulate pressing the arrow down key.","element.send_keys("" and some"", Keys.ARROW_DOWN)",5
+Import Select,from selenium.webdriver.support.ui import Select,5
+import POS-tagger,from nltk import pos_tag,5
+"Find an element with a list to select, called ""name""","select = Select(driver.find_element_by_name(""name""))",5
+Select the option with the index number index.,select.select_by_index(index),5
+"Select the option with visible text ""text"".","select.select_by_visible_text(""text"")",5
+Deselect all selected options.,select.deselect_all(),5
+Returns a list of all available options.,select.options,5
+"After you’ve triggered action that would open a popup, you can access the alert with this command. This will return the currently open alert object. With this object, you can now accept, dismiss, read its contents or even type into a prompt. This interface works equally well on alerts, confirms, prompts.",alert = driver.switch_to_alert(),5
+Output all the available cookies for the current URL.,driver.get_cookies(),5

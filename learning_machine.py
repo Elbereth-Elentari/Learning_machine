@@ -15,8 +15,12 @@ def questions(checked_level):
     questions = flashcards.loc[flashcards[2] == checked_level]
     return questions
 
-for level in range(0, 5):
-    print("Remaining questions at level", level, ":", len(questions(level)), "/", max_definitions[level])
+def statistics():
+    for level in range(0, 5):
+        print("Remaining questions at level", level, ":", len(questions(level)), "/", max_definitions[level])
+    return True
+
+statistics()
 
 with open("last_level.txt", "r") as saved_level:
     for line in saved_level:
@@ -38,44 +42,57 @@ def check_for_max(level):
     else:
         return False
 
+def handle_finished_level(checked_level):
+    print( equals * 2, "\nNO MORE QUESTIONS AT LEVEL", checked_level)
+    for level in range(0, 5):
+        if len(questions(level)) > 0:
+            break
+    if level == 5:
+        print("NO MORE QUESTIONS.")
+        print(equals * 2)
+        return level
+    else:
+        print("NEW LEVEL:", level)
+        print(equals * 2)
+    return level
+
+def handle_1_question(df, index, row, session_count):
+    print("Remaining questions to finish this level:", len(questions(level)))
+    if level < 4:
+        print("Remaining questions to max out next level:", max_definitions[level + 1] - len(questions(level + 1)))
+    print(dash, " QUESTION", session_count, ":", dash, "\n", row[0])
+    answer = input("ANSWER:")
+    if answer == row[1]:
+        df.iat[index, 2] += 1
+        print("CORRECT.")
+    else:
+        print("WRONG.")
+        print("                                                   CORRECT ANSWER:\n", row[1])
+    print(equals * 2)
+    session_count += 1
+    return df, session_count
+
+def handle_questions_at_1_level(df, level, session_count):
+    for index, row in df.loc[df[2] == level].iterrows():
+        if session_count < session_limit:
+            if check_for_max(level) == False:
+                df, session_count = handle_1_question(df, index, row, session_count)
+            else:
+                level += 1
+                break
+        else:
+            return df, level, session_count
+    return df, level, session_count
+
 while session_count < session_limit:
     if len(questions(level)) == 0:
-        print( equals * 2, "\nNO MORE QUESTIONS AT LEVEL", level)
-        for level in range(0, 5):
-            if len(questions(level)) > 0:
-                break
-        if level == 5:
-            print("NO MORE QUESTIONS.")
-            print(equals * 2)
-            break
-        else:
-            print("NEW LEVEL:", level)
-            print(equals * 2)
-
+        level = handle_finished_level(level)
     else:
         if check_for_max(level):
             level += 1
+        flashcards, level, session_count = handle_questions_at_1_level(flashcards, level, session_count)
 
-        questions_df = flashcards.loc[flashcards[2] == level]
-        for row in range(0,len(questions_df)):
-            if session_count < session_limit:
-                if check_for_max(level) == False:
-                    print(dash, " QUESTION", session_count, ":", dash, "\n", questions_df.iloc[row][0])
-                    answer = input("ANSWER:")
-                    if answer == questions_df.iloc[row][1]:
-                        flashcards.loc[flashcards[0] == questions_df.iloc[row][0], 2] += 1
-                        print("CORRECT.")
-                    else:
-                        print("WRONG.")
-                        print("                                                   CORRECT ANSWER:\n", questions_df.iloc[row][1])
-                    session_count += 1
-                else:
-                    level += 1
-                    break
-            else:
-                break
-
-print(equals, "\nEND OF SESSION.")
+print("\nEND OF SESSION.")
 print(equals)
 
 with open("flashcards.csv", "w") as new_flashcards, open("answered_questions.csv", "a+") as answered:
@@ -86,5 +103,4 @@ if last_level != str(level):
     with open("last_level.txt", "w") as new:
         new.write(str(level))
 
-for level in range(0, 5):
-    print("Remaining questions at level", level, ":", len(questions(level)), "/", max_definitions[level])
+statistics()

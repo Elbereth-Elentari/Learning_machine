@@ -1,254 +1,3 @@
-Used to communicate with vertical scrollbars.,yscrollcommand,5
-"“On”, “true”, or “current” for things like Checkbuttons and radiobuttons",selected,5
-A widget-specific alternate display format,alternate,5
-"represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.",test fixture,5
-"Method called immediately after the test method has been called and the result recorded. This is called even if the test method raised an exception, so the implementation in subclasses may need to be particularly careful about checking internal state. Any exception, other than AssertionError or SkipTest, raised by this method will be considered an additional error rather than a test failure (thus increasing the total number of reported errors). This method will only be called if the setUp() succeeds, regardless of the outcome of the test method. The default implementation does nothing.",tearDown(),5
-"Run the test without collecting the result. This allows exceptions raised by the test to be propagated to the caller, and can be used to support running tests under a debugger.",debug(),5
-"Test that first and second are equal. If the values do not compare equal, the test will fail.
-
-In addition, if first and second are the exact same type and one of list, tuple, dict, set, frozenset or str or any type that a subclass registers with addTypeEqualityFunc() the type-specific equality function will be called in order to generate a more useful default error message (see also the list of type-specific methods).","assertEqual(first, second)",5
-Return a list of all tags a in soup.,"soup.find_all(""a"")",5
-"Return a list of all tags a with value sister for a class, in soup.","soup.find_all(""a"", class_=""sister"")",5
-"Enter ""some text"" into a text field.","element.send_keys(""some text"")",5
-Move backward in the browser history.,driver.back(),5
-Locate the first element with a specific partial link text.,driver.find_element_by_partial_link_text(),5
-Locate all elements with a specific css selector.,driver.find_elements_by_css_selector(),5
-Import ExpectedConditions.,from selenium.webdriver.support import expected_conditions as EC,5
-Wait 10 seconds.,driver.implicitly_wait(10),5
-Shuffle the sequence x in place.,random.shuffle(x),5
-"A combination of a date and a time. Attributes: year, month, day, hour, minute, second, microsecond, and tzinfo.",datetime.datetime,5
-Matches any character which is not a whitespace character.,\S,5
-"If zero or more characters at the beginning of string match the regular expression Pattern, return a corresponding match object.",Pattern.match(string),5
-"Compile a regular expression pattern into a regular expression object, which can be used for matching using its match(), search() and other methods, described below.",re.compile(),5
-Remove element elem from the set if it is present.,discard(elem),5
-"Split string k at the first occurrence of m, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator.",k.partition(m),5
-"String of ASCII characters which are considered printable. This is a combination of digits, ascii_letters, punctuation, and whitespace.",string.printable,5
-"Scan through string looking for the first location where this regular expression produces a match with Pattern, and return a corresponding match object.",Pattern.search(string),5
-Return the string representing a character whose Unicode code point is the integer i.,chr(i),5
-printf-style for string,%s,5
-"Return the harmonic mean of data, a sequence or iterator of real-valued numbers.
-
-The harmonic mean, sometimes called the subcontrary mean, is the reciprocal of the arithmetic mean() of the reciprocals of the data. For example, the harmonic mean of three values a, b and c will be equivalent to 3/(1/a + 1/b + 1/c).",statistics.harmonic_mean(data),5
-"Return the most common data point from discrete or nominal data. The mode (when it exists) is the most typical value, and is a robust measure of central location.",statistics.mode(data),5
-"Return the sample variance of data, an iterable of at least two real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.variance(data),5
-Return a reader object which will iterate over lines in the given csvfile.,csv.reader(csvfile),5
-"Return a writer object responsible for converting the user’s data into delimited strings on the given file-like object. csvfile can be any object with a write() method. If csvfile is a file object, it should be opened with newline='' .",csv.writer(csvfile),5
-"Return a list containing the names of the entries in the directory given by path. The list is in arbitrary order, and does not include the special entries '.' and '..' even if they are present in the directory.",os.listdir(path),5
-Create a directory named path,os.mkdir(path),5
-"Rename the file or directory src to dst. If dst is a directory, OSError will be raised. If dst exists and is a file, it will be replaced silently if the user has permission.","os.replace(src, dst)",5
-Remove (delete) the directory path.,os.rmdir(path),5
-Serialize obj to a JSON formatted str,json.dumps(obj),5
-"Deserialize s (a str, bytes or bytearray instance containing a JSON document) to a Python object",json.loads(s),5
-Text widget with a vertical scroll bar built in.,tkinter.scrolledtext,5
-Dialog to let the user choose a color.,tkinter.colorchooser,5
-Turtle graphics in a Tk window.,turtle,5
-Specifies a name whose value will be used in place of the text option resource.,textvariable,5
-Specifies an image to display.,image,5
-Widget is being pressed,pressed,5
-"Windows and Mac have a notion of an “active” or foreground window. The background state is set for widgets in a background window, and cleared for those in the foreground window",background,5
-Widget should not allow user modification,readonly,5
-The widget’s value is invalid,invalid,5
-"Returns the name of the element at position x y, or the empty string if the point does not lie within any element.
-
-x and y are pixel coordinates relative to the widget.","identify(x, y)",5
-"Method called to prepare the test fixture. This is called immediately before calling the test method; other than AssertionError or SkipTest, any exception raised by this method will be considered an error rather than a test failure. The default implementation does nothing.",setUp(),5
-A class method called after tests in an individual class have run.,tearDownClass(),5
-"Test that first and second are not equal. If the values do compare equal, the test will fail.","assertNotEqual(first, second)",5
-Test that expr is true.,assertTrue(expr),5
-Test that first and second evaluate to the same object.,"assertIs(first, second)",5
-Test that expr is None.,assertIsNone(expr),5
-Test that first is not in second.,"assertNotIn(first, second)",5
-"Test that obj is an instance of cls (which can be a class or a tuple of classes, as supported by isinstance()). To check for the exact type, use assertIs(type(obj), cls).","assertIsInstance(obj, cls)",5
-"Test that a warning is triggered when callable is called with any positional or keyword arguments that are also passed to assertWarns(). The test passes if warning is triggered and fails if it isn’t. Any exception is an error. To catch any of a group of warnings, a tuple containing the warning classes may be passed as warnings.","assertWarns(warning, callable)",5
-Import BeautifulSoup.,from bs4 import BeautifulSoup,5
-"Return a list of all tags p with a value title within the tag, in soup.","soup.find_all(""p"", ""title"")",5
-"Return a list of all tags with value link2 for argument id, in soup.","soup.find_all(id=""link2"")",5
-"Close the browser window if there was only one tab. If there was more than one tab, the command will close only the tab.",driver.close(),5
-Submit an element from a form.,element.submit(),5
-Locate the first element with a specific name.,driver.find_element_by_name(),5
-Return a k length list of unique elements chosen from the population sequence or set.,"random.sample(population, k)",5
-Causes the resulting RE to match 1 or more repetitions of the preceding RE.,+,5
-"Scan through string looking for the first location where the regular expression pattern produces a match, and return a corresponding match object.","re.search(pattern, string)",5
-"An idealized time, independent of any particular day, assuming that every day has exactly 24*60*60 seconds (there is no notion of “leap seconds” here). Attributes: hour, minute, second, microsecond, and tzinfo.",datetime.time,5
-printf-style for single character,%c,5
-Return a new set with elements from the set and all others.,union(*others),5
-Return a list of all the keys used in the dictionary d.,list(d),5
-The concatenation of the ascii_lowercase and ascii_uppercase constants.,string.ascii_letters,5
-open a disk file for updating (reading and writing),+,5
-"If zero or more characters at the beginning of string match the regular expression pattern, return a corresponding match object.","re.match(pattern, string)",5
-The uppercase letters 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.,string.ascii_uppercase,5
-Return the number of items in the dictionary d.,len(d),5
-"Return the median (middle value) of numeric data, using the common “mean of middle two” method.",statistics.median(data),5
-"Return the population variance of data, a non-empty iterable of real-valued numbers. Variance, or second moment about the mean, is a measure of the variability (spread or dispersion) of data. A large variance indicates that the data is spread out; a small variance indicates it is clustered closely around the mean.",statistics.pvariance(data),5
-The Tk class is instantiated without arguments. This creates a toplevel widget of Tk which usually is the main window of an application. Each instance has its own associated Tcl interpreter.,tkinter.Tk(),5
-Common dialogs to allow the user to specify a file to open or save.,tkinter.filedialog,5
-"Specifies how to display the image relative to the text, in the case both text and images options are present. Valid values are:
-
-text: display text only
-
-image: display image only
-
-top, bottom, left, right: display image above, below, left of, or right of the text, respectively.
-
-none: the default. display the image if present, otherwise the text.",compound,5
-Widget has keyboard focus,focus,5
-"Modify or inquire widget state. If statespec is specified, sets the widget state according to it and return a new statespec indicating which flags were changed. If statespec is not specified, returns the currently-enabled state flags.
-
-statespec will usually be a list or a tuple.",state(statespec),5
-"a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.",test suite,5
-"a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.",test runner,5
-"Instances of the TestCase class represent the logical test units in the unittest universe. This class is intended to be used as a base class, with specific tests being implemented by concrete subclasses. This class implements the interface needed by the test runner to allow it to drive the tests, and methods that the test code can use to check for and report various kinds of failure.
-
-Each instance of TestCase will run a single base method: the method named methodName. In most uses of TestCase, you will neither change the methodName nor reimplement the default runTest() method.
-
-Changed in version 3.2: TestCase can be instantiated successfully without providing a methodName. This makes it easier to experiment with TestCase from the interactive interpreter.
-
-TestCase instances provide three groups of methods: one group used to run the test, another used by the test implementation to check conditions and report failures, and some inquiry methods allowing information about the test itself to be gathered.",unittest.TestCase(),5
-A class method called before tests in an individual class are run.,setUpClass(),5
-"Run the test, collecting the result into the TestResult object passed as result. If result is omitted or None, a temporary result object is created (by calling the defaultTestResult() method) and used. The result object is returned to run()’s caller.
-
-The same effect may be had by simply calling the TestCase instance.",run(result),5
-Return a context manager which executes the enclosed code block as a subtest.,subTest(),5
-Test that first and second don’t evaluate to the same object.,"assertIsNot(first, second)",5
-Click a button.,button.click(),5
-"Move to window ""windowName"".","driver.switch_to_window(""windowName"")",5
-Locate all elements with a specific partial link text.,driver.find_elements_by_partial_link_text(),5
-Transpose df.,df.T,5
-"An abstract base class for time zone information objects. These are used by the datetime and time classes to provide a customizable notion of time adjustment (for example, to account for time zone and/or daylight saving time).",datetime.tzinfo,5
-Access to standard Tk dialog boxes.,tkinter.messagebox,5
-"Used to communicate with horizontal scrollbars.
-
-When the view in the widget’s window change, the widget will generate a Tcl command based on the scrollcommand.
-
-Usually this option consists of the method Scrollbar.set() of some scrollbar. This will cause the scrollbar to be updated whenever the view in the window changes.",xscrollcommand,5
-"the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.",test case,5
-"Test that an exception is raised when callable is called with any positional or keyword arguments that are also passed to assertRaises(). The test passes if exception is raised, is an error if another exception is raised, or fails if no exception is raised. To catch any of a group of exceptions, a tuple containing the exception classes may be passed as exception.","assertRaises(exception, callable)",5
-Return text from soup.,soup.get_text(),5
-Return a dictionary with all attributes of tag.,tag.attrs,5
-Import webdriver.,from selenium import webdriver,5
-navigate to a page given by url,"driver.get(""url"")",5
-clear the contents of a text field or textarea,element.clear(),5
-Locate the first element with a specific xpath.,driver.find_element_by_xpath(),5
-Locate the first element with a specific css selector.,driver.find_element_by_css_selector(),5
-Locate all elements with a specific id.,driver.find_elements_by_id(),5
-Locate all elements with a specific link text.,driver.find_elements_by_link_text(),5
-Locate all elements with a specific class name.,driver.find_elements_by_class_name(),5
-Waiting condition that driver detected the presence of an element.,presence_of_element_located,5
-Waiting condition that a specified element is visible.,visibility_of_element_located,5
-Display the column names of df.,df.columns,5
-Show a quick statistic summary of df.,df.describe(),5
-Select column A in df.,"df[""A""]",5
-drop any rows that have missing data,"df.dropna(how=""any"")",5
-Fill missing data in df with 5.,df.fillna(value=5),5
-determiner,DT,5
-adjective,JJ,5
-list marker,LS,5
-modal,MD,5
-noun plural,NNS,5
-possessive pronoun,PRP$,5
-"verb, present tense not 3rd person singular",VBP,5
-wh- pronoun (who),WP,5
-import POS-tagger,from nltk import pos_tag,5
-"Define ""grammar"" for parsing, as a noun phrase that is composed of 0 or 1 determiner, at least 0 adjectives, and one noun.","grammar = ""NP: {<DT>?<JJ>*<NN>}""",5
-create a user who can login to the admin site,python manage.py createsuperuser,5
-Split string by the occurrences of pattern.,"re.split(pattern, string)",5
-"Remove (delete) the file path. If path is a directory, an IsADirectoryError is raised.",os.remove(path),5
-"Test the widget’s state. If a callback is not specified, returns True if the widget state matches statespec and False otherwise.",instate(statespec),5
-Calling this during a test method or setUp() skips the current test.,skipTest(reason),5
-Test that expr is false.,assertFalse(expr),5
-Test that expr is not None.,assertIsNotNone(expr),5
-Test that first is in second.,"assertIn(first, second)",5
-Parse html_doc into a soup object.,"soup = BeautifulSoup(html_doc, ""html.parser"")",5
-Return the first instance of tag id equal to link3.,"soup.find(id=""link3"")",5
-Return the value of the first href tag.,"link.get(""href"")",5
-"Return a list of all p tags with css class values strikeout and body, in css_soup.","css_soup.select(""p.strikeout.body"")",5
-Close the browser window irrespective of the number of tabs.,driver.quit(),5
-"Enter "" and some"" into a text field, and simulate pressing the arrow down key.","element.send_keys("" and some"", Keys.ARROW_DOWN)",5
-Import Select,from selenium.webdriver.support.ui import Select,5
-"Find an element with a list to select, called ""name""","select = Select(driver.find_element_by_name(""name""))",5
-Select the option with the index number index.,select.select_by_index(index),5
-"Select the option with visible text ""text"".","select.select_by_visible_text(""text"")",5
-Deselect all selected options.,select.deselect_all(),5
-Returns a list of all available options.,select.options,5
-"After you’ve triggered action that would open a popup, you can access the alert with this command. This will return the currently open alert object. With this object, you can now accept, dismiss, read its contents or even type into a prompt. This interface works equally well on alerts, confirms, prompts.",alert = driver.switch_to_alert(),5
-Output all the available cookies for the current URL.,driver.get_cookies(),5
-Locate the first element with a specific id.,driver.find_element_by_id(),5
-Locate all elements with a specific name.,driver.find_elements_by_name(),5
-Locate all elements with a specific xpath.,driver.find_elements_by_xpath(),5
-Import By.,from selenium.webdriver.common.by import By,5
-"Creating a Series by passing a list of values, letting pandas create a default integer index.",pd.Series([]),5
-View bottom 3 rows of df.,df.tail(3),5
-Calculate the mean of each value in df.,df.mean(),5
-"Grouping df by column A and B, and then applying the sum function.","df.groupby([""A"", ""B""]).sum()",5
-"Produce a pivot table from df, taking values from column D, indices from columns A and B, and columns from column C.","pd.pivot_table(df, values=""D"", index=[""A"", ""B""], columns=[""C""])",5
-Tokenize the string text into words.,word_tokenize(text),5
-Import sentence tokenizer.,from nltk.tokenize import sent_tokenize,5
-Tokenize the string text into sentences.,sent_tokenize(text),5
-foreign word,FW,5
-"adjective, comparative",JJR,5
-infinite marker,TO,5
-verb gerund,VBG,5
-An entry-point for WSGI-compatible web servers to serve your project.,mysite/wsgi.py,5
-A framework for managing static files.,django.contrib.staticfiles,5
-"Return all non-overlapping matches of pattern in string, as a list of strings.","re.findall(pattern, string)",5
-Deserialize fp (a .read()-supporting text file or binary file containing a JSON document) to a Python object,json.load(fp),5
-"Test that obj is not an instance of cls (which can be a class or a tuple of classes, as supported by isinstance()). To check for the exact type, use assertIs(type(obj), cls).","assertNotIsInstance(obj, cls)",5
-Create an instance of Firefox WebDriver.,driver = webdriver.Firefox(),5
-"Select the option with the value ""value"".",select.select_by_value(value),5
-"Move to frame ""frameName"".","driver.switch_to_frame(""frameName"")",5
-Go back to the main frame.,driver.switch_to_default_content(),5
-Move forward in the browser history.,driver.forward(),5
-Set a cookie named cookie.,driver.add_cookie(cookie),5
-Locate the first element with a specific link text.,driver.find_element_by_link_text(),5
-Locate the first element with a specific tag name.,driver.find_element_by_tag_name(),5
-Locate the first element with a specific class name.,driver.find_element_by_class_name(),5
-Import WebDriverWait.,from selenium.webdriver.support.ui import WebDriverWait,5
-Waiting condition that the title has a certain value.,title_is,5
-View top 5 rows of df.,df.head(),5
-Display the index of df.,df.index,5
-"Sort df by axis 1, in descending order.","df.sort_index(axis=1, ascending=False)",5
-"Select rows with value greater than 0 in column ""A"", in df.","df[df[""A""] > 0]",5
-Grouping df by column A and then applying the sum function to the resulting groups.,"df.groupby(""A"").sum()",5
-coordinating conjunction,CC,5
-existential there,EX,5
-"proper noun, plural",NNPS,5
-personal pronoun,PRP,5
-verb,VB,5
-wh- adverb (how),WRB,5
-Return the stem of word w.,PorterStemmer().stem(w),5
-Import WordNet.,from nltk.corpus import wordnet,5
-Draw a plot of frequency distribution fd.,fd.plot(),5
-Import admin.,from django.contrib import admin,5
-Returns a list of all selected options.,select.all_selected_options,5
-"This waits up to 10 seconds before throwing a TimeoutException unless it finds the element by id ""myDynamicElement"", to return within 10 seconds.","element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, ""myDynamicElement"")))",5
-Select row number 3 in df.,df.iloc[3],5
-Read file foo.csv.,"pd.read_csv(""foo.csv"")",5
-cardinal digit,CD,5
-"noun, singular",NN,5
-adverb,RB,5
-"adverb, comparative",RBR,5
-interjection (goodbye),UH,5
-"wh-determiner (that, what)",WDT,5
-Import the Regex Parser.,from nltk import RegexpParser,5
-Import views.,from . import views,5
-An empty file that tells Python that this directory should be considered a Python package.,mysite/__init__.py,5
-The admin site.,django.contrib.admin,5
-Import models.,from django.db import models,5
-Import Render.,from django.shortcuts import render,5
-always return this after successfully dealing with POST data,HttpResponseRedirect,5
-A family of open system standards based on Unix.,POSIX,5
-"A command that is implemented internally by the shell itself, rather than by an executable program somewhere in the file system.",builtin,5
-A mechanism by which a process may be notified by the kernel of an event occurring in the system.,signal,5
-double quote,"\""",5
-a control-x character,\cx,5
-"The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.",if test-commands; then consequent-commands; [elif more-test-commands; then more-consequents;] [else alternate-consequents;] fi,5
-"A Flatten layer, with a square input shape with 28 values per side.","tf.keras.layers.Flatten(input_shape=(28, 28))",5
-Identify the 'survived' column as the one with the predicted value.,LABEL_COLUMN = 'survived',5
-"Merge dataframes left and right on key ""key"".","pd.merge(left, right, on=""key"")",5
-"Read foo.xlsx, Sheet1, with no column index, and empty cells filled with ""NA"".","pd.read_excel(""foo.xlsx"", ""Sheet1"", index_col=None, na_values=[""NA""])",5
-Import word tokenizer.,from nltk.tokenize import word_tokenize,5
-preposition/subordinating conjunction,IN,5
-possessive ending,POS,5
 "verb, present tense with 3rd person singular",VBZ,5
 "Return a list of tuples, whose 1st element is a word, while 2nd - its POS tag. The input is a list of words.",pos_tag(),5
 "Import a specified grammar (called ""grammar"") into regex parser.",nltk.RegexpParser(grammar),5
@@ -477,3 +226,206 @@ an object describing how the model should use raw input data from the features d
 "Label the x axis ""Epochs"".",plt.xlabel('Epochs'),5
 Place the figure legend in the lower right-hand corner.,plt.legend(loc='lower right'),5
 "Limit the y axis to (0.5,1).","plt.ylim((0.5,1))",5
+This fixed-length output vector is piped through a fully-connected (Dense) layer with 16 hidden units.,"layers.Dense(16, activation='relu')",5
+Set the figure size to 1200 x 900 pixels.,"plt.figure(figsize=(12,9))",5
+Plot accuracy by epochs.,"plt.plot(epochs, acc, 'bo', label='Training acc')",5
+Plot validation accuracy by epochs.,"plt.plot(epochs, val_acc, 'b', label='Validation acc')",5
+Display the figure.,plt.show(),5
+Assign the first layer to variable e.,e = model.layers[0],5
+Retrieve weights learned at layer e.,weights = e.get_weights()[0],5
+"Print the word embeddings learned during training. This will be a matrix of shape (vocab_size, embedding-dimension).",print(weights.shape),5
+Print the vocabulary size in encoder.,print ('Vocabulary size: {}'.format(encoder.vocab_size)),5
+Import Time.,import time,5
+"Assign a set of index, vocab element to variable char2idx.","char2idx = {u:i for i, u in enumerate(vocab)}",5
+Set the maximum length sentence we want for a single input in characters to 100.,seq_length = 100,5
+Assign the text features to variable encoder.,encoder = info.features['text'].encoder,5
+Download the Shakespeare dataset.,"path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')",5
+"Create a lookup table mapping characters to numbers, save it as text_as_int.",text_as_int = np.array([char2idx[c] for c in text]),5
+Create training examples / targets.,char_dataset = tf.data.Dataset.from_tensor_slices(text_as_int),5
+The batch method lets us easily convert these individual characters to sequences of the desired size.,"sequences = char_dataset.batch(seq_length+1, drop_remainder=True)",5
+Set the embedding dimension to 256.,embedding_dim = 256,5
+Set the number of RNN units to 1024.,rnn_units = 1024,5
+"The output layer, with vocab_size outputs.",tf.keras.layers.Dense,5
+The input layer. A trainable lookup table that will map the numbers of each character to a vector with embedding_dim dimensions,tf.keras.layers.Embedding,5
+"Attach an optimizer, and a loss function
+The standard tf.keras.losses.sparse_categorical_crossentropy loss function works in this case because it is applied across the last dimension of the predictions.
+
+Because our model returns logits, we need to set the from_logits flag.","example_batch_loss = tf.keras.losses.sparse_categorical_crossentropy(target_example_batch, example_batch_predictions, from_logits=True)",5
+Empty string to store our results,text_generated = [],5
+Low temperatures results in more predictable text. Higher temperatures results in more surprising text. Experiment to find the best setting.,temperature = 1.0,5
+Reset the model's states.,model.reset_states(),5
+Append the next character to text_generated.,text_generated.append(idx2char[predicted_id]),5
+Return the start_string followed by the generated text.,return (start_string + ''.join(text_generated)),5
+Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each. The model must choose between 3 classes.,"classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns, hidden_units=[30, 10], n_classes=3)",5
+Train the classifier model.,"classifier.train(input_fn=lambda: input_fn(train, train_y, training=True), steps=5000)",5
+Load IMDB dataset.,"(train_data, test_data), info = tfds.load('imdb_reviews/subwords8k', split = (tfds.Split.TRAIN, tfds.Split.TEST), with_info=True, as_supervised=True)",5
+Subword encoder.,tfds.features.text.SubwordTextEncoder,5
+"the Embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. The vectors add a dimension to the output array. The resulting dimensions are: (batch, sequence, embedding).","layers.Embedding(encoder.vocab_size, embedding_dim)",5
+A type of RNN with size units=rnn_units (You can also use a LSTM layer here.),tf.keras.layers.GRU,5
+"An Embedding layer with batch input shape [batch_size, None]","tf.keras.layers.Embedding(vocab_size, embedding_dim, batch_input_shape=[batch_size, None])",5
+A GRU layer with recurrent initialiser glorot uniform.,"tf.keras.layers.GRU(rnn_units, return_sequences=True, stateful=True, recurrent_initializer='glorot_uniform')",5
+Set the number of characters to generate to 1000.,num_generate = 1000,5
+remove the batch dimension,"predictions = tf.squeeze(predictions, 0)",5
+using a categorical distribution to predict the word returned by the model,"predicted_id = tf.random.categorical(predictions / temperature, num_samples=1)[-1,0].numpy()",5
+"We pass the predicted word as the next input to the model, along with the previous hidden state","input_eval = tf.expand_dims([predicted_id], 0)",5
+"Print the output of generate_text from model, with u""ROMEO: "" as the starting string.","print(generate_text(model, start_string=u""ROMEO: ""))",5
+A container for accessing linguistic annotations.,Doc,5
+A slice from a Doc object.,Span,5
+"An individual token — i.e. a word, punctuation symbol, whitespace, etc.",Token,5
+"An entry in the vocabulary. It’s a word type with no context, as opposed to a word token. It therefore has no part-of-speech tag, dependency parse etc.",Lexeme,5
+A text-processing pipeline. Usually you’ll load this once per process as nlp and pass the instance around your application.,Language,5
+"Segment text, and create Doc objects with the discovered segment boundaries.",Tokenizer,5
+Determine the base forms of words.,Lemmatizer,5
+"Assign linguistic features like lemmas, noun case, verb tense etc. based on the word and its part-of-speech tag.",Morphology,5
+Annotate syntactic dependencies on Doc objects.,DependencyParser,5
+Annotate part-of-speech tags on Doc objects.,Tagger,5
+"Annotate named entities, e.g. persons or products, on Doc objects.",EntityRecognizer,5
+"Match sequences of tokens, based on pattern rules, similar to regular expressions.",Matcher,5
+Match sequences of tokens based on phrases.,PhraseMatcher,5
+Add entity spans to the Doc using token-based rules or exact phrase matches.,EntityRuler,5
+Implement custom sentence boundary detection logic that doesn’t require the dependency parse.,Sentencizer,5
+A lookup table for the vocabulary that allows you to access Lexeme objects.,Vocab,5
+Map strings to and from hash values.,StringStore,5
+Container class for vector data keyed by string.,Vectors,5
+"An annotated corpus, using the JSON file format. Manages annotations for tagging, dependency parsing and NER.",GoldCorpus,5
+Import English.,from spacy.lang.en import English,5
+Set language to English.,nlp = English(),5
+Assign the tokens variable to tokenized string.,tokens = nlp(),5
+List of tokens.,tokens_text = [t.text for t in tokens],5
+adverbial clause modifier,advcl,5
+adverbial modifier,advmod,5
+adjectival modifier,amod,5
+appositional modifier,appos,5
+auxiliary,aux,5
+Converting our start string to numbers (vectorizing),"input_eval = tf.expand_dims([char2idx[s] for s in start_string], 0)",5
+Assign categories or labels to Doc objects.,TextCategorizer,5
+Collection for training annotations.,GoldParse,5
+clausal modifier of noun (adjectival clause),acl,5
+case marking,case,5
+coordinating conjunction,cc,5
+clausal complement,ccomp,5
+compound,compound,5
+conjunct,conj,5
+copula,cop,5
+clausal subject (passive),csubjpass,5
+determiner,det,5
+direct object,dobj,5
+expletive,expl,5
+marker,mark,5
+meta modifier,meta,5
+negation modifier,neg,5
+noun compound modifier,nn,5
+modifier of nominal,nounmod,5
+classifier,clf,5
+clausal subject,csubj,5
+dative,dative,5
+unclassified dependent,dep,5
+interjection,intj,5
+noun phrase as adverbial modifier,npmod,5
+nominal subject,nsubj,5
+nominal subject (passive),nsubjpass,5
+numeric modifier,nummod,5
+object,obj,5
+oblique nominal,obl,5
+parataxis,parataxis,5
+object predicate,oprd,5
+complement of preposition,pcomp,5
+object of preposition,pobj,5
+possession modifier,poss,5
+prepositional modifier,prep,5
+particle,prt,5
+punctuation,punct,5
+modifier of quantifier,quantmod,5
+relative clause modifier,relcl,5
+root,root,5
+open clausal complement,xcomp,5
+"People, including fictional.",PERSON,5
+Nationalities or religious or political groups.,NORP,5
+"Buildings, airports, highways, bridges, etc.",FAC,5
+"Companies, agencies, institutions, etc.",ORG,5
+"Countries, cities, states.",GPE,5
+"Non-GPE locations, mountain ranges, bodies of water.",LOC,5
+"Objects, vehicles, foods, etc. (Not services.)",PRODUCT,5
+"Named hurricanes, battles, wars, sports events, etc.",EVENT,5
+"Titles of books, songs, etc.",WORK_OF_ART,5
+Named documents made into laws.,LAW,5
+Any named language.,LANGUAGE,5
+Absolute or relative dates or periods.,DATE,5
+Times smaller than a day.,TIME,5
+"Percentage, including ”%“.",PERCENT,5
+"Monetary values, including unit.",MONEY,5
+"Measurements, as of weight or distance.",QUANTITY,5
+"“first”, “second”, etc.",ORDINAL,5
+Numerals that do not fall under another type.,CARDINAL,5
+"To convert one or more existing Doc objects to spaCy’s JSON format, you can use this helper.",gold.docs_to_json,5
+"To populate a model’s vocabulary, you can use this command and load in a newline-delimited JSON (JSONL) file containing one lexical entry per line via the --jsonl-loc option. The first line defines the language and vocabulary settings. All other lines are expected to be JSON objects describing an individual lexeme. The lexical attributes will be then set as attributes on spaCy’s Lexeme object. ",spacy init model,5
+Construct a Doc object. The most common way to get a Doc object is via the nlp object.,Doc.__init__,5
+A storage container for lexical types.,vocab,5
+A list of strings to add to the container.,words,5
+"A list of boolean values indicating whether each word has a subsequent space. Must have the same length as words, if specified. Defaults to a sequence of True.",spaces,5
+"Get a Doc object from ""Some text"". Save as variable doc.","doc = nlp(""Some text"")",5
+Import Doc.,from spacy.tokens import Doc,5
+pre-correlative conjunction,preconj,5
+spaCy takes training data in JSON format. This built-in command helps you convert the .conllu format used by the Universal Dependencies corpora to spaCy’s training format. ,convert,5
+This command outputs a ready-to-use spaCy model with a Vocab containing the lexical data.,vocab,5
+"Construct a Doc object from vocab, words and spaces.","doc = Doc(nlp.vocab, words=words, spaces=spaces)",5
+The text in the last element in doc.,doc[-1].text,5
+Save second and third token in doc into variable span.,span = doc[1:3],5
+Make a semantic similarity estimate. The default estimate is cosine similarity using an average of word vectors.,Doc.similarity(),5
+Returns the semantic similarity between Docs apples and oranges.,apples.similarity(oranges),5
+"Load attributes from a numpy array. Write to a Doc object, from an (M, N) array of attributes.",Doc.from_array(),5
+"Save the current state to directory ""/path/to/doc"".","doc.to_disk(""/path/to/doc"")",5
+"Iterate over the sentences in the document. Sentence spans have no label. To improve accuracy on informal texts, spaCy calculates sentence boundaries from the syntactic dependency parse. If the parser is disabled, the sents iterator will be unavailable.",Doc.sents,5
+A unicode representation of the document text.,text,5
+"Export given token attributes to a numpy ndarray. If attr_ids is a sequence of M attributes, the output array will be of shape (N, M), where N is the length of the Doc (in tokens). If attr_ids is a single attribute, the output shape will be (N,). You can specify attributes by integer ID (e.g. spacy.attrs.LEMMA) or string name (e.g. ‘LEMMA’ or ‘lemma’). The values will be 64-bit integers.
+
+Returns a 2D array with one row per token and one column per attribute (when attr_ids is a list), or as a 1D numpy array, with one item per attribute (when attr_ids is a single value).",Doc.to_array(),5
+"The document’s local memory heap, for all C data it owns.",mem,5
+Container for dense vector representations.,tensor,5
+"A generic storage area, for user custom data.",user_data,5
+Language of the document’s vocabulary (int).,lang,5
+Language of the document’s vocabulary (unicode).,lang_,5
+A flag indicating that the document has been part-of-speech tagged.,is_tagged,5
+A flag indicating that the document has been syntactically parsed.,is_parsed,5
+A flag indicating that sentence boundaries have been applied to the document.,is_sentenced,5
+"A flag indicating that named entities have been set. Will return True if any of the tokens has an entity tag set, even if the others are unknown.",is_nered,5
+"The document’s positivity/negativity score, if available.",sentiment,5
+A dictionary that allows customization of the Doc’s properties.,user_hooks,5
+A dictionary that allows customization of properties of Token children.,user_token_hooks,5
+A dictionary that allows customization of properties of Span children.,user_span_hooks,5
+User space for adding custom attribute extensions.,_,5
+The index of the token within the document.,offset,5
+A boolean value indicating whether the token starts a sentence. None if unknown. Defaults to True for the first token in the Doc.,is_sent_start,5
+The sentence span that this token is a part of.,sent,5
+"The named entities in the document. Returns a tuple of named entity Span objects, if the entity recognizer has been applied.",Doc.ents,5
+"An alias of Doc.text, provided for duck-type compatibility with Span and Token.",text_with_ws,5
+"Maps either a label to a score for categories applied to whole document, or (start_char, end_char, label) to score for categories applied to spans. start_char and end_char should be character offsets, label can be either a string or an integer ID, and score should be a float.",cats,5
+Trailing space character if present.,whitespace_,5
+"The syntactic parent, or “governor”, of this token.",head,5
+Named entity type (int).,ent_type,5
+Named entity type (unicode).,ent_type_,5
+"IOB code of named entity tag. 3 means the token begins an entity, 2 means it is outside an entity, 1 means it is inside an entity, and 0 means no entity tag is set (int).",ent_iob,5
+"IOB code of named entity tag. “B” means the token begins an entity, “I” means it is inside an entity, “O” means it is outside an entity, and """" means no entity tag is set (unicode).",ent_iob_,5
+"Base form of the token, with no inflectional suffixes (int).",lemma,5
+"Base form of the token, with no inflectional suffixes (unicode).",lemma_,5
+Does the token consist of whitespace characters? Equivalent to token.text.isspace().,is_space,5
+Does the token resemble a URL?,like_url,5
+"Does the token represent a number? e.g. “10.9”, “10”, “ten”, etc.",like_num,5
+Does the token resemble an email address?,like_email,5
+Is the token out-of-vocabulary?,is_oov,5
+Coarse-grained part-of-speech.,pos_,5
+Fine-grained part-of-speech.,tag_,5
+Syntactic dependency relation.,dep_,5
+Language of the parent document’s vocabulary.,lang_,5
+Smoothed log probability estimate of token’s word type (context-independent entry in the vocabulary).,prob,5
+The index of the first token after the span.,end,5
+A meaning representation of the span.,vector,5
+The character offset for the start of the span.,start_char,5
+The character offset for the end of the span.,end_char,5
+"Process texts as a stream, and yield Doc objects in order. This is usually more efficient than processing texts one-by-one.",Language.pipe,5
+A sequence of unicode objects.,texts,5
+The index of the first token of the span.,start,5
+"If set to True, inputs should be a sequence of (text, context) tuples. Output will then be a sequence of (doc, context) tuples. Defaults to False.",as_tuples,5
+The number of texts to buffer.,batch_size,5
+"Config parameters for specific pipeline components, keyed by component name.",component_cfg,5
+"Number of processors to use, only supported in Python 3. Defaults to 1.",n_process,5
