@@ -11,13 +11,12 @@ dash = "---------------------------------------------------"
 
 print(equals * 2)
 
-def questions(checked_level):
-    questions = flashcards.loc[flashcards[2] == checked_level]
-    return questions
+def question_count(checked_level):
+    return len(flashcards.loc[flashcards[2] == checked_level])
 
 def statistics():
     for level in range(0, 5):
-        print("Remaining questions at level", level, ":", len(questions(level)), "/", max_definitions[level])
+        print("Remaining questions at level", level, ":", question_count(level), "/", max_definitions[level])
     return True
 
 statistics()
@@ -34,7 +33,7 @@ level = int(last_level)
 session_count = 0
 
 def check_for_max(level):
-    if level < 4 and len(questions(level + 1)) >= max_definitions[level + 1]:
+    if level < 4 and question_count(level + 1) >= max_definitions[level + 1]:
         level += 1
         print(equals * 2, "\nNEXT LEVEL MAXED OUT.\nNEW LEVEL:", level)
         print(equals * 2)
@@ -45,7 +44,7 @@ def check_for_max(level):
 def handle_finished_level(checked_level):
     print( equals * 2, "\nNO MORE QUESTIONS AT LEVEL", checked_level)
     for level in range(0, 5):
-        if len(questions(level)) > 0:
+        if question_count(level) > 0:
             break
     if level == 5:
         print("NO MORE QUESTIONS.")
@@ -57,9 +56,9 @@ def handle_finished_level(checked_level):
     return level
 
 def handle_1_question(df, index, row, session_count):
-    print("Remaining questions to finish this level:", len(questions(level)))
+    print("Remaining questions to finish this level:", question_count(level))
     if level < 4:
-        print("Remaining questions to max out next level:", max_definitions[level + 1] - len(questions(level + 1)))
+        print("Remaining questions to max out next level:", max_definitions[level + 1] - question_count(level + 1))
     print(dash, " QUESTION", session_count, ":", dash, "\n", row[0])
     answer = input("ANSWER:")
     if answer == row[1]:
@@ -85,14 +84,14 @@ def handle_questions_at_1_level(df, level, session_count):
     return df, level, session_count
 
 while session_count < session_limit:
-    if len(questions(level)) == 0:
+    if question_count(level) == 0:
         level = handle_finished_level(level)
     else:
         if check_for_max(level):
             level += 1
         flashcards, level, session_count = handle_questions_at_1_level(flashcards, level, session_count)
 
-print("\nEND OF SESSION.")
+print("END OF SESSION.")
 print(equals)
 
 with open("flashcards.csv", "w") as new_flashcards, open("answered_questions.csv", "a+") as answered:

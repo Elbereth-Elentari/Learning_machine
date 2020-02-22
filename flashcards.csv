@@ -115,7 +115,7 @@ Define the knowledge base (KB) used for disambiguating named entities to KB iden
 Make categories mutually exclusive. Defaults to False.,exclusive_classes,3
 "Text classification models can be used to solve a wide variety of problems. Differences in text length, number of labels, difficulty, and runtime performance constraints mean that no single algorithm performs well on all types of problems. To handle a wider variety of problems, the TextCategorizer object allows configuration of its model architecture, using the architecture keyword argument.",Architectures,3
 Default: Stacked ensemble of a bag-of-words model and a neural network model. The neural network uses a CNN with mean pooling and attention. The “ngram_size” and “attr” arguments can be used to configure the feature extraction for the bag-of-words model.,ensemble,3
-"A neural network model where token vectors are calculated using a CNN. The vectors are mean pooled and used as features in a feed-forward network. This architecture is usually less accurate than the ensemble, but runs faster.",simple_cnn,2
+"A neural network model where token vectors are calculated using a CNN. The vectors are mean pooled and used as features in a feed-forward network. This architecture is usually less accurate than the ensemble, but runs faster.",simple_cnn,3
 "wh-determiner (that, what)",WDT,2
 Import the Regex Parser.,from nltk import RegexpParser,2
 Import views.,from . import views,2
